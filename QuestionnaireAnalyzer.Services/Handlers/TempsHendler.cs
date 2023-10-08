@@ -5,29 +5,29 @@ using QuestionnaireAnalyzer.Contracts.Models.Test;
 
 namespace QuestionnaireAnalyzer.Services.Handlers;
 
-public class TestsHendler : ITestsHendler
+public class TempsHendler : ITempsHendler
 {
-    public Task<Result<TestModel>> CreateAgencyAsync(UpsertTestCommand upsertAgencyCommand)
+    public Task<Result<TempModel>> CreateTempAsync(UpsertTempCommand upsertTempCommand)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Result> DeleteAgencyAsync(string agencyId)
+    public Task<Result> DeleteTempAsync(string tempId)
     {
         throw new NotImplementedException();
     }
 
-    public Task<CollectionResult<TestModel>> GetAgenciesAsync()
+    public Task<Result<TempModel>> GetTempAsync(string tempId)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Result<TestModel>> GetAgencyAsync(string agencyId)
+    public Task<CollectionResult<TempModel>> GetTempsAsync()
     {
         throw new NotImplementedException();
     }
 
-    public Task<Result<TestModel>> UpdateAgencyAsync(UpsertTestCommand upsertAgencyCommand)
+    public Task<Result<TempModel>> UpdateTempAsync(UpsertTempCommand upsertTempCommand)
     {
         throw new NotImplementedException();
     }

@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Endpoints\" />
+    <PackageReference Include="Ardalis.ApiEndpoints" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QuestionnaireAnalyzer.Common\QuestionnaireAnalyzer.Common.csproj" />
+    <ProjectReference Include="..\QuestionnaireAnalyzer.Contracts\QuestionnaireAnalyzer.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,5 @@
 ﻿namespace QuestionnaireAnalyzer.Contracts.Models.Test;
 
-public class TestModel
+public class TempModel
 {
 }
