@@ -1,0 +1,40 @@
+﻿.container {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.title {
+    text-align: center;
+    font-weight: 700;
+}
+
+.name {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.name_input {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 150px;
+}
+
+.table_1 {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.table_question {
+    display: flex;
+    text-align: left;
+}
