@@ -11,7 +11,7 @@ public partial class DirAnalyzer
     [Inject] private NavigationManager _navigationManager { get; set; }
     [Inject] private IDataService DataService { get; set; }
 
-    private RadarConfig _config;
+    private RadarConfig _config = new();
 
     private float politicians = 0.71f;
     private float state = 0.60f;
@@ -51,7 +51,7 @@ public partial class DirAnalyzer
                 },
                 Legend = new()
                 {
-                    Display = false 
+                    Display = false
                 }
 
             }
@@ -65,7 +65,7 @@ public partial class DirAnalyzer
         RadarDataset<float> dataset = new RadarDataset<float>(new List<float> { politicians, state, technologies, financing, planning })
         {
             BorderColor = "#0e67ed",
-            BorderWidth = 2,  
+            BorderWidth = 2,
         };
 
         _config.Data.Datasets.Add(dataset);
@@ -75,5 +75,14 @@ public partial class DirAnalyzer
     private async Task AnalyzeAsync()
     {
         var dirModels = await DataService.GetAllAsync<DirModel>();
+
+        foreach (var model in dirModels)
+        {
+            var politiciansProperties = typeof(DirModel).GetProperties()
+            .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q2"))
+            .Select(p => (bool)p.GetValue(model));
+
+            int politicians = politiciansProperties.Count(b => b);
+        }
     }
 }
