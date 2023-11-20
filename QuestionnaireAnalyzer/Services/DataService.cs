@@ -33,11 +33,11 @@ public class DataService : IDataService
 
         var collection = db.GetCollection<T>(dataCollectionName);
 
-        var query = Query.EQ("Id", id);
+        //var query = Query.EQ("Id", id);
 
-        var items = collection.FindOne(query);
+        var item = collection.FindById(id);
 
-        return items;
+        return item ;
     }
 
     public async Task<bool> UpdateItemAsync<T>(T item)

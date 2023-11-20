@@ -6,7 +6,7 @@ namespace QuestionnaireAnalyzer.Pages.Dir;
 
 public partial class DirPage
 {
-    [Inject] private NavigationManager NavigationManager { get; set; }
+    [Inject] private NavigationManager _navigationManager { get; set; }
     [Inject] private IDataService DataService { get; set; }
 
     [Parameter] public int? Id { get; set; }

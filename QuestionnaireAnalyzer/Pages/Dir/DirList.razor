@@ -1,0 +1,26 @@
+﻿@page "/dir-list"
+
+<div class="container">
+    <div class="dir-list">
+
+        <div class="container-title">ДІР</div>
+
+        @foreach (var item in _dirModels)
+        {
+            <div class="dir-item">
+                <div class="item-name" @onclick="() => OpenDirById(item.Id)">
+                    <div class="item-name-text">
+                        @item.Name
+                    </div>
+                </div>
+
+                <div class="item-buttons">
+                    <div class="item-button" style="margin-right: 17px;">Редагувати</div>
+                    <div class="item-button">Видалити</div>
+                </div>
+            </div>
+        }
+        
+    </div>
+
+</div>
