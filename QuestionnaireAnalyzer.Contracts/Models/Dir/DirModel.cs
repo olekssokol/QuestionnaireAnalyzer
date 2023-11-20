@@ -1,17 +1,14 @@
-﻿using QuestionnaireAnalyzer.Contracts.Models.Dir;
-using System;
-
-namespace QuestionnaireAnalyzer.Contracts.Models.Test;
+﻿namespace QuestionnaireAnalyzer.Contracts.Models.Dir;
 
 public class DirModel
 {
     public int Id { get; set; }
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
     public DateOnly Data { get; set; }
 
     #region Таблиця 1
 
-    public List<Table1> Table1Elements { get; set; } = new List<Table1>();
+    public List<Table1Item> Table1Elements { get; set; } = new List<Table1Item>();
 
     #endregion
 

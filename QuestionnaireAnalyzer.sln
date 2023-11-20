@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuestionnaireAnalyzer.Contr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuestionnaireAnalyzer.Services", "QuestionnaireAnalyzer.Services\QuestionnaireAnalyzer.Services.csproj", "{308BCAE7-D82A-4540-9EFC-AEF7B7494F57}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuestionnaireAnalyzer.Data", "QuestionnaireAnalyzer.Data.Db\QuestionnaireAnalyzer.Data.csproj", "{CC4ED16B-FF6F-403C-A3D1-C0761EBDB2E2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuestionnaireAnalyzer.Common", "QuestionnaireAnalyzer.Common\QuestionnaireAnalyzer.Common.csproj", "{47708CF8-718C-4761-B7D8-427DD4A3AC0F}"
 EndProject
 Global
@@ -33,10 +31,6 @@ Global
 		{308BCAE7-D82A-4540-9EFC-AEF7B7494F57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{308BCAE7-D82A-4540-9EFC-AEF7B7494F57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{308BCAE7-D82A-4540-9EFC-AEF7B7494F57}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC4ED16B-FF6F-403C-A3D1-C0761EBDB2E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC4ED16B-FF6F-403C-A3D1-C0761EBDB2E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC4ED16B-FF6F-403C-A3D1-C0761EBDB2E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC4ED16B-FF6F-403C-A3D1-C0761EBDB2E2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{47708CF8-718C-4761-B7D8-427DD4A3AC0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{47708CF8-718C-4761-B7D8-427DD4A3AC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47708CF8-718C-4761-B7D8-427DD4A3AC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU

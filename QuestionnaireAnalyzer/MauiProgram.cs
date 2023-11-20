@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-using QuestionnaireAnalyzer.Data;
+using QuestionnaireAnalyzer.Contracts.Interfaces.Services;
+using QuestionnaireAnalyzer.Services;
 
 namespace QuestionnaireAnalyzer
 {
@@ -22,7 +23,8 @@ namespace QuestionnaireAnalyzer
 		builder.Logging.AddDebug();
 #endif
 
-            builder.Services.AddSingleton<WeatherForecastService>();
+            builder.Services.AddScoped<IDataService, DataService>();
+            builder.Services.AddScoped<ISecureStorageService, SecureStorageService>();
 
             return builder.Build();
         }

@@ -1,4 +1,6 @@
 ﻿@page "/Dir"
+@page "/Dir/{id:int}"
+@page "/Dir/update/{id:int}"
 
 
 <div class="container">
@@ -11,7 +13,7 @@
         <i>зі спеціальним статусом, колегіальний орган, інші </i>ЦОВВ<i>, місцеві </i>ОВВ<i>, державні підприємства)</i>
     </div>
     <div>
-        <textarea @bind="@Dir.Name" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.Name" class="name_input"></textarea>
     </div>
 
     <hr>
@@ -20,16 +22,16 @@
         Інформаційно-комунікаційні системи (ІКС), реєстри
     </div>
 
-    @foreach (var data in _table1s)
+    @foreach (var data in _dirModel.Table1Elements)
     {
-
         <div class="table_1">
             <div>
-                № @(_table1s.IndexOf(data) + 1)
+                № @(_dirModel.Table1Elements.IndexOf(data) + 1)
+                <button @onclick="AddTable1Item">Видалити</button>
             </div>
 
             <div class="table_question">
-                Назва ІКС/реєстру <input @bind="data.Name" style="width: 80%;" />
+                Назва ІКС/реєстру <input @bind="data.Name" style="width: 80%; margin-left: 2px;" />
             </div>
 
             <div class="table_question">
@@ -53,6 +55,9 @@
             </div>
         </div>
     }
+    <div style="width: 100%; display: flex;">
+        <button style="margin: auto;" @onclick="AddTable1Item">Додати</button>
+    </div>
 
     <hr>
     <hr>
@@ -62,7 +67,7 @@
     </div>
 
     <div>
-        <input @bind="Dir.T2Q1P1" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q1P1" type="checkbox" name="checkbox" />
         <label>Наявність штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
     </div>
 
@@ -73,23 +78,23 @@
     </div>
 
     <div>
-        <input @bind="Dir.T2Q2P2" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q2P2" type="checkbox" name="checkbox" />
         <label>Укомплектованість штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
     </div>
 
     <div>
-        <input @bind="Dir.T2Q2P3" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q2P3" type="checkbox" name="checkbox" />
         <label>Чи є у вашому органі посада заступника Голови органу, що відповідає за напрямок ІБ/КЗ/КБ/ЗІ?</label>
     </div>
 
-    @if (Dir.T2Q2P3)
+    @if (_dirModel.T2Q2P3)
     {
         <div class="table_question">
-            Посада <input @bind="Dir.T2Q2P3Name" style="width: 80%;" />
+            Посада <input @bind="_dirModel.T2Q2P3Name" style="width: 80%;" />
         </div>
 
         <div>
-            <input @bind="Dir.T2Q2P4" type="checkbox" name="checkbox" />
+            <input @bind="_dirModel.T2Q2P4" type="checkbox" name="checkbox" />
             <label>
                 Чи суміщаються обов’язки заступника Голови органу, що відповідає за напрямок ІБ/КЗ/КБ/ЗІ,
                 з обов’язками заступника Голови органу з питань цифрової трансформації (CDTO)?
@@ -100,27 +105,27 @@
 
     <div class="table_question">
         Керівник/начальник штатного підрозділу з ІБ/КЗ/КБ/ЗІ
-        <textarea @bind="Dir.T2Q2P5" style="width: 100%;" />
+        <textarea @bind="_dirModel.T2Q2P5" style="width: 100%;" />
     </div>
 
     <div class="table_question">
-        <input @bind="Dir.T2Q2P6" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q2P6" type="checkbox" name="checkbox" />
         <label>Чи погоджувалась кандидатура керівника/начальника штатного підрозділу з ІБ/КЗ/КБ/ЗІ з Держспецзв’язку?</label>
     </div>
 
     <div>
-        <input @bind="Dir.T2Q2P7" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q2P7" type="checkbox" name="checkbox" />
         <label>Фахова освіта персоналу штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
     </div>
 
     <div>
-        <input @bind="Dir.T2Q2P8" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q2P8" type="checkbox" name="checkbox" />
         <label>Регулярне підвищення кваліфікації персоналу штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
     </div>
 
     <div class="table_question">
         <div style="display:flex; margin: auto;">
-            <input @bind="Dir.T2Q2P9" type="number" name="checkbox" style="width: 75px; height: fit-content; margin: auto;" />
+            <input @bind="_dirModel.T2Q2P9" type="number" name="checkbox" style="width: 75px; height: fit-content; margin: auto;" />
             <div style="margin-left: 10px; margin-right: 10px;">
                 посадових осіб
             </div>
@@ -135,15 +140,15 @@
     </div>
 
     <div>
-        <input @bind="Dir.T2Q3P10" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q3P10" type="checkbox" name="checkbox" />
         <label>Наявність положення про підрозділ з ІБ/КЗ/КБ/ЗІ</label>
     </div>
     <div>
-        <input @bind="Dir.T2Q3P11" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q3P11" type="checkbox" name="checkbox" />
         <label>Наявність Планів та політик кіберзахисту</label>
     </div>
     <div class="table_question">
-        <input @bind="Dir.T2Q3P12" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q3P12" type="checkbox" name="checkbox" />
         <label>Достатність наявних нормативно-правових актів щодо кіберзахисту. Пропозиції щодо вдосконалення законодавства.</label>
     </div>
 
@@ -154,47 +159,47 @@
     </div>
 
     <div class="table_question">
-        <input @bind="Dir.T2Q4P13" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q4P13" type="checkbox" name="checkbox" />
         <label>Ліцензійне програмне забезпечення</label>
     </div>
     <div class="table_question">
-        <input @bind="Dir.T2Q4P14" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q4P14" type="checkbox" name="checkbox" />
         <label>Наявність антивірусних програм </label>
     </div>
     <div class="table_question">
-        <input @bind="Dir.T2Q4P15" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q4P15" type="checkbox" name="checkbox" />
         <label>Апаратне забезпечення</label>
     </div>
     <div class="table_question">
-        <input @bind="Dir.T2Q4P16" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q4P16" type="checkbox" name="checkbox" />
         <label>Хмарні ресурси</label>
     </div>
     <div class="table_question">
-        <input @bind="Dir.T2Q4P17" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q4P17" type="checkbox" name="checkbox" />
         <label>Центри обробки даних</label>
     </div>
 
-    @if (Dir.T2Q4P17)
+    @if (_dirModel.T2Q4P17)
     {
         <div class="table_question">
-            Посада <input @bind="Dir.T2Q4P17Location" style="width: 80%;" /> @* TODO: edit on radiobatton *@
+            Посада <input @bind="_dirModel.T2Q4P17Location" style="width: 80%;" /> @* TODO: edit on radiobatton *@
         </div>
     }
 
     <div class="table_question">
-        <input @bind="Dir.T2Q4P18" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q4P18" type="checkbox" name="checkbox" />
         <label>Активності</label>
     </div>
     <div class="table_question">
-        <input @bind="Dir.T2Q4P19" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q4P19" type="checkbox" name="checkbox" />
         <label>Використання особистої електронної пошти для робочого листування</label>
     </div>
     <div class="table_question">
-        <input @bind="Dir.T2Q4P20" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q4P20" type="checkbox" name="checkbox" />
         <label>Використання систем обміну миттєвими повідомленнями (месенджерами)</label>
     </div>
     <div class="table_question">
-        <input @bind="Dir.T2Q4P21" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q4P21" type="checkbox" name="checkbox" />
         <label>Використання додатків/сервісів для проведення відеоконференцій</label>
     </div>
 
@@ -204,12 +209,12 @@
         №5 Фінансування
     </div>
     <div class="table_question">
-        <input @bind="Dir.T2Q5P22" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q5P22" type="checkbox" name="checkbox" />
         <label>Фінансування</label> @* TODO: edit on radiobatton *@
     </div>
     <div style="display:flex;">
         <div style="display:flex;">
-            <input @bind="Dir.T2Q5P23" type="number" name="checkbox" style="width: 75px; height: fit-content; margin: auto;" />
+            <input @bind="_dirModel.T2Q5P23" type="number" name="checkbox" style="width: 75px; height: fit-content; margin: auto;" />
             <div style="margin-left: 2px; margin-right: 10px;">
                 грн.
             </div>
@@ -218,7 +223,7 @@
     </div>
     <div style="display:flex;">
         <div style="display:flex;">
-            <input @bind="Dir.T2Q5P24" type="number" name="checkbox" style="width: 75px; height: fit-content; margin: auto;" />
+            <input @bind="_dirModel.T2Q5P24" type="number" name="checkbox" style="width: 75px; height: fit-content; margin: auto;" />
             <div style="margin-left: 2px; margin-right: 10px;">
                 грн.
             </div>
@@ -226,12 +231,12 @@
         <div>Середня заробітна плата спеціаліста штатного підрозділу з ІБ/КЗ/КБ/ЗІ за 2022 рік</div>
     </div>
     <div class="table_question">
-        <input @bind="Dir.T2Q5P25" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q5P25" type="checkbox" name="checkbox" />
         <label>Наявність окремої бюджетної програми на кіберзахист на 2023 рік</label>
     </div>
     <div style="display:flex;">
         <div style="display:flex;">
-            <input @bind="Dir.T2Q5P26" type="number" name="checkbox" style="width: 75px; height: fit-content; margin: auto;" />
+            <input @bind="_dirModel.T2Q5P26" type="number" name="checkbox" style="width: 75px; height: fit-content; margin: auto;" />
             <div style="margin-left: 2px; margin-right: 10px;">
                 %
             </div>
@@ -239,7 +244,7 @@
         <div>Отримане фінансування за бюджетний період (2021-2022)</div>
     </div>
     <div class="table_question">
-        <input @bind="Dir.T2Q5P27" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q5P27" type="checkbox" name="checkbox" />
         <label>План закупівель на 2022-2023 роки</label>
     </div>
 
@@ -249,11 +254,11 @@
         №6 Планування
     </div>
     <div class="table_question">
-        <input @bind="Dir.T2Q6P28" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q6P28" type="checkbox" name="checkbox" />
         <label>Наявність Планів розвитку</label>
     </div>
     <div class="table_question">
-        <input @bind="Dir.T2Q6P29" type="checkbox" name="checkbox" />
+        <input @bind="_dirModel.T2Q6P29" type="checkbox" name="checkbox" />
         <label>Заплановане навчання</label>
     </div>
 
@@ -267,7 +272,7 @@
         <label>Наявність штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T3Q1P1" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T3Q1P1" class="name_input"></textarea>
     </div>
 
     <div style="text-align: center">
@@ -277,56 +282,56 @@
         <label>Укомплектованість штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T3Q2P2" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T3Q2P2" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Чи є у вашому органі посада заступника Голови органу, що відповідає за напрямок ІБ/КЗ/КБ/ЗІ?</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T3Q2P3" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T3Q2P3" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Чи суміщаються обов’язки заступника Голови органу, що відповідає за напрямок ІБ/КЗ/КБ/ЗІ, з обов’язками заступника Голови органу з питань цифрової трансформації (CDTO)? </label>
     </div>
     <div>
-        <textarea @bind="@Dir.T3Q2P4" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T3Q2P4" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Керівник/начальник штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T3Q2P5" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T3Q2P5" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Чи погоджувалась кандидатура керівника/начальника штатного підрозділу з ІБ/КЗ/КБ/ЗІ з Держспецзв’язку?</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T3Q2P6" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T3Q2P6" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Фахова освіта персоналу штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T3Q2P7" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T3Q2P7" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Регулярне підвищення кваліфікації персоналу штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T3Q2P8" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T3Q2P8" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Кількість посадових осіб, яким встановлені надбавки за безпосереднє виконання функції із забезпечення кібербезпеки, кіберзахисту та безпеки інформаційних технологій</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T3Q2P9" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T3Q2P9" class="name_input"></textarea>
     </div>
 
     <div style="text-align: center">
@@ -337,21 +342,21 @@
         <label>Наявність положення про підрозділ з ІБ/КЗ/КБ/ЗІ</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T4Q1P10" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T4Q1P10" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Наявність Планів та політик кіберзахисту</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T4Q1P11" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T4Q1P11" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Достатність наявних нормативно-правових актів щодо кіберзахисту. Пропозиції щодо вдосконалення законодавства.</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T4Q1P12" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T4Q1P12" class="name_input"></textarea>
     </div>
 
     <div style="text-align: center">
@@ -362,63 +367,63 @@
         <label>Ліцензійне програмне забезпечення</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T5Q1P13" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T5Q1P13" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Наявність антивірусних програм</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T5Q1P14" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T5Q1P14" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Апаратне забезпечення</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T5Q1P15" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T5Q1P15" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Хмарні ресурси</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T5Q1P16" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T5Q1P16" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Центри обробки даних</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T5Q1P17" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T5Q1P17" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Активності</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T5Q1P18" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T5Q1P18" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Використання особистої електронної пошти для робочого листування</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T5Q1P19" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T5Q1P19" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Використання систем обміну миттєвими повідомленнями (месенджерами)</label> @* TODO: add checkboxes *@
     </div>
     <div>
-        <textarea @bind="@Dir.T5Q1P20" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T5Q1P20" class="name_input"></textarea>
     </div>
 
     <div>
         <label>Використання додатків/сервісів для проведення відеоконференцій</label> @* TODO: add checkboxes *@
     </div>
     <div>
-        <textarea @bind="@Dir.T5Q1P21" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T5Q1P21" class="name_input"></textarea>
     </div>
 
     <div style="text-align: center">
@@ -429,37 +434,37 @@
         <label>Фінансування</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T6Q1P22" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T6Q1P22" class="name_input"></textarea>
     </div>
     <div>
         <label>Середня заробітна плата спеціаліста вашого органу</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T6Q1P23" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T6Q1P23" class="name_input"></textarea>
     </div>
     <div>
         <label>Середня заробітна плата спеціаліста штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T6Q1P24" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T6Q1P24" class="name_input"></textarea>
     </div>
     <div>
         <label>Наявність окремої бюджетної програми на кіберзахист на 2023 рік</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T6Q1P25" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T6Q1P25" class="name_input"></textarea>
     </div>
     <div>
         <label>Отримане фінансування за бюджетний період (2021-2022)</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T6Q1P26" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T6Q1P26" class="name_input"></textarea>
     </div>
     <div>
         <label>План закупівель на 2022-2023 роки</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T6Q1P27" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T6Q1P27" class="name_input"></textarea>
     </div>
 
     <div style="text-align: center">
@@ -470,12 +475,12 @@
         <label>Наявність Планів розвитку</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T7Q1P28" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T7Q1P28" class="name_input"></textarea>
     </div>
     <div>
         <label>Заплановане навчання</label>
     </div>
     <div>
-        <textarea @bind="@Dir.T7Q1P29" class="name_input"></textarea>
+        <textarea @bind="@_dirModel.T7Q1P29" class="name_input"></textarea>
     </div>
 </div>
