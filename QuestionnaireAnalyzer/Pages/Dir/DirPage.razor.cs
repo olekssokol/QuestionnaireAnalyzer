@@ -35,4 +35,11 @@ public partial class DirPage
 
         StateHasChanged();
     }
+
+    private async Task SaveToDb()
+    {
+        await DataService.CreateAsync<DirModel>(_dirModel);
+
+        var x = await DataService.GetAllAsync<DirModel>();
+    }
 }
