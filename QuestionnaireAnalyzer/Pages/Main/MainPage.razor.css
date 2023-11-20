@@ -1,12 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿.container {
+    display: flex;
+}
 
-namespace QuestionnaireAnalyzer.Pages.Main
-{
-    class MainPage
-    {
-    }
+button {
+    border: none;
+    display: flex;
+    width: 427px;
+    height: 114px;
+    padding: 39px 24px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    background: linear-gradient(0deg, rgba(146, 186, 220, 0.26) 0%, rgba(146, 186, 220, 0.26) 100%), #D1D1D1;
+}
+
+.main-page-button-container {
+    margin-top: 75px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-page-button {
+    color: #000;
+    text-align: center;
+    font-family: Actor;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    margin-top: 75px;
 }
