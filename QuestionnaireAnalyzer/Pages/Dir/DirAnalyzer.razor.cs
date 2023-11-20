@@ -1,13 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
-using QuestionnaireAnalyzer.Contracts.Constants;
 using QuestionnaireAnalyzer.Contracts.Interfaces.Services;
 using QuestionnaireAnalyzer.Contracts.Models.Dir;
-
-using ChartJs.Blazor;
 using ChartJs.Blazor.RadarChart;
 using ChartJs.Blazor.Common;
-using ChartJs.Blazor.PieChart;
-using ChartJs.Blazor.Util;
 
 namespace QuestionnaireAnalyzer.Pages.Dir;
 
@@ -16,49 +11,69 @@ public partial class DirAnalyzer
     [Inject] private NavigationManager _navigationManager { get; set; }
     [Inject] private IDataService DataService { get; set; }
 
-    private List<DirModel> _dirModels = new();
+    private RadarConfig _config;
 
-    private PieConfig _config;
+    private float politicians = 0.71f;
+    private float state = 0.60f;
+    private float technologies = 0.73f;
+    private float financing = 0.30f;
+    private float planning = 0.49f;
 
     protected override async Task OnInitializedAsync()
     {
-        _config = new PieConfig
+        await AnalyzeAsync();
+
+        _config = new RadarConfig
         {
-            Options = new PieOptions
+            Options = new RadarOptions
             {
                 Responsive = true,
                 Title = new OptionsTitle
                 {
-                    Display = true,
-                    Text = "ChartJs.Blazor Pie Chart"
+                    Display = false,
+                },
+                Scale = new()
+                {
+                    AngleLines = new()
+                    {
+                        Display = true,
+                    },
+                    PointLabels = new()
+                    {
+                        FontSize = 22,
+                    },
+                    Ticks = new()
+                    {
+                        Min = 0,
+                        Max = 1,
+                        StepSize = 0.1f
+                    }
+                },
+                Legend = new()
+                {
+                    Display = false 
                 }
+
             }
         };
 
-        foreach (string color in new[] { "Red", "Yellow", "Green", "Blue" })
+        foreach (string type in new[] { "політики", "штат", "технології", "фінансування", "планування" })
         {
-            _config.Data.Labels.Add(color);
+            _config.Data.Labels.Add(type);
         }
 
-        PieDataset<int> dataset = new PieDataset<int>(new[] { 6, 5, 3, 7 })
+        RadarDataset<float> dataset = new RadarDataset<float>(new List<float> { politicians, state, technologies, financing, planning })
         {
-            BackgroundColor = new[]
-            {
-            ColorUtil.ColorHexString(255, 99, 132), // Slice 1 aka "Red"
-            ColorUtil.ColorHexString(255, 205, 86), // Slice 2 aka "Yellow"
-            ColorUtil.ColorHexString(75, 192, 192), // Slice 3 aka "Green"
-            ColorUtil.ColorHexString(54, 162, 235), // Slice 4 aka "Blue"
-        }
+            BorderColor = "#0e67ed",
+            BorderWidth = 2,  
         };
 
         _config.Data.Datasets.Add(dataset);
 
-        _dirModels = await DataService.GetAllAsync<DirModel>();
-
     }
 
-    private void OpenDirById(int id)
+    private async Task AnalyzeAsync()
     {
-        _navigationManager.NavigateTo($"{ClientRoutes.Dir}/{id}", true);
+        var dirModels = await DataService.GetAllAsync<DirModel>();
     }
 }
