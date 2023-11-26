@@ -80,7 +80,7 @@ public partial class DirCapacitiesAnalyzer
 
     private async Task AnalyzeAsync()
     {
-        var dirModels = await DataService.GetAllAsync<DirModel>();
+        var dirModels = await DataService.GetAllAsync<DirCapacitiesModel>();
 
         if (dirModels.Count == 0)
         {
@@ -89,35 +89,35 @@ public partial class DirCapacitiesAnalyzer
 
         foreach (var model in dirModels)
         {
-            var stateProperties = typeof(DirModel).GetProperties()
+            var stateProperties = typeof(DirCapacitiesModel).GetProperties()
             .Where(p => p.PropertyType == typeof(bool) && (p.Name.StartsWith("T2Q1") || p.Name.StartsWith("T2Q2")))
             .Select(p => (bool)p.GetValue(model));
 
             _state += stateProperties.Count(b => b);
 
 
-            var politiciansProperties = typeof(DirModel).GetProperties()
+            var politiciansProperties = typeof(DirCapacitiesModel).GetProperties()
             .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q3"))
             .Select(p => (bool)p.GetValue(model));
 
             _politicians += politiciansProperties.Count(b => b);
 
 
-            var technologiesProperties = typeof(DirModel).GetProperties()
+            var technologiesProperties = typeof(DirCapacitiesModel).GetProperties()
             .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q4"))
             .Select(p => (bool)p.GetValue(model));
 
             _technologies += technologiesProperties.Count(b => b);
 
 
-            var financingProperties = typeof(DirModel).GetProperties()
+            var financingProperties = typeof(DirCapacitiesModel).GetProperties()
             .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q5"))
             .Select(p => (bool)p.GetValue(model));
 
             _financing += financingProperties.Count(b => b);
 
 
-            var planningProperties = typeof(DirModel).GetProperties()
+            var planningProperties = typeof(DirCapacitiesModel).GetProperties()
             .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q6"))
             .Select(p => (bool)p.GetValue(model));
 

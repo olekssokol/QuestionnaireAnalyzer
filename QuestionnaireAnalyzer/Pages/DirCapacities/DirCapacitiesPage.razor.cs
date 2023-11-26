@@ -13,31 +13,31 @@ public partial class DirCapacitiesPage
 
     [Parameter] public int? Id { get; set; }
 
-    private DirModel _dirModel = new();
+    private DirCapacitiesModel _dirModel = new();
 
     protected override async Task OnInitializedAsync()
     {
         if (Id != null)
         {
-            _dirModel = await DataService.GetByIdAsync<DirModel>(Id.Value);
+            _dirModel = await DataService.GetByIdAsync<DirCapacitiesModel>(Id.Value);
         }
     }
 
-    private void RemoveTable1Item(Table1Item item)
+    private void RemoveTable1Item(DirCapacitiesTable1Item item)
     {
         _dirModel.Table1Elements.Remove(item);
     }
 
     private void AddTable1Item()
     {
-        _dirModel.Table1Elements.Add(new Table1Item());
+        _dirModel.Table1Elements.Add(new DirCapacitiesTable1Item());
 
         StateHasChanged();
     }
 
     private async Task SaveToDb()
     {
-        await DataService.CreateAsync<DirModel>(_dirModel);
+        await DataService.CreateAsync<DirCapacitiesModel>(_dirModel);
 
         await JSRuntime.InvokeVoidAsync("openPreviousPage");
     }

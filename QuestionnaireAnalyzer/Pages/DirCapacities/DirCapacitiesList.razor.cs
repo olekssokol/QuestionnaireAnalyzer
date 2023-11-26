@@ -11,11 +11,11 @@ public partial class DirCapacitiesList
     [Inject] private NavigationManager _navigationManager { get; set; }
     [Inject] private IDataService DataService { get; set; }
 
-    private List<DirModel> _dirModels = new();
+    private List<DirCapacitiesModel> _dirModels = new();
 
     protected override async Task OnInitializedAsync()
     {
-        _dirModels = await DataService.GetAllAsync<DirModel>();
+        _dirModels = await DataService.GetAllAsync<DirCapacitiesModel>();
     }
 
     private void OpenDirById(int id)
@@ -30,9 +30,9 @@ public partial class DirCapacitiesList
 
     private async Task DeleteFromDb(int id)
     {
-        await DataService.DeleteByIdAsync<DirModel>(id);
+        await DataService.DeleteByIdAsync<DirCapacitiesModel>(id);
 
-        _dirModels = await DataService.GetAllAsync<DirModel>();
+        _dirModels = await DataService.GetAllAsync<DirCapacitiesModel>();
 
         StateHasChanged();
     }

@@ -10,7 +10,7 @@
     color: #000;
     text-align: center;
     font-family: Actor;
-    font-size: 36px;
+    font-size: 26px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -18,9 +18,11 @@
     margin-bottom: 17px;
 }
 
+    .container-title p {
+        font-size: 20px;
+    }
+
 .dir-item {
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
     border-radius: 20px;
     border: 1px solid #000;
@@ -38,7 +40,7 @@
     font-weight: 400;
     line-height: normal;
     display: flex;
-    width: 60%;
+    width: 80%;
     white-space: nowrap;
     overflow: hidden;
     cursor: pointer;
@@ -53,6 +55,7 @@
 .item-buttons {
     display: flex;
     margin: auto 17px;
+    margin-left: 20px;
 }
 
 .item-button {
@@ -66,7 +69,7 @@
     flex-shrink: 0;
     color: #000;
     font-family: Inter;
-    font-size: 26px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
