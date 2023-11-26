@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Components;
 using QuestionnaireAnalyzer.Contracts.Interfaces.Services;
 using QuestionnaireAnalyzer.Contracts.Models.Dir;
+using Microsoft.JSInterop;
 
-namespace QuestionnaireAnalyzer.Pages.Dir;
+namespace QuestionnaireAnalyzer.Pages.DirCapacities;
 
-public partial class DirPage
+public partial class DirCapacitiesPage
 {
     [Inject] private NavigationManager _navigationManager { get; set; }
     [Inject] private IDataService DataService { get; set; }
+    [Inject] private IJSRuntime JSRuntime { get; set; }
 
     [Parameter] public int? Id { get; set; }
-
-    private bool _showLoader;
 
     private DirModel _dirModel = new();
 
@@ -19,14 +19,13 @@ public partial class DirPage
     {
         if (Id != null)
         {
-            _showLoader = true;
-            StateHasChanged();
-
             _dirModel = await DataService.GetByIdAsync<DirModel>(Id.Value);
-
-            _showLoader = false;
-            StateHasChanged();
         }
+    }
+
+    private void RemoveTable1Item(Table1Item item)
+    {
+        _dirModel.Table1Elements.Remove(item);
     }
 
     private void AddTable1Item()
@@ -40,6 +39,17 @@ public partial class DirPage
     {
         await DataService.CreateAsync<DirModel>(_dirModel);
 
-        var x = await DataService.GetAllAsync<DirModel>();
+        await JSRuntime.InvokeVoidAsync("openPreviousPage");
+    }
+
+
+    private void UpdateLocation(string location)
+    {
+        _dirModel.T2Q4P17Location = location;
+    }
+
+    private async void OpenPreviousPage()
+    {
+        await JSRuntime.InvokeVoidAsync("openPreviousPage");
     }
 }

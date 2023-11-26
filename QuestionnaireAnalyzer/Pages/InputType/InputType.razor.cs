@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using QuestionnaireAnalyzer.Common.Helpers;
 using QuestionnaireAnalyzer.Contracts.Constants;
 
 namespace QuestionnaireAnalyzer.Pages.InputType;
@@ -9,13 +10,6 @@ public partial class InputType
 
     private void OpenCreateDataPage()
     {
-        if (_navigationManager.Uri.Contains(ClientRoutes.Dir))
-        {
-            _navigationManager.NavigateTo(ClientRoutes.Dir, true);
-        }
-        else if (_navigationManager.Uri.Contains(ClientRoutes.Kii))
-        {
-            _navigationManager.NavigateTo(ClientRoutes.Kii, true);
-        }
+        _navigationManager.NavigateTo(NavigationHelper.InputTypeNextPage(_navigationManager.Uri));
     }
 }

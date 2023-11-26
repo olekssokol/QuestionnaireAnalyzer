@@ -10,11 +10,11 @@ public partial class MainPage
 
     private void OpenDirSelectTypePage()
     {
-        _navigationManager.NavigateTo(ClientRoutes.Dir + ClientRoutes.SelectType, true);
+        _navigationManager.NavigateTo(ClientRoutes.Dir + ClientRoutes.Methodology);
     }
 
     private void OpenKiiSelectTypePage()
     {
-        _navigationManager.NavigateTo(ClientRoutes.Dir, true);
+        _navigationManager.NavigateTo(ClientRoutes.Kii + ClientRoutes.Methodology);
     }
 }

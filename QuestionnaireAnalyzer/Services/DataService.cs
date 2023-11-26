@@ -61,11 +61,7 @@ public class DataService : IDataService
 
         var collection = db.GetCollection<T>(dataCollectionName);
 
-        var query = Query.EQ("Id", id);
-
-        int deleteCount = collection.DeleteMany(query);
-
-        return deleteCount > 0;
+        return collection.Delete(new BsonValue(id));
     }
 
     public async Task CreateAsync<T>(T item)

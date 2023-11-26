@@ -67,6 +67,22 @@ a, .btn-link {
     display: none;
 }
 
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .header img {
+        width: 30px; 
+        height: auto; 
+        cursor: pointer; 
+    }
+
 @supports (-webkit-touch-callout: none) {
     .status-bar-safe-area {
         display: flex;

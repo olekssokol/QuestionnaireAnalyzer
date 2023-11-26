@@ -15,6 +15,7 @@ button {
 }
 
 .main-page-button-container {
+    margin-top: 40px;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -24,10 +25,10 @@ button {
     color: #000;
     text-align: center;
     font-family: Actor;
-    font-size: 30px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 
-    margin-top: 10%;
+    margin-bottom: 10%;
 }

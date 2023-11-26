@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using QuestionnaireAnalyzer.Common.Helpers;
 using QuestionnaireAnalyzer.Contracts.Constants;
 
 namespace QuestionnaireAnalyzer.Pages.SelectType;
@@ -9,37 +10,16 @@ public partial class SelectType
 
     private void OpenDataListPage()
     {
-        if (_navigationManager.Uri.Contains(ClientRoutes.Dir))
-        {
-            _navigationManager.NavigateTo(ClientRoutes.DirList, true);
-        }
-        else if (_navigationManager.Uri.Contains(ClientRoutes.Kii))
-        {
-            _navigationManager.NavigateTo(ClientRoutes.KiiList, true);
-        }
+        _navigationManager.NavigateTo(NavigationHelper.SelectTypeNextPage(_navigationManager.Uri, ClientRoutes.List));
     }
 
     private void OpenInputTypePage()
     {
-        if (_navigationManager.Uri.Contains(ClientRoutes.Dir))
-        {
-            _navigationManager.NavigateTo(ClientRoutes.Dir + ClientRoutes.InputType, true);
-        }
-        else if (_navigationManager.Uri.Contains(ClientRoutes.Kii))
-        {
-            _navigationManager.NavigateTo(ClientRoutes.Kii + ClientRoutes.InputType, true);
-        }
+        _navigationManager.NavigateTo(NavigationHelper.SelectTypeNextPage(_navigationManager.Uri, ClientRoutes.InputType));
     }
 
     private void OpenAnalyzerPage()
     {
-        if (_navigationManager.Uri.Contains(ClientRoutes.Dir))
-        {
-            _navigationManager.NavigateTo(ClientRoutes.Dir + ClientRoutes.Analyzer, true);
-        }
-        else if (_navigationManager.Uri.Contains(ClientRoutes.Kii))
-        {
-            _navigationManager.NavigateTo(ClientRoutes.Kii + ClientRoutes.Analyzer, true);
-        }
+        _navigationManager.NavigateTo(NavigationHelper.SelectTypeNextPage(_navigationManager.Uri, ClientRoutes.Analyzer));
     }
 }

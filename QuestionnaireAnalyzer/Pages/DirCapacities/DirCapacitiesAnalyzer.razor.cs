@@ -4,20 +4,20 @@ using QuestionnaireAnalyzer.Contracts.Models.Dir;
 using ChartJs.Blazor.RadarChart;
 using ChartJs.Blazor.Common;
 
-namespace QuestionnaireAnalyzer.Pages.Dir;
+namespace QuestionnaireAnalyzer.Pages.DirCapacities;
 
-public partial class DirAnalyzer
+public partial class DirCapacitiesAnalyzer
 {
     [Inject] private NavigationManager _navigationManager { get; set; }
     [Inject] private IDataService DataService { get; set; }
 
     private RadarConfig _config = new();
 
-    private float politicians = 0.71f;
-    private float state = 0.60f;
-    private float technologies = 0.73f;
-    private float financing = 0.30f;
-    private float planning = 0.49f;
+    private float _politicians = 0;
+    private float _state = 0;
+    private float _technologies = 0;
+    private float _financing = 0;
+    private float _planning = 0;
 
     protected override async Task OnInitializedAsync()
     {
@@ -62,7 +62,8 @@ public partial class DirAnalyzer
             _config.Data.Labels.Add(type);
         }
 
-        RadarDataset<float> dataset = new RadarDataset<float>(new List<float> { politicians, state, technologies, financing, planning })
+        RadarDataset<float> dataset = new RadarDataset<float>(
+            new List<float> { _politicians, _state, _technologies, _financing, _planning })
         {
             BorderColor = "#0e67ed",
             BorderWidth = 2,

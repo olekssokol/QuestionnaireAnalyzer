@@ -1,4 +1,4 @@
-﻿@page "/dir-list"
+﻿@page "/dir/capacities/list"
 
 <div class="container">
     <div class="dir-list">
@@ -15,12 +15,19 @@
                 </div>
 
                 <div class="item-buttons">
-                    <div class="item-button" style="margin-right: 17px;">Редагувати</div>
-                    <div class="item-button">Видалити</div>
+                    <div class="item-button" @onclick="() => OpenDirByIdForUdate(item.Id)" style="margin-right: 17px;">Редагувати</div>
+                    <div class="item-button" @onclick="() => DeleteFromDb(item.Id)">Видалити</div>
                 </div>
             </div>
         }
-        
+
+        @if (_dirModels != null && _dirModels.Count == 0)
+        {
+            <div class="main-page-button">
+                <button @onclick="OpenInputTypePage"> ДОДАТИ ДАНІ </button>
+            </div>
+        }
+
     </div>
 
 </div>
