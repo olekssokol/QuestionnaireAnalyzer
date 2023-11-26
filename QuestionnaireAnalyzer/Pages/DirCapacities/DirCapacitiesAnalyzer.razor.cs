@@ -8,16 +8,21 @@ namespace QuestionnaireAnalyzer.Pages.DirCapacities;
 
 public partial class DirCapacitiesAnalyzer
 {
-    [Inject] private NavigationManager _navigationManager { get; set; }
     [Inject] private IDataService DataService { get; set; }
 
     private RadarConfig _config = new();
 
-    private float _politicians = 0;
     private float _state = 0;
+    private float _politicians = 0;
     private float _technologies = 0;
     private float _financing = 0;
     private float _planning = 0;
+
+    private const int _maxState = 7;
+    private const int _maxPoliticians = 3;
+    private const int _maxTechnologies = 9;
+    private const int _maxFinancing = 3;
+    private const int _maxPlanning = 2;
 
     protected override async Task OnInitializedAsync()
     {
@@ -77,13 +82,52 @@ public partial class DirCapacitiesAnalyzer
     {
         var dirModels = await DataService.GetAllAsync<DirModel>();
 
+        if (dirModels.Count == 0)
+        {
+            return;
+        }
+
         foreach (var model in dirModels)
         {
-            var politiciansProperties = typeof(DirModel).GetProperties()
-            .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q2"))
+            var stateProperties = typeof(DirModel).GetProperties()
+            .Where(p => p.PropertyType == typeof(bool) && (p.Name.StartsWith("T2Q1") || p.Name.StartsWith("T2Q2")))
             .Select(p => (bool)p.GetValue(model));
 
-            int politicians = politiciansProperties.Count(b => b);
+            _state += stateProperties.Count(b => b);
+
+
+            var politiciansProperties = typeof(DirModel).GetProperties()
+            .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q3"))
+            .Select(p => (bool)p.GetValue(model));
+
+            _politicians += politiciansProperties.Count(b => b);
+
+
+            var technologiesProperties = typeof(DirModel).GetProperties()
+            .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q4"))
+            .Select(p => (bool)p.GetValue(model));
+
+            _technologies += technologiesProperties.Count(b => b);
+
+
+            var financingProperties = typeof(DirModel).GetProperties()
+            .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q5"))
+            .Select(p => (bool)p.GetValue(model));
+
+            _financing += financingProperties.Count(b => b);
+
+
+            var planningProperties = typeof(DirModel).GetProperties()
+            .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q6"))
+            .Select(p => (bool)p.GetValue(model));
+
+            _planning += planningProperties.Count(b => b);
         }
+
+        _state /= dirModels.Count * _maxState;
+        _politicians /= dirModels.Count * _maxPoliticians;
+        _technologies /= dirModels.Count * _maxTechnologies;
+        _financing /= dirModels.Count * _maxFinancing;
+        _planning /= dirModels.Count * _maxPlanning;
     }
 }
