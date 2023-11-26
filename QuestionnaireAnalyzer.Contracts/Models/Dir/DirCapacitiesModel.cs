@@ -4,11 +4,11 @@ public class DirCapacitiesModel
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
-    public DateOnly Data { get; set; }
+    public DateOnly Data { get; set; } //TODO: need implement
 
     #region Таблиця 1
 
-    public List<DirCapacitiesTable1Item> Table1Elements { get; set; } = new List<DirCapacitiesTable1Item>();
+    public List<DirCapacitiesTable1Item> Table1Elements { get; set; } = new();
 
     #endregion
 
