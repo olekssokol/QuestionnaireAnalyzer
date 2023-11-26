@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Components;
 using QuestionnaireAnalyzer.Contracts.Interfaces.Services;
-using QuestionnaireAnalyzer.Contracts.Models.Dir;
+using QuestionnaireAnalyzer.Contracts.Models.Kii;
 using ChartJs.Blazor.RadarChart;
 using ChartJs.Blazor.Common;
 
-namespace QuestionnaireAnalyzer.Pages.DirCapacities;
+namespace QuestionnaireAnalyzer.Pages.KiiCapacity;
 
-public partial class DirCapacitiesAnalyzer
+public partial class KiiCapacityAnalyzer
 {
     [Inject] private IDataService DataService { get; set; }
 
@@ -80,7 +80,7 @@ public partial class DirCapacitiesAnalyzer
 
     private async Task AnalyzeAsync()
     {
-        var dirModels = await DataService.GetAllAsync<DirCapacitiesModel>();
+        var dirModels = await DataService.GetAllAsync<KiiCapacityModel>();
 
         if (dirModels.Count == 0)
         {
@@ -89,35 +89,35 @@ public partial class DirCapacitiesAnalyzer
 
         foreach (var model in dirModels)
         {
-            var stateProperties = typeof(DirCapacitiesModel).GetProperties()
+            var stateProperties = typeof(KiiCapacityModel).GetProperties()
             .Where(p => p.PropertyType == typeof(bool) && (p.Name.StartsWith("T2Q1") || p.Name.StartsWith("T2Q2")))
             .Select(p => (bool)p.GetValue(model));
 
             _state += stateProperties.Count(b => b);
 
 
-            var politiciansProperties = typeof(DirCapacitiesModel).GetProperties()
+            var politiciansProperties = typeof(KiiCapacityModel).GetProperties()
             .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q3"))
             .Select(p => (bool)p.GetValue(model));
 
             _politicians += politiciansProperties.Count(b => b);
 
 
-            var technologiesProperties = typeof(DirCapacitiesModel).GetProperties()
+            var technologiesProperties = typeof(KiiCapacityModel).GetProperties()
             .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q4"))
             .Select(p => (bool)p.GetValue(model));
 
             _technologies += technologiesProperties.Count(b => b);
 
 
-            var financingProperties = typeof(DirCapacitiesModel).GetProperties()
+            var financingProperties = typeof(KiiCapacityModel).GetProperties()
             .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q5"))
             .Select(p => (bool)p.GetValue(model));
 
             _financing += financingProperties.Count(b => b);
 
 
-            var planningProperties = typeof(DirCapacitiesModel).GetProperties()
+            var planningProperties = typeof(KiiCapacityModel).GetProperties()
             .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q6"))
             .Select(p => (bool)p.GetValue(model));
 

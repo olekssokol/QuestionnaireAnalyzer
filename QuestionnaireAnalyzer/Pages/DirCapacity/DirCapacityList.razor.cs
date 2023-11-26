@@ -4,35 +4,35 @@ using QuestionnaireAnalyzer.Contracts.Constants;
 using QuestionnaireAnalyzer.Contracts.Interfaces.Services;
 using QuestionnaireAnalyzer.Contracts.Models.Dir;
 
-namespace QuestionnaireAnalyzer.Pages.DirCapacities;
+namespace QuestionnaireAnalyzer.Pages.DirCapacity;
 
-public partial class DirCapacitiesList
+public partial class DirCapacityList
 {
     [Inject] private NavigationManager _navigationManager { get; set; }
     [Inject] private IDataService DataService { get; set; }
 
-    private List<DirCapacitiesModel> _dirModels = new();
+    private List<DirCapacityModel> _dirModels = new();
 
     protected override async Task OnInitializedAsync()
     {
-        _dirModels = await DataService.GetAllAsync<DirCapacitiesModel>();
+        _dirModels = await DataService.GetAllAsync<DirCapacityModel>();
     }
 
     private void OpenDirById(int id)
     {
-        _navigationManager.NavigateTo($"{ClientRoutes.Dir}{ClientRoutes.Capacities}/{id}");
+        _navigationManager.NavigateTo($"{ClientRoutes.Dir}{ClientRoutes.Capacity}/{id}");
     }
 
     private void OpenDirByIdForUdate(int id)
     {
-        _navigationManager.NavigateTo($"{ClientRoutes.Dir}{ClientRoutes.Capacities}{ClientRoutes.Update}/{id}");
+        _navigationManager.NavigateTo($"{ClientRoutes.Dir}{ClientRoutes.Capacity}{ClientRoutes.Update}/{id}");
     }
 
     private async Task DeleteFromDb(int id)
     {
-        await DataService.DeleteByIdAsync<DirCapacitiesModel>(id);
+        await DataService.DeleteByIdAsync<DirCapacityModel>(id);
 
-        _dirModels = await DataService.GetAllAsync<DirCapacitiesModel>();
+        _dirModels = await DataService.GetAllAsync<DirCapacityModel>();
 
         StateHasChanged();
     }

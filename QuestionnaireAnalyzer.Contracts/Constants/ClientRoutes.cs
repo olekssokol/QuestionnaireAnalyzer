@@ -9,7 +9,8 @@ public static class ClientRoutes
     public const string Kii = "/kii";
 
     public const string Methodology = "/methodology";
-    public const string Capacities = "/capacities";
+    public const string Capacity = "/capacity";
+    public const string Feasibility = "/feasibility";
 
     public const string SelectType = "/select-type";
     public const string InputType = "/input-type";

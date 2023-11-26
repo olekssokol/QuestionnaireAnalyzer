@@ -1,6 +1,6 @@
 ﻿namespace QuestionnaireAnalyzer.Contracts.Models.Dir;
 
-public class DirCapacitiesModel
+public class DirCapacityModel
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
@@ -8,7 +8,7 @@ public class DirCapacitiesModel
 
     #region Таблиця 1
 
-    public List<DirCapacitiesTable1Item> Table1Elements { get; set; } = new();
+    public List<DirCapacityTable1Item> Table1Elements { get; set; } = new();
 
     #endregion
 

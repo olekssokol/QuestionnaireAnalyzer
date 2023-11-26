@@ -1,5 +1,5 @@
 ﻿namespace QuestionnaireAnalyzer.Contracts.Models.Dir;
-public class DirCapacitiesTable1Item
+public class DirCapacityTable1Item
 {
     public string Name { get; set; } = string.Empty;
     public bool T1Q1 { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace QuestionnaireAnalyzer.Contracts.Models.Kii;
 
-public class KiiCapacitiesModel
+public class KiiCapacityModel
 {
     public int Id { get; set; }
     public string NameQ1 { get; set; } = string.Empty;
@@ -11,7 +11,7 @@ public class KiiCapacitiesModel
 
     #region Таблиця 1
 
-    public List<KiiCapacitiesTable1Item> Table1Elements { get; set; } = new();
+    public List<KiiCapacityTable1Item> Table1Elements { get; set; } = new();
 
     #endregion
 

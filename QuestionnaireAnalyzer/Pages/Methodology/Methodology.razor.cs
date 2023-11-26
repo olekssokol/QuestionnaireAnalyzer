@@ -8,13 +8,13 @@ public partial class Methodology
 {
     [Inject] private NavigationManager _navigationManager { get; set; } = null!;
 
-    private void OpenNextPage()
+    private void OpenFeasibilityPage()
     {
        
     } 
     
-    private void OpenCapacitiesPage()
+    private void OpenCapacityPage()
     {
-        _navigationManager.NavigateTo(NavigationHelper.MethodologyNextPage(_navigationManager.Uri, ClientRoutes.Capacities));
+        _navigationManager.NavigateTo(NavigationHelper.MethodologyNextPage(_navigationManager.Uri, ClientRoutes.Capacity));
     }
 }

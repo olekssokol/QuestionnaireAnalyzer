@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Components;
 using QuestionnaireAnalyzer.Contracts.Interfaces.Services;
-using Microsoft.JSInterop;
-using QuestionnaireAnalyzer.Contracts.Models.Kii;
 using QuestionnaireAnalyzer.Contracts.Models.Dir;
+using Microsoft.JSInterop;
 
-namespace QuestionnaireAnalyzer.Pages.KiiCapacities;
+namespace QuestionnaireAnalyzer.Pages.DirCapacity;
 
-public partial class KiiCapacitiesPage
+public partial class DirCapacityPage
 {
     [Inject] private NavigationManager _navigationManager { get; set; }
     [Inject] private IDataService DataService { get; set; }
@@ -14,44 +13,45 @@ public partial class KiiCapacitiesPage
 
     [Parameter] public int? Id { get; set; }
 
-    private KiiCapacitiesModel _kiiModel = new();
+    private DirCapacityModel _dirModel = new();
 
     protected override async Task OnInitializedAsync()
     {
         if (Id != null)
         {
-            _kiiModel = await DataService.GetByIdAsync<KiiCapacitiesModel>(Id.Value);
+            _dirModel = await DataService.GetByIdAsync<DirCapacityModel>(Id.Value);
         }
     }
 
-    private void RemoveTable1Item(KiiCapacitiesTable1Item item)
+    private void RemoveTable1Item(DirCapacityTable1Item item)
     {
-        _kiiModel.Table1Elements.Remove(item);
+        _dirModel.Table1Elements.Remove(item);
     }
 
     private void AddTable1Item()
     {
-        _kiiModel.Table1Elements.Add(new KiiCapacitiesTable1Item());
+        _dirModel.Table1Elements.Add(new DirCapacityTable1Item());
 
         StateHasChanged();
     }
 
     private async Task SaveToDb()
     {
-        await DataService.CreateAsync<KiiCapacitiesModel>(_kiiModel);
+        await DataService.CreateAsync<DirCapacityModel>(_dirModel);
 
         await JSRuntime.InvokeVoidAsync("openPreviousPage");
     }
+
     private async Task UpdateDbData()
     {
-        await DataService.UpdateItemAsync<KiiCapacitiesModel>(_kiiModel);
+        await DataService.UpdateItemAsync<DirCapacityModel>(_dirModel);
 
         await JSRuntime.InvokeVoidAsync("openPreviousPage");
     }
 
     private void UpdateLocation(string location)
     {
-        _kiiModel.T2Q4P14Location = location;
+        _dirModel.T2Q4P17Location = location;
     }
 
     private async void OpenPreviousPage()

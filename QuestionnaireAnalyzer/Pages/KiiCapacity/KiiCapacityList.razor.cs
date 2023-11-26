@@ -4,35 +4,35 @@ using QuestionnaireAnalyzer.Contracts.Constants;
 using QuestionnaireAnalyzer.Contracts.Interfaces.Services;
 using QuestionnaireAnalyzer.Contracts.Models.Kii;
 
-namespace QuestionnaireAnalyzer.Pages.KiiCapacities;
+namespace QuestionnaireAnalyzer.Pages.KiiCapacity;
 
-public partial class KiiCapacitiesList
+public partial class KiiCapacityList
 {
     [Inject] private NavigationManager _navigationManager { get; set; }
     [Inject] private IDataService DataService { get; set; }
 
-    private List<KiiCapacitiesModel> _kiiModels = new();
+    private List<KiiCapacityModel> _kiiModels = new();
 
     protected override async Task OnInitializedAsync()
     {
-        _kiiModels = await DataService.GetAllAsync<KiiCapacitiesModel>();
+        _kiiModels = await DataService.GetAllAsync<KiiCapacityModel>();
     }
 
     private void OpenKiiById(int id)
     {
-        _navigationManager.NavigateTo($"{ClientRoutes.Kii}{ClientRoutes.Capacities}/{id}");
+        _navigationManager.NavigateTo($"{ClientRoutes.Kii}{ClientRoutes.Capacity}/{id}");
     }
 
     private void OpenKiiByIdForUdate(int id)
     {
-        _navigationManager.NavigateTo($"{ClientRoutes.Kii}{ClientRoutes.Capacities}{ClientRoutes.Update}/{id}");
+        _navigationManager.NavigateTo($"{ClientRoutes.Kii}{ClientRoutes.Capacity}{ClientRoutes.Update}/{id}");
     }
 
     private async Task DeleteFromDb(int id)
     {
-        await DataService.DeleteByIdAsync<KiiCapacitiesModel>(id);
+        await DataService.DeleteByIdAsync<KiiCapacityModel>(id);
 
-        _kiiModels = await DataService.GetAllAsync<KiiCapacitiesModel>();
+        _kiiModels = await DataService.GetAllAsync<KiiCapacityModel>();
 
         StateHasChanged();
     }
