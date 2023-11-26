@@ -2,7 +2,7 @@
     width: 100%;
 }
 
-.dir-list {
+.kii-list {
     display: grid;
 }
 
@@ -22,7 +22,7 @@
         font-size: 20px;
     }
 
-.dir-item {
+.kii-item {
     margin: auto;
     display: flex;
     border-radius: 20px;
@@ -60,12 +60,13 @@
 }
 
 .item-button {
+    align-items: center;
     border-radius: 10px;
     text-align: center;
     display: flex;
     width: 156px;
     height: 61px;
-    flex-direction: column;
+    flex-kiiection: column;
     justify-content: center;
     flex-shrink: 0;
     color: #000;

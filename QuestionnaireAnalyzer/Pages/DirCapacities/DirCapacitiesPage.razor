@@ -48,7 +48,7 @@
             </div>
 
             <div class="table_question">
-                <input disabled="@_isDisabled" @bind="data.T1Q1" type="checkbox" name="checkbox" @disabled />
+                <input disabled="@_isDisabled" @bind="data.T1Q1" type="checkbox" name="checkbox" />
                 <label>Наявність КСЗІ/СУІБ</label>
             </div>
 
@@ -458,14 +458,14 @@
     </div>
 
     <div>
-        <label>Використання систем обміну миттєвими повідомленнями (месенджерами)</label> @* TODO: add checkboxes *@
+        <label>Використання систем обміну миттєвими повідомленнями (месенджерами)</label> 
     </div>
     <div>
         <textarea readonly="@_isDisabled" @bind="@_dirModel.T5Q1P20" class="name_input"></textarea>
     </div>
 
     <div>
-        <label>Використання додатків/сервісів для проведення відеоконференцій</label> @* TODO: add checkboxes *@
+        <label>Використання додатків/сервісів для проведення відеоконференцій</label> 
     </div>
     <div>
         <textarea readonly="@_isDisabled" @bind="@_dirModel.T5Q1P21" class="name_input"></textarea>
@@ -534,7 +534,14 @@
         <div class="nav-buttons">
             <button class="back-button" @onclick="OpenPreviousPage">Відмінити</button>
 
-            <button @onclick="SaveToDb">@eventButtonName</button>
+            @if(_isEdit)
+            {
+                <button @onclick="UpdateDbData">@eventButtonName</button>
+            }
+            else
+            {
+                <button @onclick="SaveToDb">@eventButtonName</button>
+            }
         </div>
     }
 

@@ -66,7 +66,7 @@ public class KiiCapacitiesModel
     #region Таблиця 3
 
     #region Персонал
-    public string T3Q2P1 { get; set; } = string.Empty;
+    public string T3Q1P1 { get; set; } = string.Empty;
     public string T3Q2P2 { get; set; } = string.Empty;
     public string T3Q2P3 { get; set; } = string.Empty;
     public string T3Q2P4 { get; set; } = string.Empty;
