@@ -1,0 +1,18 @@
+﻿@page "/dir/feasibility"
+@page "/dir/feasibility/{id:int}"
+@page "/dir/feasibility/update/{id:int}"
+
+@layout DataLayout
+
+@{
+    var _isEdit = _navigationManager.ToBaseRelativePath(_navigationManager.Uri).ToLower().Contains("update");
+    var _isDisabled = !_isEdit && Id != null;
+    var eventButtonName = _isEdit ? "Оновити" : "Зберегти";
+}
+
+<div class="container">
+    <div class="title">
+        Оцінювання заходів кіберзахисту за статусом реалізації
+    </div>
+   
+</div>
