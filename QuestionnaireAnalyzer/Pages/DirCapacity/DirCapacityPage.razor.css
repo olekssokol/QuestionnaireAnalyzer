@@ -192,3 +192,41 @@ hr {
 .radio-container {
     margin-left: 10px;
 }
+
+.table_item {
+    display: block;
+    margin-bottom: 10px;
+}
+
+    .table_item .table_question {
+        margin-bottom: 0px;
+    }
+
+.table_question-rande {
+    display: flex;
+}
+
+    .table_question-rande input {
+        width: 50%;
+    }
+
+.table_question-range-data {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #C7C7C7;
+    border-radius: 10px;
+    margin-left: 15px;
+    text-align: center;
+}
+
+.table_question-range-text {
+    font-size: 14px;
+    text-align: center;
+}
+
+.table_question-range-subtitle {
+    width: 40%;
+    margin: auto 15px;
+    font-size: 12px;
+    text-align: center;
+}

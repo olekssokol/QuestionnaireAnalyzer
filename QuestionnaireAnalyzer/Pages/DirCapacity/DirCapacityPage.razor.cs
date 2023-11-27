@@ -2,6 +2,7 @@
 using QuestionnaireAnalyzer.Contracts.Interfaces.Services;
 using QuestionnaireAnalyzer.Contracts.Models.Dir;
 using Microsoft.JSInterop;
+using System.Reflection;
 
 namespace QuestionnaireAnalyzer.Pages.DirCapacity;
 
@@ -52,6 +53,30 @@ public partial class DirCapacityPage
     private void UpdateLocation(string location)
     {
         _dirModel.T2Q4P17Location = location;
+    }
+
+    private void UpdateIntData(string dataName, string intName)
+    {
+        var dataProperty = _dirModel.GetType().GetProperty(dataName);
+        var rangeProperty = _dirModel.GetType().GetProperty(intName);
+
+        if (dataProperty != null && rangeProperty != null)
+        {
+            bool checkboxValue = (bool)dataProperty.GetValue(_dirModel);
+
+            dataProperty.SetValue(_dirModel, !checkboxValue);
+
+            if (!checkboxValue)
+            {
+                rangeProperty.SetValue(_dirModel, 100);
+            }
+            else
+            {
+                rangeProperty.SetValue(_dirModel, 0);
+            }
+        }
+
+        StateHasChanged();
     }
 
     private async void OpenPreviousPage()

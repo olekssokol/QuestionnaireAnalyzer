@@ -93,9 +93,22 @@
         №2 Штатна структура
     </div>
 
-    <div class="table_question">
-        <input disabled="@_isDisabled" @bind="_dirModel.T2Q2P2" type="checkbox" name="checkbox" />
-        <label>Укомплектованість штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
+    <div class="table_item">
+        <div class="table_question">
+            <input disabled="@_isDisabled" @onchange="() => UpdateIntData(nameof(_dirModel.pT2Q2P2), nameof(_dirModel.intT2Q2P2))" type="checkbox" name="checkbox" />
+            <label>Укомплектованість штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
+        </div>
+        <div class="table_question-rande">
+            <input @bind="_dirModel.intT2Q2P2" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q2P2)" />
+            <div class="table_question-range-data">
+                <div class="table_question-range-text">
+                    @((float)_dirModel.intT2Q2P2 / 100)
+                </div>
+            </div>
+            <div class="table_question-range-subtitle">
+                Проміжне оцінювання – пропорційно до % укомплектування
+            </div>
+        </div>
     </div>
 
     <div class="table_question">
@@ -120,10 +133,22 @@
         </div>
     }
 
-
-    <div class="table_question">
-        <label>Керівник/начальник штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
-        <textarea readonly="@_isDisabled" @bind="_dirModel.T2Q2P5"></textarea>
+    <div class="table_item">
+        <div class="table_question">
+            <label>Керівник/начальник штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
+            <textarea readonly="@_isDisabled" @bind="_dirModel.pT2Q2P5"></textarea>
+        </div>
+        <div class="table_question-rande">
+            <input @bind="_dirModel.intT2Q2P5" type="range" min="0" max="100" step="5"/>
+            <div class="table_question-range-data">
+                <div class="table_question-range-text">
+                    @((float)_dirModel.intT2Q2P5 / 100)
+                </div>
+            </div>
+            <div class="table_question-range-subtitle">
+                Від 0 до одиниці залежно від спеціалізації, передбаченої посадовими інструкціями
+            </div>
+        </div>
     </div>
 
     <div class="table_question">
@@ -131,24 +156,62 @@
         <label>Чи погоджувалась кандидатура керівника/начальника штатного підрозділу з ІБ/КЗ/КБ/ЗІ з Держспецзв’язку?</label>
     </div>
 
-    <div class="table_question">
-        <input disabled="@_isDisabled" @bind="_dirModel.T2Q2P7" type="checkbox" name="checkbox" />
-        <label>Фахова освіта персоналу штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
+    <div class="table_item">
+        <div class="table_question">
+            <input disabled="@_isDisabled" @onchange="() => UpdateIntData(nameof(_dirModel.pT2Q2P7), nameof(_dirModel.intT2Q2P7))" type="checkbox" name="checkbox" />
+            <label>Фахова освіта персоналу штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
+        </div>
+        <div class="table_question-rande">
+            <input @bind="_dirModel.intT2Q2P7" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q2P7)" />
+            <div class="table_question-range-data">
+                <div class="table_question-range-text">
+                    @((float)_dirModel.intT2Q2P7 / 100)
+                </div>
+            </div>
+            <div class="table_question-range-subtitle">
+                Проміжне оцінювання – пропорційно до % працівників з фаховою освітою
+            </div>
+        </div>
     </div>
 
-    <div class="table_question">
-        <input disabled="@_isDisabled" @bind="_dirModel.T2Q2P8" type="checkbox" name="checkbox" />
-        <label>Регулярне підвищення кваліфікації персоналу штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
+    <div class="table_item">
+        <div class="table_question">
+            <input disabled="@_isDisabled" @onchange="() => UpdateIntData(nameof(_dirModel.pT2Q2P8), nameof(_dirModel.intT2Q2P8))" type="checkbox" name="checkbox" />
+            <label>Регулярне підвищення кваліфікації персоналу штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
+        </div>
+        <div class="table_question-rande">
+            <input @bind="_dirModel.intT2Q2P8" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q2P8)" />
+            <div class="table_question-range-data">
+                <div class="table_question-range-text">
+                    @((float)_dirModel.intT2Q2P8 / 100)
+                </div>
+            </div>
+            <div class="table_question-range-subtitle">
+                Проміжне оцінювання – пропорційно до частості проведення
+            </div>
+        </div>
     </div>
 
-
-    <div>
-        Кількість посадових осіб, яким встановлені надбавки за безпосереднє виконання функції із забезпечення кібербезпеки, кіберзахисту та безпеки інформаційних технологій
-    </div>
-    <div class="number-input-container">
-        <input disabled="@_isDisabled" @bind="_dirModel.T2Q2P9" type="number" name="checkbox" />
+    <div class="table_item">
         <div>
-            посадових осіб
+            Кількість посадових осіб, яким встановлені надбавки за безпосереднє виконання функції із забезпечення кібербезпеки, кіберзахисту та безпеки інформаційних технологій
+        </div>
+        <div class="number-input-container">
+            <input disabled="@_isDisabled" @bind="_dirModel.pT2Q2P9" type="number" name="checkbox" />
+            <div>
+                посадових осіб
+            </div>
+        </div>
+        <div class="table_question-rande">
+            <input @bind="_dirModel.intT2Q2P9" type="range" min="0" max="100" step="5"/>
+            <div class="table_question-range-data">
+                <div class="table_question-range-text">
+                    @((float)_dirModel.intT2Q2P9 / 100)
+                </div>
+            </div>
+            <div class="table_question-range-subtitle">
+                Проміжне оцінювання – пропорційно до чисельності працівників
+            </div>
         </div>
     </div>
 
@@ -181,22 +244,65 @@
         №4 Технології
     </div>
 
-    <div class="table_question">
-        <input disabled="@_isDisabled" @bind="_dirModel.T2Q4P13" type="checkbox" name="checkbox" />
-        <label>Ліцензійне програмне забезпечення</label>
+    <div class="table_item">
+        <div class="table_question">
+            <input disabled="@_isDisabled" @onchange="() => UpdateIntData(nameof(_dirModel.pT2Q4P13), nameof(_dirModel.intT2Q4P13))" type="checkbox" name="checkbox" />
+            <label>Ліцензійне програмне забезпечення</label>
+        </div>
+        <div class="table_question-rande">
+            <input @bind="_dirModel.intT2Q4P13" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q4P13)" />
+            <div class="table_question-range-data">
+                <div class="table_question-range-text">
+                    @((float)_dirModel.intT2Q4P13 / 100)
+                </div>
+            </div>
+            <div class="table_question-range-subtitle">
+                Проміжне оцінювання – пропорційно до % забезпеченості ліцензійним програмним забезпеченням
+            </div>
+        </div>
     </div>
-    <div class="table_question">
-        <input disabled="@_isDisabled" @bind="_dirModel.T2Q4P14" type="checkbox" name="checkbox" />
-        <label>Наявність антивірусних програм </label>
+
+    <div class="table_item">
+        <div class="table_question">
+            <input disabled="@_isDisabled" @onchange="() => UpdateIntData(nameof(_dirModel.pT2Q4P14), nameof(_dirModel.intT2Q4P14))" type="checkbox" name="checkbox" />
+            <label>Наявність антивірусних програм </label>
+        </div>
+        <div class="table_question-rande">
+            <input @bind="_dirModel.intT2Q4P14" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q4P14)" />
+            <div class="table_question-range-data">
+                <div class="table_question-range-text">
+                    @((float)_dirModel.intT2Q4P14 / 100)
+                </div>
+            </div>
+            <div class="table_question-range-subtitle">
+                Проміжне оцінювання – пропорційно до % забезпеченості антивірусними програмами
+            </div>
+        </div>
     </div>
-    <div class="table_question">
-        <input disabled="@_isDisabled" @bind="_dirModel.T2Q4P15" type="checkbox" name="checkbox" />
-        <label>Апаратне забезпечення</label>
+
+    <div class="table_item">
+        <div class="table_question">
+            <input disabled="@_isDisabled" @onchange="() => UpdateIntData(nameof(_dirModel.pT2Q4P15), nameof(_dirModel.intT2Q4P15))" type="checkbox" name="checkbox" />
+            <label>Апаратне забезпечення</label>
+        </div>
+        <div class="table_question-rande">
+            <input @bind="_dirModel.intT2Q4P15" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q4P15)" />
+            <div class="table_question-range-data">
+                <div class="table_question-range-text">
+                    @((float)_dirModel.intT2Q4P15 / 100)
+                </div>
+            </div>
+            <div class="table_question-range-subtitle">
+                Проміжне оцінювання – пропорційно до % забезпеченості апаратним забезпеченням
+            </div>
+        </div>
     </div>
+
     <div class="table_question">
         <input disabled="@_isDisabled" @bind="_dirModel.T2Q4P16" type="checkbox" name="checkbox" />
         <label>Хмарні ресурси</label>
     </div>
+
     <div class="table_question">
         <input disabled="@_isDisabled" @bind="_dirModel.T2Q4P17" type="checkbox" name="checkbox" />
         <label>Центри обробки даних</label>
@@ -225,17 +331,33 @@
         <input disabled="@_isDisabled" @bind="_dirModel.T2Q4P18" type="checkbox" name="checkbox" />
         <label>Активності</label>
     </div>
+
     <div class="table_question">
         <input disabled="@_isDisabled" @bind="_dirModel.T2Q4P19" type="checkbox" name="checkbox" />
         <label>Використання особистої електронної пошти для робочого листування</label>
     </div>
+
     <div class="table_question">
         <input disabled="@_isDisabled" @bind="_dirModel.T2Q4P20" type="checkbox" name="checkbox" />
         <label>Використання систем обміну миттєвими повідомленнями (месенджерами)</label>
     </div>
-    <div class="table_question">
-        <input disabled="@_isDisabled" @bind="_dirModel.T2Q4P21" type="checkbox" name="checkbox" />
-        <label>Використання додатків/сервісів для проведення відеоконференцій</label>
+
+    <div class="table_item">
+        <div class="table_question">
+            <input disabled="@_isDisabled" @onchange="() => UpdateIntData(nameof(_dirModel.pT2Q4P21), nameof(_dirModel.intT2Q4P21))" type="checkbox" name="checkbox" />
+            <label>Використання додатків/сервісів для проведення відеоконференцій</label>
+        </div>
+        <div class="table_question-rande">
+            <input @bind="_dirModel.intT2Q4P21" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q4P21)" />
+            <div class="table_question-range-data">
+                <div class="table_question-range-text">
+                    @((float)_dirModel.intT2Q4P21 / 100)
+                </div>
+            </div>
+            <div class="table_question-range-subtitle">
+                Проміжне оцінювання від 0 до 1 – пропорційно до % використання дозволених (безпечних) сервісів
+            </div>
+        </div>
     </div>
 
     <hr>
@@ -246,31 +368,70 @@
         №5 Фінансування
     </div>
 
-    <div class="table_question">
-        <label>Фінансування</label>
+    <div class="table_item">
+        <div class="table_question">
+            <label>Фінансування</label>
 
-        <div class="radio-container">
-            <label>
-                <input disabled="@_isDisabled" type="radio" name="financing" value="true" @onchange="() => _dirModel.T2Q5P22 = true" checked="@(_dirModel.T2Q5P22)" />
-                Достатньо
-            </label>
-            <label>
-                <input disabled="@_isDisabled" type="radio" name="financing" value="false" @onchange="() => _dirModel.T2Q5P22 = false" checked="@(!_dirModel.T2Q5P22)" />
-                Недостатньо
-            </label>
+            <div class="radio-container">
+                <label>
+                    <input disabled="@_isDisabled" type="radio" name="financing" value="true" @onchange="() => { _dirModel.pT2Q5P22 = true; _dirModel.intT2Q5P22 = 100;}" checked="@(_dirModel.pT2Q5P22)" />
+                    Достатньо
+                </label>
+                <label>
+                    <input disabled="@_isDisabled" type="radio" name="financing" value="false" @onchange="() => { _dirModel.pT2Q5P22 = false; _dirModel.intT2Q5P22 = 0;}" checked="@(!_dirModel.pT2Q5P22)" />
+                    Недостатньо
+                </label>
+            </div>
+        </div>
+        <div class="table_question-rande">
+            <input @bind="_dirModel.intT2Q5P22" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q5P22)" />
+            <div class="table_question-range-data">
+                <div class="table_question-range-text">
+                    @((float)_dirModel.intT2Q5P22 / 100)
+                </div>
+            </div>
+            <div class="table_question-range-subtitle">
+                Проміжне оцінювання – пропорційно до % забезпеченості потреб фінансуванням
+            </div>
         </div>
     </div>
 
-    <div class="number-input-container">
-        <input disabled="@_isDisabled" @bind="_dirModel.T2Q5P23" type="number" name="checkbox" />
-        грн.
-        <div>Середня заробітна плата спеціаліста вашого органу за 2022 рік</div>
+    <div class="table_item">
+        <div class="number-input-container">
+            <input disabled="@_isDisabled" @bind="_dirModel.pT2Q5P23" type="number" name="checkbox" />
+            грн.
+            <div>Середня заробітна плата спеціаліста вашого органу за 2022 рік</div>
+        </div>
+        <div class="table_question-rande">
+            <input @bind="_dirModel.intT2Q5P23" type="range" min="0" max="100" step="5"/>
+            <div class="table_question-range-data">
+                <div class="table_question-range-text">
+                    @((float)_dirModel.intT2Q5P23 / 100)
+                </div>
+            </div>
+            <div class="table_question-range-subtitle">
+                Оцінка від 0 до 1 пропорційно розмірам ЗП
+            </div>
+        </div>
     </div>
 
-    <div class="number-input-container">
-        <input disabled="@_isDisabled" @bind="_dirModel.T2Q5P24" type="number" name="checkbox" />
-        грн.
-        <div>Середня заробітна плата спеціаліста штатного підрозділу з ІБ/КЗ/КБ/ЗІ за 2022 рік</div>
+    <div class="table_item">
+        <div class="number-input-container">
+            <input disabled="@_isDisabled" @bind="_dirModel.pT2Q5P24" type="number" name="checkbox" />
+            грн.
+            <div>Середня заробітна плата спеціаліста штатного підрозділу з ІБ/КЗ/КБ/ЗІ за 2022 рік</div>
+        </div>
+        <div class="table_question-rande">
+            <input @bind="_dirModel.intT2Q5P24" type="range" min="0" max="100" step="5"/>
+            <div class="table_question-range-data">
+                <div class="table_question-range-text">
+                    @((float)_dirModel.intT2Q5P24 / 100)
+                </div>
+            </div>
+            <div class="table_question-range-subtitle">
+                Оцінка від 0 до 1 пропорційно розмірам ЗП
+            </div>
+        </div>
     </div>
 
     <div class="table_question">
@@ -458,14 +619,14 @@
     </div>
 
     <div>
-        <label>Використання систем обміну миттєвими повідомленнями (месенджерами)</label> 
+        <label>Використання систем обміну миттєвими повідомленнями (месенджерами)</label>
     </div>
     <div>
         <textarea readonly="@_isDisabled" @bind="@_dirModel.T5Q1P20" class="name_input"></textarea>
     </div>
 
     <div>
-        <label>Використання додатків/сервісів для проведення відеоконференцій</label> 
+        <label>Використання додатків/сервісів для проведення відеоконференцій</label>
     </div>
     <div>
         <textarea readonly="@_isDisabled" @bind="@_dirModel.T5Q1P21" class="name_input"></textarea>
@@ -534,7 +695,7 @@
         <div class="nav-buttons">
             <button class="back-button" @onclick="OpenPreviousPage">Відмінити</button>
 
-            @if(_isEdit)
+            @if (_isEdit)
             {
                 <button @onclick="UpdateDbData">@eventButtonName</button>
             }
