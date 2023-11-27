@@ -1,6 +1,6 @@
-﻿namespace QuestionnaireAnalyzer.Contracts.Models.Dir;
+﻿namespace QuestionnaireAnalyzer.Contracts.Models.Kii;
 
-public class DirFeasibilityModel
+public class KiiFeasibilityModel
 {
     public int Id { get; set; }
     public DateOnly Data { get; set; } //TODO: need implement
@@ -154,7 +154,6 @@ public class DirFeasibilityModel
     public int RS_IM_2 { get; set; }
 
     #endregion
-
 
     #region RC
 
