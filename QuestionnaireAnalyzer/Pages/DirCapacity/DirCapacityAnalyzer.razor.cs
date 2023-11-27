@@ -3,6 +3,7 @@ using QuestionnaireAnalyzer.Contracts.Interfaces.Services;
 using QuestionnaireAnalyzer.Contracts.Models.Dir;
 using ChartJs.Blazor.RadarChart;
 using ChartJs.Blazor.Common;
+using System.Linq;
 
 namespace QuestionnaireAnalyzer.Pages.DirCapacity;
 
@@ -90,38 +91,59 @@ public partial class DirCapacityAnalyzer
         foreach (var model in dirModels)
         {
             var stateProperties = typeof(DirCapacityModel).GetProperties()
-            .Where(p => p.PropertyType == typeof(bool) && (p.Name.StartsWith("T2Q1") || p.Name.StartsWith("T2Q2")))
-            .Select(p => (bool)p.GetValue(model));
+                .Where(p => p.PropertyType == typeof(bool) && (p.Name.StartsWith("T2Q1") || p.Name.StartsWith("T2Q2")))
+                .Select(p => (bool)p.GetValue(model));
 
             _state += stateProperties.Count(b => b);
 
+            _state += (float)typeof(DirCapacityModel).GetProperties()
+                .Where(p => p.PropertyType == typeof(int) && p.Name.StartsWith("intT2Q2"))
+                .Select(p => (int)p.GetValue(model))
+                .Sum() / 100;
 
             var politiciansProperties = typeof(DirCapacityModel).GetProperties()
-            .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q3"))
-            .Select(p => (bool)p.GetValue(model));
+                .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q3"))
+                .Select(p => (bool)p.GetValue(model));
 
             _politicians += politiciansProperties.Count(b => b);
 
+            _politicians += (float)typeof(DirCapacityModel).GetProperties()
+                .Where(p => p.PropertyType == typeof(int) && p.Name.StartsWith("intT2Q3"))
+                .Select(p => (int)p.GetValue(model))
+                .Sum() / 100;
 
             var technologiesProperties = typeof(DirCapacityModel).GetProperties()
-            .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q4"))
-            .Select(p => (bool)p.GetValue(model));
+                .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q4"))
+                .Select(p => (bool)p.GetValue(model));
 
             _technologies += technologiesProperties.Count(b => b);
 
+            _technologies += (float)typeof(DirCapacityModel).GetProperties()
+                .Where(p => p.PropertyType == typeof(int) && p.Name.StartsWith("intT2Q4"))
+                .Select(p => (int)p.GetValue(model))
+                .Sum() / 100;
 
             var financingProperties = typeof(DirCapacityModel).GetProperties()
-            .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q5"))
-            .Select(p => (bool)p.GetValue(model));
+                .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q5"))
+                .Select(p => (bool)p.GetValue(model));
 
             _financing += financingProperties.Count(b => b);
 
+            _financing += (float)typeof(DirCapacityModel).GetProperties()
+                .Where(p => p.PropertyType == typeof(int) && p.Name.StartsWith("intT2Q5"))
+                .Select(p => (int)p.GetValue(model))
+                .Sum() / 100;
 
             var planningProperties = typeof(DirCapacityModel).GetProperties()
-            .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q6"))
-            .Select(p => (bool)p.GetValue(model));
+                .Where(p => p.PropertyType == typeof(bool) && p.Name.StartsWith("T2Q6"))
+                .Select(p => (bool)p.GetValue(model));
 
             _planning += planningProperties.Count(b => b);
+
+            _planning += (float)typeof(DirCapacityModel).GetProperties()
+                .Where(p => p.PropertyType == typeof(int) && p.Name.StartsWith("intT2Q6"))
+                .Select(p => (int)p.GetValue(model))
+                .Sum() / 100;
         }
 
         _state /= dirModels.Count * _maxState;
