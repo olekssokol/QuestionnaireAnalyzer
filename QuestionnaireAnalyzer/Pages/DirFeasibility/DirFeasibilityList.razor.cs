@@ -11,28 +11,28 @@ public partial class DirFeasibilityList
     [Inject] private NavigationManager _navigationManager { get; set; }
     [Inject] private IDataService DataService { get; set; }
 
-    private List<DirCapacityModel> _dirModels = new();
+    private List<DirFeasibilityModel> _dirModels = new();
 
     protected override async Task OnInitializedAsync()
     {
-        _dirModels = await DataService.GetAllAsync<DirCapacityModel>();
+        _dirModels = await DataService.GetAllAsync<DirFeasibilityModel>();
     }
 
     private void OpenDirById(int id)
     {
-        _navigationManager.NavigateTo($"{ClientRoutes.Dir}{ClientRoutes.Capacity}/{id}");
+        _navigationManager.NavigateTo($"{ClientRoutes.Dir}{ClientRoutes.Feasibility}/{id}");
     }
 
     private void OpenDirByIdForUdate(int id)
     {
-        _navigationManager.NavigateTo($"{ClientRoutes.Dir}{ClientRoutes.Capacity}{ClientRoutes.Update}/{id}");
+        _navigationManager.NavigateTo($"{ClientRoutes.Dir}{ClientRoutes.Feasibility}{ClientRoutes.Update}/{id}");
     }
 
     private async Task DeleteFromDb(int id)
     {
-        await DataService.DeleteByIdAsync<DirCapacityModel>(id);
+        await DataService.DeleteByIdAsync<DirFeasibilityModel>(id);
 
-        _dirModels = await DataService.GetAllAsync<DirCapacityModel>();
+        _dirModels = await DataService.GetAllAsync<DirFeasibilityModel>();
 
         StateHasChanged();
     }

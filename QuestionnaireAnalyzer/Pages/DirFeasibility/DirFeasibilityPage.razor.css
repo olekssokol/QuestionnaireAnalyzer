@@ -51,18 +51,18 @@
     }
 
 .table_question {
-    display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px dotted;
 }
 
     .table_question label {
         display: block;
-        min-width: 100px;
+        margin: auto;
     }
 
     .table_question input {
-        margin-right: 10px;
+
     }
 
     .table_question textarea {
@@ -190,13 +190,24 @@ hr {
 }
 
 .radio-container {
-    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
 }
 
-.table_item {
-    display: block;
-    margin-bottom: 10px;
-}
+    .radio-container input {
+        margin-right: 5px;
+    }
+
+    .radio-container label {
+        display: flex;
+        align-items: center;
+    }
+
+    .table_item {
+        display: block;
+        margin-bottom: 10px;
+    }
 
     .table_item .table_question {
         margin-bottom: 0px;
@@ -229,4 +240,42 @@ hr {
     margin: auto 15px;
     font-size: 12px;
     text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.table-percentage {
+    background: #d9e2f3;
+}
+
+.table-id {
+    background: #bdd7ee;
+}
+
+.table-pr {
+    background: #c59ee2;
+}
+
+.table-de {
+    background: #ffe599;
+}
+
+.table-rs {
+    background: #ff9797;
+}
+
+.table-rc {
+    background: #c5e0b3;
+}
+
+.table-style {
+    border: 1px dotted;
 }

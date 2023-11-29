@@ -15,6 +15,14 @@ public partial class DirFeasibilityPage
 
     private DirFeasibilityModel _dirModel = new();
 
+    private bool _isTablelVisible;
+    private bool _isIDVisible;
+    private bool _isPRVisible;
+    private bool _isDEVisible;
+    private bool _isRSVisible;
+    private bool _isRCVisible;
+
+
     protected override async Task OnInitializedAsync()
     {
         if (Id != null)

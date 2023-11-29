@@ -3,6 +3,9 @@
 public class DirFeasibilityModel
 {
     public int Id { get; set; }
+
+    public string Name { get; set; } = string.Empty;
+
     public DateOnly Data { get; set; } //TODO: need implement
 
     #region ID
@@ -92,11 +95,11 @@ public class DirFeasibilityModel
     public int PR_MA_1 { get; set; }
     public int PR_MA_2 { get; set; }
 
-    public int PR_RT_1 { get; set; }
-    public int PR_RT_2 { get; set; }
-    public int PR_RT_3 { get; set; }
-    public int PR_RT_4 { get; set; }
-    public int PR_RT_5 { get; set; }
+    public int PR_PT_1 { get; set; }
+    public int PR_PT_2 { get; set; }
+    public int PR_PT_3 { get; set; }
+    public int PR_PT_4 { get; set; }
+    public int PR_PT_5 { get; set; }
 
     #endregion
 
@@ -165,7 +168,7 @@ public class DirFeasibilityModel
     public int RC_IM_2 { get; set; }
 
 
-    public int RC_CO_1 { get;}
+    public int RC_CO_1 { get; set; }
     public int RC_CO_2 { get; set; }
     public int RC_CO_3 { get; set; }
 
@@ -331,7 +334,7 @@ public class DirFeasibilityModel
     public FeasibilityState RC_IM_2_text { get; set; }
 
 
-    public FeasibilityState RC_CO_1_text { get; }
+    public FeasibilityState RC_CO_1_text { get; set; }
     public FeasibilityState RC_CO_2_text { get; set; }
     public FeasibilityState RC_CO_3_text { get; set; }
 
