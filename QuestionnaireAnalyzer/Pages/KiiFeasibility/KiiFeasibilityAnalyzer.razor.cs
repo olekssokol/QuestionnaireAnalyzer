@@ -1,10 +1,10 @@
 ﻿using ChartJs.Blazor.Common;
 using Microsoft.AspNetCore.Components;
 using QuestionnaireAnalyzer.Contracts.Interfaces.Services;
-using QuestionnaireAnalyzer.Contracts.Models.Dir;
+using QuestionnaireAnalyzer.Contracts.Models.Kii;
 using ChartJs.Blazor.RadarChart;
 
-namespace QuestionnaireAnalyzer.Pages.DirFeasibility;
+namespace QuestionnaireAnalyzer.Pages.KiiFeasibility;
 
 public partial class KiiFeasibilityAnalyzer
 {
@@ -79,21 +79,21 @@ public partial class KiiFeasibilityAnalyzer
 
     private async Task AnalyzeAsync()
     {
-        var dirModels = await DataService.GetAllAsync<DirFeasibilityModel>();
+        var kiiModels = await DataService.GetAllAsync<KiiFeasibilityModel>();
 
-        foreach (var model in dirModels)
+        foreach (var model in kiiModels)
         {
             TableCalculate(model);
         }
 
-        CalculatingInterest(_ID_Result, _ID_Data, 29 * dirModels.Count);
-        CalculatingInterest(_PR_Result, _PR_Data, 29 * dirModels.Count);
-        CalculatingInterest(_DE_Result, _DE_Data, 18 * dirModels.Count);
-        CalculatingInterest(_RS_Result, _RS_Data, 16 * dirModels.Count);
-        CalculatingInterest(_RC_Result, _RC_Data, 6 * dirModels.Count);
+        CalculatingInterest(_ID_Result, _ID_Data, 29 * kiiModels.Count);
+        CalculatingInterest(_PR_Result, _PR_Data, 29 * kiiModels.Count);
+        CalculatingInterest(_DE_Result, _DE_Data, 18 * kiiModels.Count);
+        CalculatingInterest(_RS_Result, _RS_Data, 16 * kiiModels.Count);
+        CalculatingInterest(_RC_Result, _RC_Data, 6 * kiiModels.Count);
     }
 
-    private void TableCalculate(DirFeasibilityModel model)
+    private void TableCalculate(KiiFeasibilityModel model)
     {
         ProcessItems("ID", _ID_Data, model);
         ProcessItems("PR", _PR_Data, model);
@@ -102,9 +102,9 @@ public partial class KiiFeasibilityAnalyzer
         ProcessItems("RC", _RC_Data, model);
     }
 
-    void ProcessItems(string prefix, int[] resultArray, DirFeasibilityModel model)
+    void ProcessItems(string prefix, int[] resultArray, KiiFeasibilityModel model)
     {
-        var items = typeof(DirFeasibilityModel).GetProperties()
+        var items = typeof(KiiFeasibilityModel).GetProperties()
             .Where(p => p.PropertyType == typeof(int) && p.Name.StartsWith(prefix))
             .Select(p => (int)p.GetValue(model));
 

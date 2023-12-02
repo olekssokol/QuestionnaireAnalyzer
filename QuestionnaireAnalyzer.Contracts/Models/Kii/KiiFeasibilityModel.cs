@@ -3,6 +3,11 @@
 public class KiiFeasibilityModel
 {
     public int Id { get; set; }
+    public string NameQ1 { get; set; } = string.Empty;
+    public string NameQ2 { get; set; } = string.Empty;
+    public string NameQ3 { get; set; } = string.Empty;
+    public string NameQ4 { get; set; } = string.Empty;
+
     public DateOnly Data { get; set; } //TODO: need implement
 
     #region ID
@@ -92,11 +97,11 @@ public class KiiFeasibilityModel
     public int PR_MA_1 { get; set; }
     public int PR_MA_2 { get; set; }
 
-    public int PR_RT_1 { get; set; }
-    public int PR_RT_2 { get; set; }
-    public int PR_RT_3 { get; set; }
-    public int PR_RT_4 { get; set; }
-    public int PR_RT_5 { get; set; }
+    public int PR_PT_1 { get; set; }
+    public int PR_PT_2 { get; set; }
+    public int PR_PT_3 { get; set; }
+    public int PR_PT_4 { get; set; }
+    public int PR_PT_5 { get; set; }
 
     #endregion
 
@@ -164,7 +169,7 @@ public class KiiFeasibilityModel
     public int RC_IM_2 { get; set; }
 
 
-    public int RC_CO_1 { get;}
+    public int RC_CO_1 { get; set; }
     public int RC_CO_2 { get; set; }
     public int RC_CO_3 { get; set; }
 
@@ -257,11 +262,11 @@ public class KiiFeasibilityModel
     public FeasibilityState PR_MA_1_text { get; set; }
     public FeasibilityState PR_MA_2_text { get; set; }
 
-    public FeasibilityState PR_RT_1_text { get; set; }
-    public FeasibilityState PR_RT_2_text { get; set; }
-    public FeasibilityState PR_RT_3_text { get; set; }
-    public FeasibilityState PR_RT_4_text { get; set; }
-    public FeasibilityState PR_RT_5_text { get; set; }
+    public FeasibilityState PR_PT_1_text { get; set; }
+    public FeasibilityState PR_PT_2_text { get; set; }
+    public FeasibilityState PR_PT_3_text { get; set; }
+    public FeasibilityState PR_PT_4_text { get; set; }
+    public FeasibilityState PR_PT_5_text { get; set; }
 
     #endregion
 

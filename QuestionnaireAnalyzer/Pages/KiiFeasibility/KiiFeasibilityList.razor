@@ -1,0 +1,36 @@
+﻿@page "/kii/feasibility/list"
+
+<div class="container">
+    <div class="kii-list">
+
+        <div class="container-title">
+            ДІР
+            <p>Методика оцінювання виконуваності вимог/заходів кіберзахисту</p>
+        </div>
+
+        @foreach (var item in _kiiModels)
+        {
+            <div class="kii-item">
+                <div class="item-name" @onclick="() => OpenKiiById(item.Id)">
+                    <div class="item-name-text">
+                        @item.NameQ1
+                    </div>
+                </div>
+
+                <div class="item-buttons">
+                    <div class="item-button" @onclick="() => OpenKiiByIdForUdate(item.Id)" style="margin-right: 17px;">Редагувати</div>
+                    <div class="item-button" @onclick="() => DeleteFromDb(item.Id)">Видалити</div>
+                </div>
+            </div>
+        }
+
+        @if (_kiiModels != null && _kiiModels.Count == 0)
+        {
+            <div class="main-page-button">
+                <button @onclick="OpenInputTypePage"> ДОДАТИ ДАНІ </button>
+            </div>
+        }
+
+    </div>
+
+</div>
