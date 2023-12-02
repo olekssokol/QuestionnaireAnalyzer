@@ -24,9 +24,23 @@
     </div>
 
     <hr>
-    @*  TODO: add hedi button for table *@
+    
+    @if (_isDisabled)
+    {
+<div class="centered-text clicked" @onclick="() => { _isTableVisible = !_isTableVisible;}">
+        Відомості щодо узагальнення заходів кіберзахисту за статусом реалізаці
 
-    @if (_isTablelVisible)
+        @if (_isTableVisible)
+        {
+            <img src="img/caretDown.svg" alt="caretTop" />
+        }
+        else
+        {
+            <img src="img/caretTop.svg" alt="caretTop" />
+        }
+    </div>
+
+    @if (_isTableVisible)
     {
         <table>
             <tr>
@@ -45,96 +59,97 @@
             <tr>
                 <td rowspan="2" class="table-id">Ідентифікація ризиків кібербезпеки (ID)</td>
                 <td rowspan="2" class="table-id">29</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>@_ID_TableResult[0]</td>
+                <td>@_ID_TableResult[1]</td>
+                <td>@_ID_TableResult[2]</td>
+                <td>@_ID_TableResult[3]</td>
             </tr>
             <tr>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
+                <td class="table-percentage">@(Math.Round((float)_ID_TableResult[0] / 0.29, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_ID_TableResult[1] / 0.29, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_ID_TableResult[2] / 0.29, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_ID_TableResult[3] / 0.29, 2))%</td>
             </tr>
 
             <tr>
                 <td rowspan="2" class="table-pr">Кіберзахист (PR)</td>
                 <td rowspan="2" class="table-pr">39</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>@_PR_TableResult[0]</td>
+                <td>@_PR_TableResult[1]</td>
+                <td>@_PR_TableResult[2]</td>
+                <td>@_PR_TableResult[3]</td>
             </tr>
             <tr>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
+                <td class="table-percentage">@(Math.Round((float)_PR_TableResult[0] / 0.39, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_PR_TableResult[1] / 0.39, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_PR_TableResult[2] / 0.39, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_PR_TableResult[3] / 0.39, 2))%</td>
             </tr>
 
             <tr>
                 <td rowspan="2" class="table-de">Виявлення кіберінцидентів (DE)</td>
                 <td rowspan="2" class="table-de">18</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>@_DE_TableResult[0]</td>
+                <td>@_DE_TableResult[1]</td>
+                <td>@_DE_TableResult[2]</td>
+                <td>@_DE_TableResult[3]</td>
             </tr>
             <tr>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
+                <td class="table-percentage">@(Math.Round((float)_DE_TableResult[0] / 0.18, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_DE_TableResult[1] / 0.18, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_DE_TableResult[2] / 0.18, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_DE_TableResult[3] / 0.18, 2))%</td>
             </tr>
 
             <tr>
                 <td rowspan="2" class="table-rs">Реагування на кіберінциденти (RS)</td>
                 <td rowspan="2" class="table-rs">16</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>@_RS_TableResult[0]</td>
+                <td>@_RS_TableResult[1]</td>
+                <td>@_RS_TableResult[2]</td>
+                <td>@_RS_TableResult[3]</td>
             </tr>
             <tr>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
+                <td class="table-percentage">@(Math.Round((float)_RS_TableResult[0] / 0.16, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_RS_TableResult[1] / 0.16, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_RS_TableResult[2] / 0.16, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_RS_TableResult[3] / 0.16, 2))%</td>
             </tr>
 
             <tr>
                 <td rowspan="2" class="table-rc">Відновлення стану кібербезпеки (RC)</td>
                 <td rowspan="2" class="table-rc">6</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>@_RC_TableResult[0]</td>
+                <td>@_RC_TableResult[1]</td>
+                <td>@_RC_TableResult[2]</td>
+                <td>@_RC_TableResult[3]</td>
             </tr>
             <tr>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
+                <td class="table-percentage">@(Math.Round((float)_RC_TableResult[0] / 0.6, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_RC_TableResult[1] / 0.6, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_RC_TableResult[2] / 0.6, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_RC_TableResult[3] / 0.6, 2))%</td>
             </tr>
 
             <tr>
                 <td rowspan="2">Всього:</td>
                 <td rowspan="2">108</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>@_TableResult[0]</td>
+                <td>@_TableResult[1]</td>
+                <td>@_TableResult[2]</td>
+                <td>@_TableResult[3]</td>
             </tr>
             <tr>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
-                <td class="table-percentage">%</td>
+                <td class="table-percentage">@(Math.Round((float)_TableResult[0] / 1.08, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_TableResult[1] / 1.08, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_TableResult[2] / 1.08, 2))%</td>
+                <td class="table-percentage">@(Math.Round((float)_TableResult[3] / 1.08, 2))%</td>
             </tr>
         </table>
     }
 
     <hr>
+    }
 
     <div class="title">
         Оцінювання заходів кіберзахисту за статусом реалізації
@@ -157,22 +172,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_1 = 1;}" checked="@(_dirModel.ID_AM_1 == 1)" />
+                    @onchange="() => { _dirModel.ID_AM_1 = 1;}" checked="@(_dirModel.ID_AM_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_1 = 2;}" checked="@(_dirModel.ID_AM_1 == 2)" />
+                    @onchange="() => { _dirModel.ID_AM_1 = 2;}" checked="@(_dirModel.ID_AM_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_1 = 3;}" checked="@(_dirModel.ID_AM_1 == 3)" />
+                    @onchange="() => { _dirModel.ID_AM_1 = 3;}" checked="@(_dirModel.ID_AM_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_1 = 4;}" checked="@(_dirModel.ID_AM_1 == 4)" />
+                    @onchange="() => { _dirModel.ID_AM_1 = 4;}" checked="@(_dirModel.ID_AM_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -186,22 +201,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_2 = 1;}" checked="@(_dirModel.ID_AM_2 == 1)" />
+                    @onchange="() => { _dirModel.ID_AM_2 = 1;}" checked="@(_dirModel.ID_AM_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_2 = 2;}" checked="@(_dirModel.ID_AM_2 == 2)" />
+                    @onchange="() => { _dirModel.ID_AM_2 = 2;}" checked="@(_dirModel.ID_AM_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_2 = 3;}" checked="@(_dirModel.ID_AM_2 == 3)" />
+                    @onchange="() => { _dirModel.ID_AM_2 = 3;}" checked="@(_dirModel.ID_AM_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_2 = 4;}" checked="@(_dirModel.ID_AM_2 == 4)" />
+                    @onchange="() => { _dirModel.ID_AM_2 = 4;}" checked="@(_dirModel.ID_AM_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -215,22 +230,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_3 = 1;}" checked="@(_dirModel.ID_AM_3 == 1)" />
+                    @onchange="() => { _dirModel.ID_AM_3 = 1;}" checked="@(_dirModel.ID_AM_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_3 = 2;}" checked="@(_dirModel.ID_AM_3 == 2)" />
+                    @onchange="() => { _dirModel.ID_AM_3 = 2;}" checked="@(_dirModel.ID_AM_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_3 = 3;}" checked="@(_dirModel.ID_AM_3 == 3)" />
+                    @onchange="() => { _dirModel.ID_AM_3 = 3;}" checked="@(_dirModel.ID_AM_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_3 = 4;}" checked="@(_dirModel.ID_AM_3 == 4)" />
+                    @onchange="() => { _dirModel.ID_AM_3 = 4;}" checked="@(_dirModel.ID_AM_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -244,22 +259,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_4 = 1;}" checked="@(_dirModel.ID_AM_4 == 1)" />
+                    @onchange="() => { _dirModel.ID_AM_4 = 1;}" checked="@(_dirModel.ID_AM_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_4 = 2;}" checked="@(_dirModel.ID_AM_4 == 2)" />
+                    @onchange="() => { _dirModel.ID_AM_4 = 2;}" checked="@(_dirModel.ID_AM_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_4 = 3;}" checked="@(_dirModel.ID_AM_4 == 3)" />
+                    @onchange="() => { _dirModel.ID_AM_4 = 3;}" checked="@(_dirModel.ID_AM_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_4 = 4;}" checked="@(_dirModel.ID_AM_4 == 4)" />
+                    @onchange="() => { _dirModel.ID_AM_4 = 4;}" checked="@(_dirModel.ID_AM_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -273,22 +288,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_5 = 1;}" checked="@(_dirModel.ID_AM_5 == 1)" />
+                    @onchange="() => { _dirModel.ID_AM_5 = 1;}" checked="@(_dirModel.ID_AM_5 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_5 = 2;}" checked="@(_dirModel.ID_AM_5 == 2)" />
+                    @onchange="() => { _dirModel.ID_AM_5 = 2;}" checked="@(_dirModel.ID_AM_5 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_5 = 3;}" checked="@(_dirModel.ID_AM_5 == 3)" />
+                    @onchange="() => { _dirModel.ID_AM_5 = 3;}" checked="@(_dirModel.ID_AM_5 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_5 = 4;}" checked="@(_dirModel.ID_AM_5 == 4)" />
+                    @onchange="() => { _dirModel.ID_AM_5 = 4;}" checked="@(_dirModel.ID_AM_5 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -302,22 +317,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_6 = 1;}" checked="@(_dirModel.ID_AM_6 == 1)" />
+                    @onchange="() => { _dirModel.ID_AM_6 = 1;}" checked="@(_dirModel.ID_AM_6 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_6 = 2;}" checked="@(_dirModel.ID_AM_6 == 2)" />
+                    @onchange="() => { _dirModel.ID_AM_6 = 2;}" checked="@(_dirModel.ID_AM_6 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_6 = 3;}" checked="@(_dirModel.ID_AM_6 == 3)" />
+                    @onchange="() => { _dirModel.ID_AM_6 = 3;}" checked="@(_dirModel.ID_AM_6 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_AM_6 = 4;}" checked="@(_dirModel.ID_AM_6 == 4)" />
+                    @onchange="() => { _dirModel.ID_AM_6 = 4;}" checked="@(_dirModel.ID_AM_6 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -336,22 +351,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_1 = 1;}" checked="@(_dirModel.ID_BE_1 == 1)" />
+                    @onchange="() => { _dirModel.ID_BE_1 = 1;}" checked="@(_dirModel.ID_BE_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_1 = 2;}" checked="@(_dirModel.ID_BE_1 == 2)" />
+                    @onchange="() => { _dirModel.ID_BE_1 = 2;}" checked="@(_dirModel.ID_BE_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_1 = 3;}" checked="@(_dirModel.ID_BE_1 == 3)" />
+                    @onchange="() => { _dirModel.ID_BE_1 = 3;}" checked="@(_dirModel.ID_BE_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_1 = 4;}" checked="@(_dirModel.ID_BE_1 == 4)" />
+                    @onchange="() => { _dirModel.ID_BE_1 = 4;}" checked="@(_dirModel.ID_BE_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -366,22 +381,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_2 = 1;}" checked="@(_dirModel.ID_BE_2 == 1)" />
+                    @onchange="() => { _dirModel.ID_BE_2 = 1;}" checked="@(_dirModel.ID_BE_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_2 = 2;}" checked="@(_dirModel.ID_BE_2 == 2)" />
+                    @onchange="() => { _dirModel.ID_BE_2 = 2;}" checked="@(_dirModel.ID_BE_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_2 = 3;}" checked="@(_dirModel.ID_BE_2 == 3)" />
+                    @onchange="() => { _dirModel.ID_BE_2 = 3;}" checked="@(_dirModel.ID_BE_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_2 = 4;}" checked="@(_dirModel.ID_BE_2 == 4)" />
+                    @onchange="() => { _dirModel.ID_BE_2 = 4;}" checked="@(_dirModel.ID_BE_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -396,22 +411,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_3 = 1;}" checked="@(_dirModel.ID_BE_3 == 1)" />
+                    @onchange="() => { _dirModel.ID_BE_3 = 1;}" checked="@(_dirModel.ID_BE_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_3 = 2;}" checked="@(_dirModel.ID_BE_3 == 2)" />
+                    @onchange="() => { _dirModel.ID_BE_3 = 2;}" checked="@(_dirModel.ID_BE_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_3 = 3;}" checked="@(_dirModel.ID_BE_3 == 3)" />
+                    @onchange="() => { _dirModel.ID_BE_3 = 3;}" checked="@(_dirModel.ID_BE_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_3 = 4;}" checked="@(_dirModel.ID_BE_3 == 4)" />
+                    @onchange="() => { _dirModel.ID_BE_3 = 4;}" checked="@(_dirModel.ID_BE_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -426,22 +441,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_4 = 1;}" checked="@(_dirModel.ID_BE_4 == 1)" />
+                    @onchange="() => { _dirModel.ID_BE_4 = 1;}" checked="@(_dirModel.ID_BE_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_4 = 2;}" checked="@(_dirModel.ID_BE_4 == 2)" />
+                    @onchange="() => { _dirModel.ID_BE_4 = 2;}" checked="@(_dirModel.ID_BE_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_4 = 3;}" checked="@(_dirModel.ID_BE_4 == 3)" />
+                    @onchange="() => { _dirModel.ID_BE_4 = 3;}" checked="@(_dirModel.ID_BE_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_4 = 4;}" checked="@(_dirModel.ID_BE_4 == 4)" />
+                    @onchange="() => { _dirModel.ID_BE_4 = 4;}" checked="@(_dirModel.ID_BE_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -456,22 +471,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_5 = 1;}" checked="@(_dirModel.ID_BE_5 == 1)" />
+                    @onchange="() => { _dirModel.ID_BE_5 = 1;}" checked="@(_dirModel.ID_BE_5 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_5 = 2;}" checked="@(_dirModel.ID_BE_5 == 2)" />
+                    @onchange="() => { _dirModel.ID_BE_5 = 2;}" checked="@(_dirModel.ID_BE_5 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_5 = 3;}" checked="@(_dirModel.ID_BE_5 == 3)" />
+                    @onchange="() => { _dirModel.ID_BE_5 = 3;}" checked="@(_dirModel.ID_BE_5 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_BE_5 = 4;}" checked="@(_dirModel.ID_BE_5 == 4)" />
+                    @onchange="() => { _dirModel.ID_BE_5 = 4;}" checked="@(_dirModel.ID_BE_5 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -490,22 +505,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_1 = 1;}" checked="@(_dirModel.ID_GV_1 == 1)" />
+                    @onchange="() => { _dirModel.ID_GV_1 = 1;}" checked="@(_dirModel.ID_GV_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_1 = 2;}" checked="@(_dirModel.ID_GV_1 == 2)" />
+                    @onchange="() => { _dirModel.ID_GV_1 = 2;}" checked="@(_dirModel.ID_GV_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_1 = 3;}" checked="@(_dirModel.ID_GV_1 == 3)" />
+                    @onchange="() => { _dirModel.ID_GV_1 = 3;}" checked="@(_dirModel.ID_GV_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_1 = 4;}" checked="@(_dirModel.ID_GV_1 == 4)" />
+                    @onchange="() => { _dirModel.ID_GV_1 = 4;}" checked="@(_dirModel.ID_GV_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -520,22 +535,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_2 = 1;}" checked="@(_dirModel.ID_GV_2 == 1)" />
+                    @onchange="() => { _dirModel.ID_GV_2 = 1;}" checked="@(_dirModel.ID_GV_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_2 = 2;}" checked="@(_dirModel.ID_GV_2 == 2)" />
+                    @onchange="() => { _dirModel.ID_GV_2 = 2;}" checked="@(_dirModel.ID_GV_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_2 = 3;}" checked="@(_dirModel.ID_GV_2 == 3)" />
+                    @onchange="() => { _dirModel.ID_GV_2 = 3;}" checked="@(_dirModel.ID_GV_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_2 = 4;}" checked="@(_dirModel.ID_GV_2 == 4)" />
+                    @onchange="() => { _dirModel.ID_GV_2 = 4;}" checked="@(_dirModel.ID_GV_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -550,22 +565,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_3 = 1;}" checked="@(_dirModel.ID_GV_3 == 1)" />
+                    @onchange="() => { _dirModel.ID_GV_3 = 1;}" checked="@(_dirModel.ID_GV_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_3 = 2;}" checked="@(_dirModel.ID_GV_3 == 2)" />
+                    @onchange="() => { _dirModel.ID_GV_3 = 2;}" checked="@(_dirModel.ID_GV_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_3 = 3;}" checked="@(_dirModel.ID_GV_3 == 3)" />
+                    @onchange="() => { _dirModel.ID_GV_3 = 3;}" checked="@(_dirModel.ID_GV_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_3 = 4;}" checked="@(_dirModel.ID_GV_3 == 4)" />
+                    @onchange="() => { _dirModel.ID_GV_3 = 4;}" checked="@(_dirModel.ID_GV_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -580,22 +595,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_4 = 1;}" checked="@(_dirModel.ID_GV_4 == 1)" />
+                    @onchange="() => { _dirModel.ID_GV_4 = 1;}" checked="@(_dirModel.ID_GV_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_4 = 2;}" checked="@(_dirModel.ID_GV_4 == 2)" />
+                    @onchange="() => { _dirModel.ID_GV_4 = 2;}" checked="@(_dirModel.ID_GV_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_4 = 3;}" checked="@(_dirModel.ID_GV_4 == 3)" />
+                    @onchange="() => { _dirModel.ID_GV_4 = 3;}" checked="@(_dirModel.ID_GV_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_GV_4 = 4;}" checked="@(_dirModel.ID_GV_4 == 4)" />
+                    @onchange="() => { _dirModel.ID_GV_4 = 4;}" checked="@(_dirModel.ID_GV_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -613,22 +628,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_1 = 1;}" checked="@(_dirModel.ID_RA_1 == 1)" />
+                    @onchange="() => { _dirModel.ID_RA_1 = 1;}" checked="@(_dirModel.ID_RA_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_1 = 2;}" checked="@(_dirModel.ID_RA_1 == 2)" />
+                    @onchange="() => { _dirModel.ID_RA_1 = 2;}" checked="@(_dirModel.ID_RA_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_1 = 3;}" checked="@(_dirModel.ID_RA_1 == 3)" />
+                    @onchange="() => { _dirModel.ID_RA_1 = 3;}" checked="@(_dirModel.ID_RA_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_1 = 4;}" checked="@(_dirModel.ID_RA_1 == 4)" />
+                    @onchange="() => { _dirModel.ID_RA_1 = 4;}" checked="@(_dirModel.ID_RA_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -642,22 +657,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_2 = 1;}" checked="@(_dirModel.ID_RA_2 == 1)" />
+                    @onchange="() => { _dirModel.ID_RA_2 = 1;}" checked="@(_dirModel.ID_RA_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_2 = 2;}" checked="@(_dirModel.ID_RA_2 == 2)" />
+                    @onchange="() => { _dirModel.ID_RA_2 = 2;}" checked="@(_dirModel.ID_RA_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_2 = 3;}" checked="@(_dirModel.ID_RA_2 == 3)" />
+                    @onchange="() => { _dirModel.ID_RA_2 = 3;}" checked="@(_dirModel.ID_RA_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_2 = 4;}" checked="@(_dirModel.ID_RA_2 == 4)" />
+                    @onchange="() => { _dirModel.ID_RA_2 = 4;}" checked="@(_dirModel.ID_RA_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -671,22 +686,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_3 = 1;}" checked="@(_dirModel.ID_RA_3 == 1)" />
+                    @onchange="() => { _dirModel.ID_RA_3 = 1;}" checked="@(_dirModel.ID_RA_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_3 = 2;}" checked="@(_dirModel.ID_RA_3 == 2)" />
+                    @onchange="() => { _dirModel.ID_RA_3 = 2;}" checked="@(_dirModel.ID_RA_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_3 = 3;}" checked="@(_dirModel.ID_RA_3 == 3)" />
+                    @onchange="() => { _dirModel.ID_RA_3 = 3;}" checked="@(_dirModel.ID_RA_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_3 = 4;}" checked="@(_dirModel.ID_RA_3 == 4)" />
+                    @onchange="() => { _dirModel.ID_RA_3 = 4;}" checked="@(_dirModel.ID_RA_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -700,22 +715,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_4 = 1;}" checked="@(_dirModel.ID_RA_4 == 1)" />
+                    @onchange="() => { _dirModel.ID_RA_4 = 1;}" checked="@(_dirModel.ID_RA_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_4 = 2;}" checked="@(_dirModel.ID_RA_4 == 2)" />
+                    @onchange="() => { _dirModel.ID_RA_4 = 2;}" checked="@(_dirModel.ID_RA_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_4 = 3;}" checked="@(_dirModel.ID_RA_4 == 3)" />
+                    @onchange="() => { _dirModel.ID_RA_4 = 3;}" checked="@(_dirModel.ID_RA_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_4 = 4;}" checked="@(_dirModel.ID_RA_4 == 4)" />
+                    @onchange="() => { _dirModel.ID_RA_4 = 4;}" checked="@(_dirModel.ID_RA_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -729,22 +744,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_5 = 1;}" checked="@(_dirModel.ID_RA_5 == 1)" />
+                    @onchange="() => { _dirModel.ID_RA_5 = 1;}" checked="@(_dirModel.ID_RA_5 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_5 = 2;}" checked="@(_dirModel.ID_RA_5 == 2)" />
+                    @onchange="() => { _dirModel.ID_RA_5 = 2;}" checked="@(_dirModel.ID_RA_5 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_5 = 3;}" checked="@(_dirModel.ID_RA_5 == 3)" />
+                    @onchange="() => { _dirModel.ID_RA_5 = 3;}" checked="@(_dirModel.ID_RA_5 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_5 = 4;}" checked="@(_dirModel.ID_RA_5 == 4)" />
+                    @onchange="() => { _dirModel.ID_RA_5 = 4;}" checked="@(_dirModel.ID_RA_5 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -758,22 +773,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_6 = 1;}" checked="@(_dirModel.ID_RA_6 == 1)" />
+                    @onchange="() => { _dirModel.ID_RA_6 = 1;}" checked="@(_dirModel.ID_RA_6 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_6 = 2;}" checked="@(_dirModel.ID_RA_6 == 2)" />
+                    @onchange="() => { _dirModel.ID_RA_6 = 2;}" checked="@(_dirModel.ID_RA_6 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_6 = 3;}" checked="@(_dirModel.ID_RA_6 == 3)" />
+                    @onchange="() => { _dirModel.ID_RA_6 = 3;}" checked="@(_dirModel.ID_RA_6 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RA_6 = 4;}" checked="@(_dirModel.ID_RA_6 == 4)" />
+                    @onchange="() => { _dirModel.ID_RA_6 = 4;}" checked="@(_dirModel.ID_RA_6 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -792,22 +807,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RM_1 = 1;}" checked="@(_dirModel.ID_RM_1 == 1)" />
+                    @onchange="() => { _dirModel.ID_RM_1 = 1;}" checked="@(_dirModel.ID_RM_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RM_1 = 2;}" checked="@(_dirModel.ID_RM_1 == 2)" />
+                    @onchange="() => { _dirModel.ID_RM_1 = 2;}" checked="@(_dirModel.ID_RM_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RM_1 = 3;}" checked="@(_dirModel.ID_RM_1 == 3)" />
+                    @onchange="() => { _dirModel.ID_RM_1 = 3;}" checked="@(_dirModel.ID_RM_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RM_1 = 4;}" checked="@(_dirModel.ID_RM_1 == 4)" />
+                    @onchange="() => { _dirModel.ID_RM_1 = 4;}" checked="@(_dirModel.ID_RM_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -822,22 +837,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RM_2 = 1;}" checked="@(_dirModel.ID_RM_2 == 1)" />
+                    @onchange="() => { _dirModel.ID_RM_2 = 1;}" checked="@(_dirModel.ID_RM_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RM_2 = 2;}" checked="@(_dirModel.ID_RM_2 == 2)" />
+                    @onchange="() => { _dirModel.ID_RM_2 = 2;}" checked="@(_dirModel.ID_RM_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RM_2 = 3;}" checked="@(_dirModel.ID_RM_2 == 3)" />
+                    @onchange="() => { _dirModel.ID_RM_2 = 3;}" checked="@(_dirModel.ID_RM_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RM_2 = 4;}" checked="@(_dirModel.ID_RM_2 == 4)" />
+                    @onchange="() => { _dirModel.ID_RM_2 = 4;}" checked="@(_dirModel.ID_RM_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -852,22 +867,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RM_3 = 1;}" checked="@(_dirModel.ID_RM_3 == 1)" />
+                    @onchange="() => { _dirModel.ID_RM_3 = 1;}" checked="@(_dirModel.ID_RM_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RM_3 = 2;}" checked="@(_dirModel.ID_RM_3 == 2)" />
+                    @onchange="() => { _dirModel.ID_RM_3 = 2;}" checked="@(_dirModel.ID_RM_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RM_3 = 3;}" checked="@(_dirModel.ID_RM_3 == 3)" />
+                    @onchange="() => { _dirModel.ID_RM_3 = 3;}" checked="@(_dirModel.ID_RM_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_RM_3 = 4;}" checked="@(_dirModel.ID_RM_3 == 4)" />
+                    @onchange="() => { _dirModel.ID_RM_3 = 4;}" checked="@(_dirModel.ID_RM_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -886,22 +901,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_1 = 1;}" checked="@(_dirModel.ID_SC_1 == 1)" />
+                    @onchange="() => { _dirModel.ID_SC_1 = 1;}" checked="@(_dirModel.ID_SC_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_1 = 2;}" checked="@(_dirModel.ID_SC_1 == 2)" />
+                    @onchange="() => { _dirModel.ID_SC_1 = 2;}" checked="@(_dirModel.ID_SC_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_1 = 3;}" checked="@(_dirModel.ID_SC_1 == 3)" />
+                    @onchange="() => { _dirModel.ID_SC_1 = 3;}" checked="@(_dirModel.ID_SC_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_1 = 4;}" checked="@(_dirModel.ID_SC_1 == 4)" />
+                    @onchange="() => { _dirModel.ID_SC_1 = 4;}" checked="@(_dirModel.ID_SC_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -916,22 +931,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_2 = 1;}" checked="@(_dirModel.ID_SC_2 == 1)" />
+                    @onchange="() => { _dirModel.ID_SC_2 = 1;}" checked="@(_dirModel.ID_SC_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_2 = 2;}" checked="@(_dirModel.ID_SC_2 == 2)" />
+                    @onchange="() => { _dirModel.ID_SC_2 = 2;}" checked="@(_dirModel.ID_SC_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_2 = 3;}" checked="@(_dirModel.ID_SC_2 == 3)" />
+                    @onchange="() => { _dirModel.ID_SC_2 = 3;}" checked="@(_dirModel.ID_SC_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_2 = 4;}" checked="@(_dirModel.ID_SC_2 == 4)" />
+                    @onchange="() => { _dirModel.ID_SC_2 = 4;}" checked="@(_dirModel.ID_SC_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -946,22 +961,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_3 = 1;}" checked="@(_dirModel.ID_SC_3 == 1)" />
+                    @onchange="() => { _dirModel.ID_SC_3 = 1;}" checked="@(_dirModel.ID_SC_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_3 = 2;}" checked="@(_dirModel.ID_SC_3 == 2)" />
+                    @onchange="() => { _dirModel.ID_SC_3 = 2;}" checked="@(_dirModel.ID_SC_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_3 = 3;}" checked="@(_dirModel.ID_SC_3 == 3)" />
+                    @onchange="() => { _dirModel.ID_SC_3 = 3;}" checked="@(_dirModel.ID_SC_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_3 = 4;}" checked="@(_dirModel.ID_SC_3 == 4)" />
+                    @onchange="() => { _dirModel.ID_SC_3 = 4;}" checked="@(_dirModel.ID_SC_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -976,22 +991,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_4 = 1;}" checked="@(_dirModel.ID_SC_4 == 1)" />
+                    @onchange="() => { _dirModel.ID_SC_4 = 1;}" checked="@(_dirModel.ID_SC_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_4 = 2;}" checked="@(_dirModel.ID_SC_4 == 2)" />
+                    @onchange="() => { _dirModel.ID_SC_4 = 2;}" checked="@(_dirModel.ID_SC_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_4 = 3;}" checked="@(_dirModel.ID_SC_4 == 3)" />
+                    @onchange="() => { _dirModel.ID_SC_4 = 3;}" checked="@(_dirModel.ID_SC_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_4 = 4;}" checked="@(_dirModel.ID_SC_4 == 4)" />
+                    @onchange="() => { _dirModel.ID_SC_4 = 4;}" checked="@(_dirModel.ID_SC_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1006,22 +1021,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_5 = 1;}" checked="@(_dirModel.ID_SC_5 == 1)" />
+                    @onchange="() => { _dirModel.ID_SC_5 = 1;}" checked="@(_dirModel.ID_SC_5 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_5 = 2;}" checked="@(_dirModel.ID_SC_5 == 2)" />
+                    @onchange="() => { _dirModel.ID_SC_5 = 2;}" checked="@(_dirModel.ID_SC_5 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_5 = 3;}" checked="@(_dirModel.ID_SC_5 == 3)" />
+                    @onchange="() => { _dirModel.ID_SC_5 = 3;}" checked="@(_dirModel.ID_SC_5 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.ID_SC_5 = 4;}" checked="@(_dirModel.ID_SC_5 == 4)" />
+                    @onchange="() => { _dirModel.ID_SC_5 = 4;}" checked="@(_dirModel.ID_SC_5 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1045,22 +1060,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_1 = 1;}" checked="@(_dirModel.PR_AC_1 == 1)" />
+                    @onchange="() => { _dirModel.PR_AC_1 = 1;}" checked="@(_dirModel.PR_AC_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_1 = 2;}" checked="@(_dirModel.PR_AC_1 == 2)" />
+                    @onchange="() => { _dirModel.PR_AC_1 = 2;}" checked="@(_dirModel.PR_AC_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_1 = 3;}" checked="@(_dirModel.PR_AC_1 == 3)" />
+                    @onchange="() => { _dirModel.PR_AC_1 = 3;}" checked="@(_dirModel.PR_AC_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_1 = 4;}" checked="@(_dirModel.PR_AC_1 == 4)" />
+                    @onchange="() => { _dirModel.PR_AC_1 = 4;}" checked="@(_dirModel.PR_AC_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1075,22 +1090,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_2 = 1;}" checked="@(_dirModel.PR_AC_2 == 1)" />
+                    @onchange="() => { _dirModel.PR_AC_2 = 1;}" checked="@(_dirModel.PR_AC_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_2 = 2;}" checked="@(_dirModel.PR_AC_2 == 2)" />
+                    @onchange="() => { _dirModel.PR_AC_2 = 2;}" checked="@(_dirModel.PR_AC_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_2 = 3;}" checked="@(_dirModel.PR_AC_2 == 3)" />
+                    @onchange="() => { _dirModel.PR_AC_2 = 3;}" checked="@(_dirModel.PR_AC_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_2 = 4;}" checked="@(_dirModel.PR_AC_2 == 4)" />
+                    @onchange="() => { _dirModel.PR_AC_2 = 4;}" checked="@(_dirModel.PR_AC_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1105,22 +1120,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_3 = 1;}" checked="@(_dirModel.PR_AC_3 == 1)" />
+                    @onchange="() => { _dirModel.PR_AC_3 = 1;}" checked="@(_dirModel.PR_AC_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_3 = 2;}" checked="@(_dirModel.PR_AC_3 == 2)" />
+                    @onchange="() => { _dirModel.PR_AC_3 = 2;}" checked="@(_dirModel.PR_AC_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_3 = 3;}" checked="@(_dirModel.PR_AC_3 == 3)" />
+                    @onchange="() => { _dirModel.PR_AC_3 = 3;}" checked="@(_dirModel.PR_AC_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_3 = 4;}" checked="@(_dirModel.PR_AC_3 == 4)" />
+                    @onchange="() => { _dirModel.PR_AC_3 = 4;}" checked="@(_dirModel.PR_AC_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1135,22 +1150,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_4 = 1;}" checked="@(_dirModel.PR_AC_4 == 1)" />
+                    @onchange="() => { _dirModel.PR_AC_4 = 1;}" checked="@(_dirModel.PR_AC_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_4 = 2;}" checked="@(_dirModel.PR_AC_4 == 2)" />
+                    @onchange="() => { _dirModel.PR_AC_4 = 2;}" checked="@(_dirModel.PR_AC_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_4 = 3;}" checked="@(_dirModel.PR_AC_4 == 3)" />
+                    @onchange="() => { _dirModel.PR_AC_4 = 3;}" checked="@(_dirModel.PR_AC_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_4 = 4;}" checked="@(_dirModel.PR_AC_4 == 4)" />
+                    @onchange="() => { _dirModel.PR_AC_4 = 4;}" checked="@(_dirModel.PR_AC_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1165,22 +1180,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_5 = 1;}" checked="@(_dirModel.PR_AC_5 == 1)" />
+                    @onchange="() => { _dirModel.PR_AC_5 = 1;}" checked="@(_dirModel.PR_AC_5 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_5 = 2;}" checked="@(_dirModel.PR_AC_5 == 2)" />
+                    @onchange="() => { _dirModel.PR_AC_5 = 2;}" checked="@(_dirModel.PR_AC_5 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_5 = 3;}" checked="@(_dirModel.PR_AC_5 == 3)" />
+                    @onchange="() => { _dirModel.PR_AC_5 = 3;}" checked="@(_dirModel.PR_AC_5 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_5 = 4;}" checked="@(_dirModel.PR_AC_5 == 4)" />
+                    @onchange="() => { _dirModel.PR_AC_5 = 4;}" checked="@(_dirModel.PR_AC_5 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1195,22 +1210,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_6 = 1;}" checked="@(_dirModel.PR_AC_6 == 1)" />
+                    @onchange="() => { _dirModel.PR_AC_6 = 1;}" checked="@(_dirModel.PR_AC_6 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_6 = 2;}" checked="@(_dirModel.PR_AC_6 == 2)" />
+                    @onchange="() => { _dirModel.PR_AC_6 = 2;}" checked="@(_dirModel.PR_AC_6 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_6 = 3;}" checked="@(_dirModel.PR_AC_6 == 3)" />
+                    @onchange="() => { _dirModel.PR_AC_6 = 3;}" checked="@(_dirModel.PR_AC_6 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_6 = 4;}" checked="@(_dirModel.PR_AC_6 == 4)" />
+                    @onchange="() => { _dirModel.PR_AC_6 = 4;}" checked="@(_dirModel.PR_AC_6 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1225,22 +1240,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_7 = 1;}" checked="@(_dirModel.PR_AC_7 == 1)" />
+                    @onchange="() => { _dirModel.PR_AC_7 = 1;}" checked="@(_dirModel.PR_AC_7 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_7 = 2;}" checked="@(_dirModel.PR_AC_7 == 2)" />
+                    @onchange="() => { _dirModel.PR_AC_7 = 2;}" checked="@(_dirModel.PR_AC_7 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_7 = 3;}" checked="@(_dirModel.PR_AC_7 == 3)" />
+                    @onchange="() => { _dirModel.PR_AC_7 = 3;}" checked="@(_dirModel.PR_AC_7 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AC_7 = 4;}" checked="@(_dirModel.PR_AC_7 == 4)" />
+                    @onchange="() => { _dirModel.PR_AC_7 = 4;}" checked="@(_dirModel.PR_AC_7 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1259,22 +1274,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_1 = 1;}" checked="@(_dirModel.PR_AT_1 == 1)" />
+                    @onchange="() => { _dirModel.PR_AT_1 = 1;}" checked="@(_dirModel.PR_AT_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_1 = 2;}" checked="@(_dirModel.PR_AT_1 == 2)" />
+                    @onchange="() => { _dirModel.PR_AT_1 = 2;}" checked="@(_dirModel.PR_AT_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_1 = 3;}" checked="@(_dirModel.PR_AT_1 == 3)" />
+                    @onchange="() => { _dirModel.PR_AT_1 = 3;}" checked="@(_dirModel.PR_AT_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_1 = 4;}" checked="@(_dirModel.PR_AT_1 == 4)" />
+                    @onchange="() => { _dirModel.PR_AT_1 = 4;}" checked="@(_dirModel.PR_AT_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1289,22 +1304,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_2 = 1;}" checked="@(_dirModel.PR_AT_2 == 1)" />
+                    @onchange="() => { _dirModel.PR_AT_2 = 1;}" checked="@(_dirModel.PR_AT_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_2 = 2;}" checked="@(_dirModel.PR_AT_2 == 2)" />
+                    @onchange="() => { _dirModel.PR_AT_2 = 2;}" checked="@(_dirModel.PR_AT_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_2 = 3;}" checked="@(_dirModel.PR_AT_2 == 3)" />
+                    @onchange="() => { _dirModel.PR_AT_2 = 3;}" checked="@(_dirModel.PR_AT_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_2 = 4;}" checked="@(_dirModel.PR_AT_2 == 4)" />
+                    @onchange="() => { _dirModel.PR_AT_2 = 4;}" checked="@(_dirModel.PR_AT_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1319,22 +1334,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_3 = 1;}" checked="@(_dirModel.PR_AT_3 == 1)" />
+                    @onchange="() => { _dirModel.PR_AT_3 = 1;}" checked="@(_dirModel.PR_AT_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_3 = 2;}" checked="@(_dirModel.PR_AT_3 == 2)" />
+                    @onchange="() => { _dirModel.PR_AT_3 = 2;}" checked="@(_dirModel.PR_AT_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_3 = 3;}" checked="@(_dirModel.PR_AT_3 == 3)" />
+                    @onchange="() => { _dirModel.PR_AT_3 = 3;}" checked="@(_dirModel.PR_AT_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_3 = 4;}" checked="@(_dirModel.PR_AT_3 == 4)" />
+                    @onchange="() => { _dirModel.PR_AT_3 = 4;}" checked="@(_dirModel.PR_AT_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1349,22 +1364,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_4 = 1;}" checked="@(_dirModel.PR_AT_4 == 1)" />
+                    @onchange="() => { _dirModel.PR_AT_4 = 1;}" checked="@(_dirModel.PR_AT_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_4 = 2;}" checked="@(_dirModel.PR_AT_4 == 2)" />
+                    @onchange="() => { _dirModel.PR_AT_4 = 2;}" checked="@(_dirModel.PR_AT_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_4 = 3;}" checked="@(_dirModel.PR_AT_4 == 3)" />
+                    @onchange="() => { _dirModel.PR_AT_4 = 3;}" checked="@(_dirModel.PR_AT_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_4 = 4;}" checked="@(_dirModel.PR_AT_4 == 4)" />
+                    @onchange="() => { _dirModel.PR_AT_4 = 4;}" checked="@(_dirModel.PR_AT_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1379,22 +1394,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_5 = 1;}" checked="@(_dirModel.PR_AT_5 == 1)" />
+                    @onchange="() => { _dirModel.PR_AT_5 = 1;}" checked="@(_dirModel.PR_AT_5 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_5 = 2;}" checked="@(_dirModel.PR_AT_5 == 2)" />
+                    @onchange="() => { _dirModel.PR_AT_5 = 2;}" checked="@(_dirModel.PR_AT_5 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_5 = 3;}" checked="@(_dirModel.PR_AT_5 == 3)" />
+                    @onchange="() => { _dirModel.PR_AT_5 = 3;}" checked="@(_dirModel.PR_AT_5 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_AT_5 = 4;}" checked="@(_dirModel.PR_AT_5 == 4)" />
+                    @onchange="() => { _dirModel.PR_AT_5 = 4;}" checked="@(_dirModel.PR_AT_5 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1413,22 +1428,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_1 = 1;}" checked="@(_dirModel.PR_DS_1 == 1)" />
+                    @onchange="() => { _dirModel.PR_DS_1 = 1;}" checked="@(_dirModel.PR_DS_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_1 = 2;}" checked="@(_dirModel.PR_DS_1 == 2)" />
+                    @onchange="() => { _dirModel.PR_DS_1 = 2;}" checked="@(_dirModel.PR_DS_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_1 = 3;}" checked="@(_dirModel.PR_DS_1 == 3)" />
+                    @onchange="() => { _dirModel.PR_DS_1 = 3;}" checked="@(_dirModel.PR_DS_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_1 = 4;}" checked="@(_dirModel.PR_DS_1 == 4)" />
+                    @onchange="() => { _dirModel.PR_DS_1 = 4;}" checked="@(_dirModel.PR_DS_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1443,22 +1458,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_2 = 1;}" checked="@(_dirModel.PR_DS_2 == 1)" />
+                    @onchange="() => { _dirModel.PR_DS_2 = 1;}" checked="@(_dirModel.PR_DS_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_2 = 2;}" checked="@(_dirModel.PR_DS_2 == 2)" />
+                    @onchange="() => { _dirModel.PR_DS_2 = 2;}" checked="@(_dirModel.PR_DS_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_2 = 3;}" checked="@(_dirModel.PR_DS_2 == 3)" />
+                    @onchange="() => { _dirModel.PR_DS_2 = 3;}" checked="@(_dirModel.PR_DS_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_2 = 4;}" checked="@(_dirModel.PR_DS_2 == 4)" />
+                    @onchange="() => { _dirModel.PR_DS_2 = 4;}" checked="@(_dirModel.PR_DS_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1473,22 +1488,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_3 = 1;}" checked="@(_dirModel.PR_DS_3 == 1)" />
+                    @onchange="() => { _dirModel.PR_DS_3 = 1;}" checked="@(_dirModel.PR_DS_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_3 = 2;}" checked="@(_dirModel.PR_DS_3 == 2)" />
+                    @onchange="() => { _dirModel.PR_DS_3 = 2;}" checked="@(_dirModel.PR_DS_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_3 = 3;}" checked="@(_dirModel.PR_DS_3 == 3)" />
+                    @onchange="() => { _dirModel.PR_DS_3 = 3;}" checked="@(_dirModel.PR_DS_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_3 = 4;}" checked="@(_dirModel.PR_DS_3 == 4)" />
+                    @onchange="() => { _dirModel.PR_DS_3 = 4;}" checked="@(_dirModel.PR_DS_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1503,22 +1518,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_4 = 1;}" checked="@(_dirModel.PR_DS_4 == 1)" />
+                    @onchange="() => { _dirModel.PR_DS_4 = 1;}" checked="@(_dirModel.PR_DS_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_4 = 2;}" checked="@(_dirModel.PR_DS_4 == 2)" />
+                    @onchange="() => { _dirModel.PR_DS_4 = 2;}" checked="@(_dirModel.PR_DS_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_4 = 3;}" checked="@(_dirModel.PR_DS_4 == 3)" />
+                    @onchange="() => { _dirModel.PR_DS_4 = 3;}" checked="@(_dirModel.PR_DS_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_4 = 4;}" checked="@(_dirModel.PR_DS_4 == 4)" />
+                    @onchange="() => { _dirModel.PR_DS_4 = 4;}" checked="@(_dirModel.PR_DS_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1533,22 +1548,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_5 = 1;}" checked="@(_dirModel.PR_DS_5 == 1)" />
+                    @onchange="() => { _dirModel.PR_DS_5 = 1;}" checked="@(_dirModel.PR_DS_5 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_5 = 2;}" checked="@(_dirModel.PR_DS_5 == 2)" />
+                    @onchange="() => { _dirModel.PR_DS_5 = 2;}" checked="@(_dirModel.PR_DS_5 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_5 = 3;}" checked="@(_dirModel.PR_DS_5 == 3)" />
+                    @onchange="() => { _dirModel.PR_DS_5 = 3;}" checked="@(_dirModel.PR_DS_5 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_5 = 4;}" checked="@(_dirModel.PR_DS_5 == 4)" />
+                    @onchange="() => { _dirModel.PR_DS_5 = 4;}" checked="@(_dirModel.PR_DS_5 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1563,22 +1578,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_6 = 1;}" checked="@(_dirModel.PR_DS_6 == 1)" />
+                    @onchange="() => { _dirModel.PR_DS_6 = 1;}" checked="@(_dirModel.PR_DS_6 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_6 = 2;}" checked="@(_dirModel.PR_DS_6 == 2)" />
+                    @onchange="() => { _dirModel.PR_DS_6 = 2;}" checked="@(_dirModel.PR_DS_6 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_6 = 3;}" checked="@(_dirModel.PR_DS_6 == 3)" />
+                    @onchange="() => { _dirModel.PR_DS_6 = 3;}" checked="@(_dirModel.PR_DS_6 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_6 = 4;}" checked="@(_dirModel.PR_DS_6 == 4)" />
+                    @onchange="() => { _dirModel.PR_DS_6 = 4;}" checked="@(_dirModel.PR_DS_6 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1593,22 +1608,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_7 = 1;}" checked="@(_dirModel.PR_DS_7 == 1)" />
+                    @onchange="() => { _dirModel.PR_DS_7 = 1;}" checked="@(_dirModel.PR_DS_7 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_7 = 2;}" checked="@(_dirModel.PR_DS_7 == 2)" />
+                    @onchange="() => { _dirModel.PR_DS_7 = 2;}" checked="@(_dirModel.PR_DS_7 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_7 = 3;}" checked="@(_dirModel.PR_DS_7 == 3)" />
+                    @onchange="() => { _dirModel.PR_DS_7 = 3;}" checked="@(_dirModel.PR_DS_7 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_7 = 4;}" checked="@(_dirModel.PR_DS_7 == 4)" />
+                    @onchange="() => { _dirModel.PR_DS_7 = 4;}" checked="@(_dirModel.PR_DS_7 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1623,22 +1638,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_8 = 1;}" checked="@(_dirModel.PR_DS_8 == 1)" />
+                    @onchange="() => { _dirModel.PR_DS_8 = 1;}" checked="@(_dirModel.PR_DS_8 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_8 = 2;}" checked="@(_dirModel.PR_DS_8 == 2)" />
+                    @onchange="() => { _dirModel.PR_DS_8 = 2;}" checked="@(_dirModel.PR_DS_8 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_8 = 3;}" checked="@(_dirModel.PR_DS_8 == 3)" />
+                    @onchange="() => { _dirModel.PR_DS_8 = 3;}" checked="@(_dirModel.PR_DS_8 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_DS_8 = 4;}" checked="@(_dirModel.PR_DS_8 == 4)" />
+                    @onchange="() => { _dirModel.PR_DS_8 = 4;}" checked="@(_dirModel.PR_DS_8 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1657,22 +1672,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_1 = 1;}" checked="@(_dirModel.PR_IP_1 == 1)" />
+                    @onchange="() => { _dirModel.PR_IP_1 = 1;}" checked="@(_dirModel.PR_IP_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_1 = 2;}" checked="@(_dirModel.PR_IP_1 == 2)" />
+                    @onchange="() => { _dirModel.PR_IP_1 = 2;}" checked="@(_dirModel.PR_IP_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_1 = 3;}" checked="@(_dirModel.PR_IP_1 == 3)" />
+                    @onchange="() => { _dirModel.PR_IP_1 = 3;}" checked="@(_dirModel.PR_IP_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_1 = 4;}" checked="@(_dirModel.PR_IP_1 == 4)" />
+                    @onchange="() => { _dirModel.PR_IP_1 = 4;}" checked="@(_dirModel.PR_IP_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1687,22 +1702,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_2 = 1;}" checked="@(_dirModel.PR_IP_2 == 1)" />
+                    @onchange="() => { _dirModel.PR_IP_2 = 1;}" checked="@(_dirModel.PR_IP_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_2 = 2;}" checked="@(_dirModel.PR_IP_2 == 2)" />
+                    @onchange="() => { _dirModel.PR_IP_2 = 2;}" checked="@(_dirModel.PR_IP_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_2 = 3;}" checked="@(_dirModel.PR_IP_2 == 3)" />
+                    @onchange="() => { _dirModel.PR_IP_2 = 3;}" checked="@(_dirModel.PR_IP_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_2 = 4;}" checked="@(_dirModel.PR_IP_2 == 4)" />
+                    @onchange="() => { _dirModel.PR_IP_2 = 4;}" checked="@(_dirModel.PR_IP_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1717,22 +1732,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_3 = 1;}" checked="@(_dirModel.PR_IP_3 == 1)" />
+                    @onchange="() => { _dirModel.PR_IP_3 = 1;}" checked="@(_dirModel.PR_IP_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_3 = 2;}" checked="@(_dirModel.PR_IP_3 == 2)" />
+                    @onchange="() => { _dirModel.PR_IP_3 = 2;}" checked="@(_dirModel.PR_IP_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_3 = 3;}" checked="@(_dirModel.PR_IP_3 == 3)" />
+                    @onchange="() => { _dirModel.PR_IP_3 = 3;}" checked="@(_dirModel.PR_IP_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_3 = 4;}" checked="@(_dirModel.PR_IP_3 == 4)" />
+                    @onchange="() => { _dirModel.PR_IP_3 = 4;}" checked="@(_dirModel.PR_IP_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1747,22 +1762,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_4 = 1;}" checked="@(_dirModel.PR_IP_4 == 1)" />
+                    @onchange="() => { _dirModel.PR_IP_4 = 1;}" checked="@(_dirModel.PR_IP_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_4 = 2;}" checked="@(_dirModel.PR_IP_4 == 2)" />
+                    @onchange="() => { _dirModel.PR_IP_4 = 2;}" checked="@(_dirModel.PR_IP_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_4 = 3;}" checked="@(_dirModel.PR_IP_4 == 3)" />
+                    @onchange="() => { _dirModel.PR_IP_4 = 3;}" checked="@(_dirModel.PR_IP_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_4 = 4;}" checked="@(_dirModel.PR_IP_4 == 4)" />
+                    @onchange="() => { _dirModel.PR_IP_4 = 4;}" checked="@(_dirModel.PR_IP_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1777,22 +1792,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_5 = 1;}" checked="@(_dirModel.PR_IP_5 == 1)" />
+                    @onchange="() => { _dirModel.PR_IP_5 = 1;}" checked="@(_dirModel.PR_IP_5 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_5 = 2;}" checked="@(_dirModel.PR_IP_5 == 2)" />
+                    @onchange="() => { _dirModel.PR_IP_5 = 2;}" checked="@(_dirModel.PR_IP_5 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_5 = 3;}" checked="@(_dirModel.PR_IP_5 == 3)" />
+                    @onchange="() => { _dirModel.PR_IP_5 = 3;}" checked="@(_dirModel.PR_IP_5 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_5 = 4;}" checked="@(_dirModel.PR_IP_5 == 4)" />
+                    @onchange="() => { _dirModel.PR_IP_5 = 4;}" checked="@(_dirModel.PR_IP_5 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1807,22 +1822,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_6 = 1;}" checked="@(_dirModel.PR_IP_6 == 1)" />
+                    @onchange="() => { _dirModel.PR_IP_6 = 1;}" checked="@(_dirModel.PR_IP_6 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_6 = 2;}" checked="@(_dirModel.PR_IP_6 == 2)" />
+                    @onchange="() => { _dirModel.PR_IP_6 = 2;}" checked="@(_dirModel.PR_IP_6 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_6 = 3;}" checked="@(_dirModel.PR_IP_6 == 3)" />
+                    @onchange="() => { _dirModel.PR_IP_6 = 3;}" checked="@(_dirModel.PR_IP_6 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_6 = 4;}" checked="@(_dirModel.PR_IP_6 == 4)" />
+                    @onchange="() => { _dirModel.PR_IP_6 = 4;}" checked="@(_dirModel.PR_IP_6 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1837,22 +1852,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_7 = 1;}" checked="@(_dirModel.PR_IP_7 == 1)" />
+                    @onchange="() => { _dirModel.PR_IP_7 = 1;}" checked="@(_dirModel.PR_IP_7 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_7 = 2;}" checked="@(_dirModel.PR_IP_7 == 2)" />
+                    @onchange="() => { _dirModel.PR_IP_7 = 2;}" checked="@(_dirModel.PR_IP_7 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_7 = 3;}" checked="@(_dirModel.PR_IP_7 == 3)" />
+                    @onchange="() => { _dirModel.PR_IP_7 = 3;}" checked="@(_dirModel.PR_IP_7 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_7 = 4;}" checked="@(_dirModel.PR_IP_7 == 4)" />
+                    @onchange="() => { _dirModel.PR_IP_7 = 4;}" checked="@(_dirModel.PR_IP_7 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1867,22 +1882,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_8 = 1;}" checked="@(_dirModel.PR_IP_8 == 1)" />
+                    @onchange="() => { _dirModel.PR_IP_8 = 1;}" checked="@(_dirModel.PR_IP_8 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_8 = 2;}" checked="@(_dirModel.PR_IP_8 == 2)" />
+                    @onchange="() => { _dirModel.PR_IP_8 = 2;}" checked="@(_dirModel.PR_IP_8 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_8 = 3;}" checked="@(_dirModel.PR_IP_8 == 3)" />
+                    @onchange="() => { _dirModel.PR_IP_8 = 3;}" checked="@(_dirModel.PR_IP_8 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_8 = 4;}" checked="@(_dirModel.PR_IP_8 == 4)" />
+                    @onchange="() => { _dirModel.PR_IP_8 = 4;}" checked="@(_dirModel.PR_IP_8 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1897,22 +1912,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_9 = 1;}" checked="@(_dirModel.PR_IP_9 == 1)" />
+                    @onchange="() => { _dirModel.PR_IP_9 = 1;}" checked="@(_dirModel.PR_IP_9 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_9 = 2;}" checked="@(_dirModel.PR_IP_9 == 2)" />
+                    @onchange="() => { _dirModel.PR_IP_9 = 2;}" checked="@(_dirModel.PR_IP_9 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_9 = 3;}" checked="@(_dirModel.PR_IP_9 == 3)" />
+                    @onchange="() => { _dirModel.PR_IP_9 = 3;}" checked="@(_dirModel.PR_IP_9 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_9 = 4;}" checked="@(_dirModel.PR_IP_9 == 4)" />
+                    @onchange="() => { _dirModel.PR_IP_9 = 4;}" checked="@(_dirModel.PR_IP_9 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1927,22 +1942,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_10 = 1;}" checked="@(_dirModel.PR_IP_10 == 1)" />
+                    @onchange="() => { _dirModel.PR_IP_10 = 1;}" checked="@(_dirModel.PR_IP_10 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_10 = 2;}" checked="@(_dirModel.PR_IP_10 == 2)" />
+                    @onchange="() => { _dirModel.PR_IP_10 = 2;}" checked="@(_dirModel.PR_IP_10 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_10 = 3;}" checked="@(_dirModel.PR_IP_10 == 3)" />
+                    @onchange="() => { _dirModel.PR_IP_10 = 3;}" checked="@(_dirModel.PR_IP_10 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_10 = 4;}" checked="@(_dirModel.PR_IP_10 == 4)" />
+                    @onchange="() => { _dirModel.PR_IP_10 = 4;}" checked="@(_dirModel.PR_IP_10 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1957,22 +1972,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_11 = 1;}" checked="@(_dirModel.PR_IP_11 == 1)" />
+                    @onchange="() => { _dirModel.PR_IP_11 = 1;}" checked="@(_dirModel.PR_IP_11 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_11 = 2;}" checked="@(_dirModel.PR_IP_11 == 2)" />
+                    @onchange="() => { _dirModel.PR_IP_11 = 2;}" checked="@(_dirModel.PR_IP_11 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_11 = 3;}" checked="@(_dirModel.PR_IP_11 == 3)" />
+                    @onchange="() => { _dirModel.PR_IP_11 = 3;}" checked="@(_dirModel.PR_IP_11 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_11 = 4;}" checked="@(_dirModel.PR_IP_11 == 4)" />
+                    @onchange="() => { _dirModel.PR_IP_11 = 4;}" checked="@(_dirModel.PR_IP_11 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -1987,22 +2002,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_12 = 1;}" checked="@(_dirModel.PR_IP_12 == 1)" />
+                    @onchange="() => { _dirModel.PR_IP_12 = 1;}" checked="@(_dirModel.PR_IP_12 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_12 = 2;}" checked="@(_dirModel.PR_IP_12 == 2)" />
+                    @onchange="() => { _dirModel.PR_IP_12 = 2;}" checked="@(_dirModel.PR_IP_12 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_12 = 3;}" checked="@(_dirModel.PR_IP_12 == 3)" />
+                    @onchange="() => { _dirModel.PR_IP_12 = 3;}" checked="@(_dirModel.PR_IP_12 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_IP_12 = 4;}" checked="@(_dirModel.PR_IP_12 == 4)" />
+                    @onchange="() => { _dirModel.PR_IP_12 = 4;}" checked="@(_dirModel.PR_IP_12 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2020,22 +2035,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_MA_1 = 1;}" checked="@(_dirModel.PR_MA_1 == 1)" />
+                    @onchange="() => { _dirModel.PR_MA_1 = 1;}" checked="@(_dirModel.PR_MA_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_MA_1 = 2;}" checked="@(_dirModel.PR_MA_1 == 2)" />
+                    @onchange="() => { _dirModel.PR_MA_1 = 2;}" checked="@(_dirModel.PR_MA_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_MA_1 = 3;}" checked="@(_dirModel.PR_MA_1 == 3)" />
+                    @onchange="() => { _dirModel.PR_MA_1 = 3;}" checked="@(_dirModel.PR_MA_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_MA_1 = 4;}" checked="@(_dirModel.PR_MA_1 == 4)" />
+                    @onchange="() => { _dirModel.PR_MA_1 = 4;}" checked="@(_dirModel.PR_MA_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2050,22 +2065,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_MA_2 = 1;}" checked="@(_dirModel.PR_MA_2 == 1)" />
+                    @onchange="() => { _dirModel.PR_MA_2 = 1;}" checked="@(_dirModel.PR_MA_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_MA_2 = 2;}" checked="@(_dirModel.PR_MA_2 == 2)" />
+                    @onchange="() => { _dirModel.PR_MA_2 = 2;}" checked="@(_dirModel.PR_MA_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_MA_2 = 3;}" checked="@(_dirModel.PR_MA_2 == 3)" />
+                    @onchange="() => { _dirModel.PR_MA_2 = 3;}" checked="@(_dirModel.PR_MA_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_MA_2 = 4;}" checked="@(_dirModel.PR_MA_2 == 4)" />
+                    @onchange="() => { _dirModel.PR_MA_2 = 4;}" checked="@(_dirModel.PR_MA_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2084,22 +2099,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_1 = 1;}" checked="@(_dirModel.PR_PT_1 == 1)" />
+                    @onchange="() => { _dirModel.PR_PT_1 = 1;}" checked="@(_dirModel.PR_PT_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_1 = 2;}" checked="@(_dirModel.PR_PT_1 == 2)" />
+                    @onchange="() => { _dirModel.PR_PT_1 = 2;}" checked="@(_dirModel.PR_PT_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_1 = 3;}" checked="@(_dirModel.PR_PT_1 == 3)" />
+                    @onchange="() => { _dirModel.PR_PT_1 = 3;}" checked="@(_dirModel.PR_PT_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_1 = 4;}" checked="@(_dirModel.PR_PT_1 == 4)" />
+                    @onchange="() => { _dirModel.PR_PT_1 = 4;}" checked="@(_dirModel.PR_PT_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2114,22 +2129,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_2 = 1;}" checked="@(_dirModel.PR_PT_2 == 1)" />
+                    @onchange="() => { _dirModel.PR_PT_2 = 1;}" checked="@(_dirModel.PR_PT_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_2 = 2;}" checked="@(_dirModel.PR_PT_2 == 2)" />
+                    @onchange="() => { _dirModel.PR_PT_2 = 2;}" checked="@(_dirModel.PR_PT_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_2 = 3;}" checked="@(_dirModel.PR_PT_2 == 3)" />
+                    @onchange="() => { _dirModel.PR_PT_2 = 3;}" checked="@(_dirModel.PR_PT_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_2 = 4;}" checked="@(_dirModel.PR_PT_2 == 4)" />
+                    @onchange="() => { _dirModel.PR_PT_2 = 4;}" checked="@(_dirModel.PR_PT_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2144,22 +2159,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_3 = 1;}" checked="@(_dirModel.PR_PT_3 == 1)" />
+                    @onchange="() => { _dirModel.PR_PT_3 = 1;}" checked="@(_dirModel.PR_PT_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_3 = 2;}" checked="@(_dirModel.PR_PT_3 == 2)" />
+                    @onchange="() => { _dirModel.PR_PT_3 = 2;}" checked="@(_dirModel.PR_PT_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_3 = 3;}" checked="@(_dirModel.PR_PT_3 == 3)" />
+                    @onchange="() => { _dirModel.PR_PT_3 = 3;}" checked="@(_dirModel.PR_PT_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_3 = 4;}" checked="@(_dirModel.PR_PT_3 == 4)" />
+                    @onchange="() => { _dirModel.PR_PT_3 = 4;}" checked="@(_dirModel.PR_PT_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2174,22 +2189,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_4 = 1;}" checked="@(_dirModel.PR_PT_4 == 1)" />
+                    @onchange="() => { _dirModel.PR_PT_4 = 1;}" checked="@(_dirModel.PR_PT_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_4 = 2;}" checked="@(_dirModel.PR_PT_4 == 2)" />
+                    @onchange="() => { _dirModel.PR_PT_4 = 2;}" checked="@(_dirModel.PR_PT_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_4 = 3;}" checked="@(_dirModel.PR_PT_4 == 3)" />
+                    @onchange="() => { _dirModel.PR_PT_4 = 3;}" checked="@(_dirModel.PR_PT_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_4 = 4;}" checked="@(_dirModel.PR_PT_4 == 4)" />
+                    @onchange="() => { _dirModel.PR_PT_4 = 4;}" checked="@(_dirModel.PR_PT_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2204,22 +2219,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_5 = 1;}" checked="@(_dirModel.PR_PT_5 == 1)" />
+                    @onchange="() => { _dirModel.PR_PT_5 = 1;}" checked="@(_dirModel.PR_PT_5 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_5 = 2;}" checked="@(_dirModel.PR_PT_5 == 2)" />
+                    @onchange="() => { _dirModel.PR_PT_5 = 2;}" checked="@(_dirModel.PR_PT_5 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_5 = 3;}" checked="@(_dirModel.PR_PT_5 == 3)" />
+                    @onchange="() => { _dirModel.PR_PT_5 = 3;}" checked="@(_dirModel.PR_PT_5 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.PR_PT_5 = 4;}" checked="@(_dirModel.PR_PT_5 == 4)" />
+                    @onchange="() => { _dirModel.PR_PT_5 = 4;}" checked="@(_dirModel.PR_PT_5 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2244,22 +2259,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_1 = 1;}" checked="@(_dirModel.DE_AE_1 == 1)" />
+                    @onchange="() => { _dirModel.DE_AE_1 = 1;}" checked="@(_dirModel.DE_AE_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_1 = 2;}" checked="@(_dirModel.DE_AE_1 == 2)" />
+                    @onchange="() => { _dirModel.DE_AE_1 = 2;}" checked="@(_dirModel.DE_AE_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_1 = 3;}" checked="@(_dirModel.DE_AE_1 == 3)" />
+                    @onchange="() => { _dirModel.DE_AE_1 = 3;}" checked="@(_dirModel.DE_AE_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_1 = 4;}" checked="@(_dirModel.DE_AE_1 == 4)" />
+                    @onchange="() => { _dirModel.DE_AE_1 = 4;}" checked="@(_dirModel.DE_AE_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2274,22 +2289,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_2 = 1;}" checked="@(_dirModel.DE_AE_2 == 1)" />
+                    @onchange="() => { _dirModel.DE_AE_2 = 1;}" checked="@(_dirModel.DE_AE_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_2 = 2;}" checked="@(_dirModel.DE_AE_2 == 2)" />
+                    @onchange="() => { _dirModel.DE_AE_2 = 2;}" checked="@(_dirModel.DE_AE_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_2 = 3;}" checked="@(_dirModel.DE_AE_2 == 3)" />
+                    @onchange="() => { _dirModel.DE_AE_2 = 3;}" checked="@(_dirModel.DE_AE_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_2 = 4;}" checked="@(_dirModel.DE_AE_2 == 4)" />
+                    @onchange="() => { _dirModel.DE_AE_2 = 4;}" checked="@(_dirModel.DE_AE_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2304,22 +2319,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_3 = 1;}" checked="@(_dirModel.DE_AE_3 == 1)" />
+                    @onchange="() => { _dirModel.DE_AE_3 = 1;}" checked="@(_dirModel.DE_AE_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_3 = 2;}" checked="@(_dirModel.DE_AE_3 == 2)" />
+                    @onchange="() => { _dirModel.DE_AE_3 = 2;}" checked="@(_dirModel.DE_AE_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_3 = 3;}" checked="@(_dirModel.DE_AE_3 == 3)" />
+                    @onchange="() => { _dirModel.DE_AE_3 = 3;}" checked="@(_dirModel.DE_AE_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_3 = 4;}" checked="@(_dirModel.DE_AE_3 == 4)" />
+                    @onchange="() => { _dirModel.DE_AE_3 = 4;}" checked="@(_dirModel.DE_AE_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2334,22 +2349,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_4 = 1;}" checked="@(_dirModel.DE_AE_4 == 1)" />
+                    @onchange="() => { _dirModel.DE_AE_4 = 1;}" checked="@(_dirModel.DE_AE_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_4 = 2;}" checked="@(_dirModel.DE_AE_4 == 2)" />
+                    @onchange="() => { _dirModel.DE_AE_4 = 2;}" checked="@(_dirModel.DE_AE_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_4 = 3;}" checked="@(_dirModel.DE_AE_4 == 3)" />
+                    @onchange="() => { _dirModel.DE_AE_4 = 3;}" checked="@(_dirModel.DE_AE_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_4 = 4;}" checked="@(_dirModel.DE_AE_4 == 4)" />
+                    @onchange="() => { _dirModel.DE_AE_4 = 4;}" checked="@(_dirModel.DE_AE_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2364,22 +2379,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_5 = 1;}" checked="@(_dirModel.DE_AE_5 == 1)" />
+                    @onchange="() => { _dirModel.DE_AE_5 = 1;}" checked="@(_dirModel.DE_AE_5 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_5 = 2;}" checked="@(_dirModel.DE_AE_5 == 2)" />
+                    @onchange="() => { _dirModel.DE_AE_5 = 2;}" checked="@(_dirModel.DE_AE_5 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_5 = 3;}" checked="@(_dirModel.DE_AE_5 == 3)" />
+                    @onchange="() => { _dirModel.DE_AE_5 = 3;}" checked="@(_dirModel.DE_AE_5 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_AE_5 = 4;}" checked="@(_dirModel.DE_AE_5 == 4)" />
+                    @onchange="() => { _dirModel.DE_AE_5 = 4;}" checked="@(_dirModel.DE_AE_5 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2398,22 +2413,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_1 = 1;}" checked="@(_dirModel.DE_CM_1 == 1)" />
+                    @onchange="() => { _dirModel.DE_CM_1 = 1;}" checked="@(_dirModel.DE_CM_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_1 = 2;}" checked="@(_dirModel.DE_CM_1 == 2)" />
+                    @onchange="() => { _dirModel.DE_CM_1 = 2;}" checked="@(_dirModel.DE_CM_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_1 = 3;}" checked="@(_dirModel.DE_CM_1 == 3)" />
+                    @onchange="() => { _dirModel.DE_CM_1 = 3;}" checked="@(_dirModel.DE_CM_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_1 = 4;}" checked="@(_dirModel.DE_CM_1 == 4)" />
+                    @onchange="() => { _dirModel.DE_CM_1 = 4;}" checked="@(_dirModel.DE_CM_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2428,22 +2443,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_2 = 1;}" checked="@(_dirModel.DE_CM_2 == 1)" />
+                    @onchange="() => { _dirModel.DE_CM_2 = 1;}" checked="@(_dirModel.DE_CM_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_2 = 2;}" checked="@(_dirModel.DE_CM_2 == 2)" />
+                    @onchange="() => { _dirModel.DE_CM_2 = 2;}" checked="@(_dirModel.DE_CM_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_2 = 3;}" checked="@(_dirModel.DE_CM_2 == 3)" />
+                    @onchange="() => { _dirModel.DE_CM_2 = 3;}" checked="@(_dirModel.DE_CM_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_2 = 4;}" checked="@(_dirModel.DE_CM_2 == 4)" />
+                    @onchange="() => { _dirModel.DE_CM_2 = 4;}" checked="@(_dirModel.DE_CM_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2458,22 +2473,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_3 = 1;}" checked="@(_dirModel.DE_CM_3 == 1)" />
+                    @onchange="() => { _dirModel.DE_CM_3 = 1;}" checked="@(_dirModel.DE_CM_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_3 = 2;}" checked="@(_dirModel.DE_CM_3 == 2)" />
+                    @onchange="() => { _dirModel.DE_CM_3 = 2;}" checked="@(_dirModel.DE_CM_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_3 = 3;}" checked="@(_dirModel.DE_CM_3 == 3)" />
+                    @onchange="() => { _dirModel.DE_CM_3 = 3;}" checked="@(_dirModel.DE_CM_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_3 = 4;}" checked="@(_dirModel.DE_CM_3 == 4)" />
+                    @onchange="() => { _dirModel.DE_CM_3 = 4;}" checked="@(_dirModel.DE_CM_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2488,22 +2503,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_4 = 1;}" checked="@(_dirModel.DE_CM_4 == 1)" />
+                    @onchange="() => { _dirModel.DE_CM_4 = 1;}" checked="@(_dirModel.DE_CM_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_4 = 2;}" checked="@(_dirModel.DE_CM_4 == 2)" />
+                    @onchange="() => { _dirModel.DE_CM_4 = 2;}" checked="@(_dirModel.DE_CM_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_4 = 3;}" checked="@(_dirModel.DE_CM_4 == 3)" />
+                    @onchange="() => { _dirModel.DE_CM_4 = 3;}" checked="@(_dirModel.DE_CM_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_4 = 4;}" checked="@(_dirModel.DE_CM_4 == 4)" />
+                    @onchange="() => { _dirModel.DE_CM_4 = 4;}" checked="@(_dirModel.DE_CM_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2518,22 +2533,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_5 = 1;}" checked="@(_dirModel.DE_CM_5 == 1)" />
+                    @onchange="() => { _dirModel.DE_CM_5 = 1;}" checked="@(_dirModel.DE_CM_5 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_5 = 2;}" checked="@(_dirModel.DE_CM_5 == 2)" />
+                    @onchange="() => { _dirModel.DE_CM_5 = 2;}" checked="@(_dirModel.DE_CM_5 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_5 = 3;}" checked="@(_dirModel.DE_CM_5 == 3)" />
+                    @onchange="() => { _dirModel.DE_CM_5 = 3;}" checked="@(_dirModel.DE_CM_5 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_5 = 4;}" checked="@(_dirModel.DE_CM_5 == 4)" />
+                    @onchange="() => { _dirModel.DE_CM_5 = 4;}" checked="@(_dirModel.DE_CM_5 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2548,22 +2563,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_6 = 1;}" checked="@(_dirModel.DE_CM_6 == 1)" />
+                    @onchange="() => { _dirModel.DE_CM_6 = 1;}" checked="@(_dirModel.DE_CM_6 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_6 = 2;}" checked="@(_dirModel.DE_CM_6 == 2)" />
+                    @onchange="() => { _dirModel.DE_CM_6 = 2;}" checked="@(_dirModel.DE_CM_6 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_6 = 3;}" checked="@(_dirModel.DE_CM_6 == 3)" />
+                    @onchange="() => { _dirModel.DE_CM_6 = 3;}" checked="@(_dirModel.DE_CM_6 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_6 = 4;}" checked="@(_dirModel.DE_CM_6 == 4)" />
+                    @onchange="() => { _dirModel.DE_CM_6 = 4;}" checked="@(_dirModel.DE_CM_6 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2577,22 +2592,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_7 = 1;}" checked="@(_dirModel.DE_CM_7 == 1)" />
+                    @onchange="() => { _dirModel.DE_CM_7 = 1;}" checked="@(_dirModel.DE_CM_7 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_7 = 2;}" checked="@(_dirModel.DE_CM_7 == 2)" />
+                    @onchange="() => { _dirModel.DE_CM_7 = 2;}" checked="@(_dirModel.DE_CM_7 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_7 = 3;}" checked="@(_dirModel.DE_CM_7 == 3)" />
+                    @onchange="() => { _dirModel.DE_CM_7 = 3;}" checked="@(_dirModel.DE_CM_7 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_7 = 4;}" checked="@(_dirModel.DE_CM_7 == 4)" />
+                    @onchange="() => { _dirModel.DE_CM_7 = 4;}" checked="@(_dirModel.DE_CM_7 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2606,22 +2621,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_8 = 1;}" checked="@(_dirModel.DE_CM_8 == 1)" />
+                    @onchange="() => { _dirModel.DE_CM_8 = 1;}" checked="@(_dirModel.DE_CM_8 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_8 = 2;}" checked="@(_dirModel.DE_CM_8 == 2)" />
+                    @onchange="() => { _dirModel.DE_CM_8 = 2;}" checked="@(_dirModel.DE_CM_8 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_8 = 3;}" checked="@(_dirModel.DE_CM_8 == 3)" />
+                    @onchange="() => { _dirModel.DE_CM_8 = 3;}" checked="@(_dirModel.DE_CM_8 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_CM_8 = 4;}" checked="@(_dirModel.DE_CM_8 == 4)" />
+                    @onchange="() => { _dirModel.DE_CM_8 = 4;}" checked="@(_dirModel.DE_CM_8 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2638,22 +2653,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_1 = 1;}" checked="@(_dirModel.DE_DP_1 == 1)" />
+                    @onchange="() => { _dirModel.DE_DP_1 = 1;}" checked="@(_dirModel.DE_DP_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_1 = 2;}" checked="@(_dirModel.DE_DP_1 == 2)" />
+                    @onchange="() => { _dirModel.DE_DP_1 = 2;}" checked="@(_dirModel.DE_DP_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_1 = 3;}" checked="@(_dirModel.DE_DP_1 == 3)" />
+                    @onchange="() => { _dirModel.DE_DP_1 = 3;}" checked="@(_dirModel.DE_DP_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_1 = 4;}" checked="@(_dirModel.DE_DP_1 == 4)" />
+                    @onchange="() => { _dirModel.DE_DP_1 = 4;}" checked="@(_dirModel.DE_DP_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2667,22 +2682,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_2 = 1;}" checked="@(_dirModel.DE_DP_2 == 1)" />
+                    @onchange="() => { _dirModel.DE_DP_2 = 1;}" checked="@(_dirModel.DE_DP_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_2 = 2;}" checked="@(_dirModel.DE_DP_2 == 2)" />
+                    @onchange="() => { _dirModel.DE_DP_2 = 2;}" checked="@(_dirModel.DE_DP_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_2 = 3;}" checked="@(_dirModel.DE_DP_2 == 3)" />
+                    @onchange="() => { _dirModel.DE_DP_2 = 3;}" checked="@(_dirModel.DE_DP_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_2 = 4;}" checked="@(_dirModel.DE_DP_2 == 4)" />
+                    @onchange="() => { _dirModel.DE_DP_2 = 4;}" checked="@(_dirModel.DE_DP_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2696,22 +2711,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_3 = 1;}" checked="@(_dirModel.DE_DP_3 == 1)" />
+                    @onchange="() => { _dirModel.DE_DP_3 = 1;}" checked="@(_dirModel.DE_DP_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_3 = 2;}" checked="@(_dirModel.DE_DP_3 == 2)" />
+                    @onchange="() => { _dirModel.DE_DP_3 = 2;}" checked="@(_dirModel.DE_DP_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_3 = 3;}" checked="@(_dirModel.DE_DP_3 == 3)" />
+                    @onchange="() => { _dirModel.DE_DP_3 = 3;}" checked="@(_dirModel.DE_DP_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_3 = 4;}" checked="@(_dirModel.DE_DP_3 == 4)" />
+                    @onchange="() => { _dirModel.DE_DP_3 = 4;}" checked="@(_dirModel.DE_DP_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2725,22 +2740,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_4 = 1;}" checked="@(_dirModel.DE_DP_4 == 1)" />
+                    @onchange="() => { _dirModel.DE_DP_4 = 1;}" checked="@(_dirModel.DE_DP_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_4 = 2;}" checked="@(_dirModel.DE_DP_4 == 2)" />
+                    @onchange="() => { _dirModel.DE_DP_4 = 2;}" checked="@(_dirModel.DE_DP_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_4 = 3;}" checked="@(_dirModel.DE_DP_4 == 3)" />
+                    @onchange="() => { _dirModel.DE_DP_4 = 3;}" checked="@(_dirModel.DE_DP_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_4 = 4;}" checked="@(_dirModel.DE_DP_4 == 4)" />
+                    @onchange="() => { _dirModel.DE_DP_4 = 4;}" checked="@(_dirModel.DE_DP_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2754,22 +2769,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_5 = 1;}" checked="@(_dirModel.DE_DP_5 == 1)" />
+                    @onchange="() => { _dirModel.DE_DP_5 = 1;}" checked="@(_dirModel.DE_DP_5 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_5 = 2;}" checked="@(_dirModel.DE_DP_5 == 2)" />
+                    @onchange="() => { _dirModel.DE_DP_5 = 2;}" checked="@(_dirModel.DE_DP_5 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_5 = 3;}" checked="@(_dirModel.DE_DP_5 == 3)" />
+                    @onchange="() => { _dirModel.DE_DP_5 = 3;}" checked="@(_dirModel.DE_DP_5 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.DE_DP_5 = 4;}" checked="@(_dirModel.DE_DP_5 == 4)" />
+                    @onchange="() => { _dirModel.DE_DP_5 = 4;}" checked="@(_dirModel.DE_DP_5 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2795,22 +2810,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_RP_1 = 1;}" checked="@(_dirModel.RS_RP_1 == 1)" />
+                    @onchange="() => { _dirModel.RS_RP_1 = 1;}" checked="@(_dirModel.RS_RP_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_RP_1 = 2;}" checked="@(_dirModel.RS_RP_1 == 2)" />
+                    @onchange="() => { _dirModel.RS_RP_1 = 2;}" checked="@(_dirModel.RS_RP_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_RP_1 = 3;}" checked="@(_dirModel.RS_RP_1 == 3)" />
+                    @onchange="() => { _dirModel.RS_RP_1 = 3;}" checked="@(_dirModel.RS_RP_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_RP_1 = 4;}" checked="@(_dirModel.RS_RP_1 == 4)" />
+                    @onchange="() => { _dirModel.RS_RP_1 = 4;}" checked="@(_dirModel.RS_RP_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2829,22 +2844,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_1 = 1;}" checked="@(_dirModel.RS_CO_1 == 1)" />
+                    @onchange="() => { _dirModel.RS_CO_1 = 1;}" checked="@(_dirModel.RS_CO_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_1 = 2;}" checked="@(_dirModel.RS_CO_1 == 2)" />
+                    @onchange="() => { _dirModel.RS_CO_1 = 2;}" checked="@(_dirModel.RS_CO_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_1 = 3;}" checked="@(_dirModel.RS_CO_1 == 3)" />
+                    @onchange="() => { _dirModel.RS_CO_1 = 3;}" checked="@(_dirModel.RS_CO_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_1 = 4;}" checked="@(_dirModel.RS_CO_1 == 4)" />
+                    @onchange="() => { _dirModel.RS_CO_1 = 4;}" checked="@(_dirModel.RS_CO_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2858,22 +2873,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_2 = 1;}" checked="@(_dirModel.RS_CO_2 == 1)" />
+                    @onchange="() => { _dirModel.RS_CO_2 = 1;}" checked="@(_dirModel.RS_CO_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_2 = 2;}" checked="@(_dirModel.RS_CO_2 == 2)" />
+                    @onchange="() => { _dirModel.RS_CO_2 = 2;}" checked="@(_dirModel.RS_CO_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_2 = 3;}" checked="@(_dirModel.RS_CO_2 == 3)" />
+                    @onchange="() => { _dirModel.RS_CO_2 = 3;}" checked="@(_dirModel.RS_CO_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_2 = 4;}" checked="@(_dirModel.RS_CO_2 == 4)" />
+                    @onchange="() => { _dirModel.RS_CO_2 = 4;}" checked="@(_dirModel.RS_CO_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2887,22 +2902,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_3 = 1;}" checked="@(_dirModel.RS_CO_3 == 1)" />
+                    @onchange="() => { _dirModel.RS_CO_3 = 1;}" checked="@(_dirModel.RS_CO_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_3 = 2;}" checked="@(_dirModel.RS_CO_3 == 2)" />
+                    @onchange="() => { _dirModel.RS_CO_3 = 2;}" checked="@(_dirModel.RS_CO_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_3 = 3;}" checked="@(_dirModel.RS_CO_3 == 3)" />
+                    @onchange="() => { _dirModel.RS_CO_3 = 3;}" checked="@(_dirModel.RS_CO_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_3 = 4;}" checked="@(_dirModel.RS_CO_3 == 4)" />
+                    @onchange="() => { _dirModel.RS_CO_3 = 4;}" checked="@(_dirModel.RS_CO_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2916,22 +2931,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_4 = 1;}" checked="@(_dirModel.RS_CO_4 == 1)" />
+                    @onchange="() => { _dirModel.RS_CO_4 = 1;}" checked="@(_dirModel.RS_CO_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_4 = 2;}" checked="@(_dirModel.RS_CO_4 == 2)" />
+                    @onchange="() => { _dirModel.RS_CO_4 = 2;}" checked="@(_dirModel.RS_CO_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_4 = 3;}" checked="@(_dirModel.RS_CO_4 == 3)" />
+                    @onchange="() => { _dirModel.RS_CO_4 = 3;}" checked="@(_dirModel.RS_CO_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_4 = 4;}" checked="@(_dirModel.RS_CO_4 == 4)" />
+                    @onchange="() => { _dirModel.RS_CO_4 = 4;}" checked="@(_dirModel.RS_CO_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2945,22 +2960,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_5 = 1;}" checked="@(_dirModel.RS_CO_5 == 1)" />
+                    @onchange="() => { _dirModel.RS_CO_5 = 1;}" checked="@(_dirModel.RS_CO_5 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_5 = 2;}" checked="@(_dirModel.RS_CO_5 == 2)" />
+                    @onchange="() => { _dirModel.RS_CO_5 = 2;}" checked="@(_dirModel.RS_CO_5 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_5 = 3;}" checked="@(_dirModel.RS_CO_5 == 3)" />
+                    @onchange="() => { _dirModel.RS_CO_5 = 3;}" checked="@(_dirModel.RS_CO_5 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_CO_5 = 4;}" checked="@(_dirModel.RS_CO_5 == 4)" />
+                    @onchange="() => { _dirModel.RS_CO_5 = 4;}" checked="@(_dirModel.RS_CO_5 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -2979,22 +2994,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_1 = 1;}" checked="@(_dirModel.RS_AN_1 == 1)" />
+                    @onchange="() => { _dirModel.RS_AN_1 = 1;}" checked="@(_dirModel.RS_AN_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_1 = 2;}" checked="@(_dirModel.RS_AN_1 == 2)" />
+                    @onchange="() => { _dirModel.RS_AN_1 = 2;}" checked="@(_dirModel.RS_AN_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_1 = 3;}" checked="@(_dirModel.RS_AN_1 == 3)" />
+                    @onchange="() => { _dirModel.RS_AN_1 = 3;}" checked="@(_dirModel.RS_AN_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_1 = 4;}" checked="@(_dirModel.RS_AN_1 == 4)" />
+                    @onchange="() => { _dirModel.RS_AN_1 = 4;}" checked="@(_dirModel.RS_AN_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3008,22 +3023,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_2 = 1;}" checked="@(_dirModel.RS_AN_2 == 1)" />
+                    @onchange="() => { _dirModel.RS_AN_2 = 1;}" checked="@(_dirModel.RS_AN_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_2 = 2;}" checked="@(_dirModel.RS_AN_2 == 2)" />
+                    @onchange="() => { _dirModel.RS_AN_2 = 2;}" checked="@(_dirModel.RS_AN_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_2 = 3;}" checked="@(_dirModel.RS_AN_2 == 3)" />
+                    @onchange="() => { _dirModel.RS_AN_2 = 3;}" checked="@(_dirModel.RS_AN_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_2 = 4;}" checked="@(_dirModel.RS_AN_2 == 4)" />
+                    @onchange="() => { _dirModel.RS_AN_2 = 4;}" checked="@(_dirModel.RS_AN_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3037,22 +3052,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_3 = 1;}" checked="@(_dirModel.RS_AN_3 == 1)" />
+                    @onchange="() => { _dirModel.RS_AN_3 = 1;}" checked="@(_dirModel.RS_AN_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_3 = 2;}" checked="@(_dirModel.RS_AN_3 == 2)" />
+                    @onchange="() => { _dirModel.RS_AN_3 = 2;}" checked="@(_dirModel.RS_AN_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_3 = 3;}" checked="@(_dirModel.RS_AN_3 == 3)" />
+                    @onchange="() => { _dirModel.RS_AN_3 = 3;}" checked="@(_dirModel.RS_AN_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_3 = 4;}" checked="@(_dirModel.RS_AN_3 == 4)" />
+                    @onchange="() => { _dirModel.RS_AN_3 = 4;}" checked="@(_dirModel.RS_AN_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3066,22 +3081,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_4 = 1;}" checked="@(_dirModel.RS_AN_4 == 1)" />
+                    @onchange="() => { _dirModel.RS_AN_4 = 1;}" checked="@(_dirModel.RS_AN_4 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_4 = 2;}" checked="@(_dirModel.RS_AN_4 == 2)" />
+                    @onchange="() => { _dirModel.RS_AN_4 = 2;}" checked="@(_dirModel.RS_AN_4 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_4 = 3;}" checked="@(_dirModel.RS_AN_4 == 3)" />
+                    @onchange="() => { _dirModel.RS_AN_4 = 3;}" checked="@(_dirModel.RS_AN_4 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_4 = 4;}" checked="@(_dirModel.RS_AN_4 == 4)" />
+                    @onchange="() => { _dirModel.RS_AN_4 = 4;}" checked="@(_dirModel.RS_AN_4 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3095,22 +3110,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_5 = 1;}" checked="@(_dirModel.RS_AN_5 == 1)" />
+                    @onchange="() => { _dirModel.RS_AN_5 = 1;}" checked="@(_dirModel.RS_AN_5 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_5 = 2;}" checked="@(_dirModel.RS_AN_5 == 2)" />
+                    @onchange="() => { _dirModel.RS_AN_5 = 2;}" checked="@(_dirModel.RS_AN_5 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_5 = 3;}" checked="@(_dirModel.RS_AN_5 == 3)" />
+                    @onchange="() => { _dirModel.RS_AN_5 = 3;}" checked="@(_dirModel.RS_AN_5 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_AN_5 = 4;}" checked="@(_dirModel.RS_AN_5 == 4)" />
+                    @onchange="() => { _dirModel.RS_AN_5 = 4;}" checked="@(_dirModel.RS_AN_5 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3128,22 +3143,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_MI_1 = 1;}" checked="@(_dirModel.RS_MI_1 == 1)" />
+                    @onchange="() => { _dirModel.RS_MI_1 = 1;}" checked="@(_dirModel.RS_MI_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_MI_1 = 2;}" checked="@(_dirModel.RS_MI_1 == 2)" />
+                    @onchange="() => { _dirModel.RS_MI_1 = 2;}" checked="@(_dirModel.RS_MI_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_MI_1 = 3;}" checked="@(_dirModel.RS_MI_1 == 3)" />
+                    @onchange="() => { _dirModel.RS_MI_1 = 3;}" checked="@(_dirModel.RS_MI_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_MI_1 = 4;}" checked="@(_dirModel.RS_MI_1 == 4)" />
+                    @onchange="() => { _dirModel.RS_MI_1 = 4;}" checked="@(_dirModel.RS_MI_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3157,22 +3172,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_MI_2 = 1;}" checked="@(_dirModel.RS_MI_2 == 1)" />
+                    @onchange="() => { _dirModel.RS_MI_2 = 1;}" checked="@(_dirModel.RS_MI_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_MI_2 = 2;}" checked="@(_dirModel.RS_MI_2 == 2)" />
+                    @onchange="() => { _dirModel.RS_MI_2 = 2;}" checked="@(_dirModel.RS_MI_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_MI_2 = 3;}" checked="@(_dirModel.RS_MI_2 == 3)" />
+                    @onchange="() => { _dirModel.RS_MI_2 = 3;}" checked="@(_dirModel.RS_MI_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_MI_2 = 4;}" checked="@(_dirModel.RS_MI_2 == 4)" />
+                    @onchange="() => { _dirModel.RS_MI_2 = 4;}" checked="@(_dirModel.RS_MI_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3186,22 +3201,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_MI_3 = 1;}" checked="@(_dirModel.RS_MI_3 == 1)" />
+                    @onchange="() => { _dirModel.RS_MI_3 = 1;}" checked="@(_dirModel.RS_MI_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_MI_3 = 2;}" checked="@(_dirModel.RS_MI_3 == 2)" />
+                    @onchange="() => { _dirModel.RS_MI_3 = 2;}" checked="@(_dirModel.RS_MI_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_MI_3 = 3;}" checked="@(_dirModel.RS_MI_3 == 3)" />
+                    @onchange="() => { _dirModel.RS_MI_3 = 3;}" checked="@(_dirModel.RS_MI_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_MI_3 = 4;}" checked="@(_dirModel.RS_MI_3 == 4)" />
+                    @onchange="() => { _dirModel.RS_MI_3 = 4;}" checked="@(_dirModel.RS_MI_3 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3219,22 +3234,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_IM_1 = 1;}" checked="@(_dirModel.RS_IM_1 == 1)" />
+                    @onchange="() => { _dirModel.RS_IM_1 = 1;}" checked="@(_dirModel.RS_IM_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_IM_1 = 2;}" checked="@(_dirModel.RS_IM_1 == 2)" />
+                    @onchange="() => { _dirModel.RS_IM_1 = 2;}" checked="@(_dirModel.RS_IM_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_IM_1 = 3;}" checked="@(_dirModel.RS_IM_1 == 3)" />
+                    @onchange="() => { _dirModel.RS_IM_1 = 3;}" checked="@(_dirModel.RS_IM_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_IM_1 = 4;}" checked="@(_dirModel.RS_IM_1 == 4)" />
+                    @onchange="() => { _dirModel.RS_IM_1 = 4;}" checked="@(_dirModel.RS_IM_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3248,22 +3263,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_IM_2 = 1;}" checked="@(_dirModel.RS_IM_2 == 1)" />
+                    @onchange="() => { _dirModel.RS_IM_2 = 1;}" checked="@(_dirModel.RS_IM_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_IM_2 = 2;}" checked="@(_dirModel.RS_IM_2 == 2)" />
+                    @onchange="() => { _dirModel.RS_IM_2 = 2;}" checked="@(_dirModel.RS_IM_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_IM_2 = 3;}" checked="@(_dirModel.RS_IM_2 == 3)" />
+                    @onchange="() => { _dirModel.RS_IM_2 = 3;}" checked="@(_dirModel.RS_IM_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RS_IM_2 = 4;}" checked="@(_dirModel.RS_IM_2 == 4)" />
+                    @onchange="() => { _dirModel.RS_IM_2 = 4;}" checked="@(_dirModel.RS_IM_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3287,22 +3302,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_RP_1 = 1;}" checked="@(_dirModel.RC_RP_1 == 1)" />
+                    @onchange="() => { _dirModel.RC_RP_1 = 1;}" checked="@(_dirModel.RC_RP_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_RP_1 = 2;}" checked="@(_dirModel.RC_RP_1 == 2)" />
+                    @onchange="() => { _dirModel.RC_RP_1 = 2;}" checked="@(_dirModel.RC_RP_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_RP_1 = 3;}" checked="@(_dirModel.RC_RP_1 == 3)" />
+                    @onchange="() => { _dirModel.RC_RP_1 = 3;}" checked="@(_dirModel.RC_RP_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_RP_1 = 4;}" checked="@(_dirModel.RC_RP_1 == 4)" />
+                    @onchange="() => { _dirModel.RC_RP_1 = 4;}" checked="@(_dirModel.RC_RP_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3320,22 +3335,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_IM_1 = 1;}" checked="@(_dirModel.RC_IM_1 == 1)" />
+                    @onchange="() => { _dirModel.RC_IM_1 = 1;}" checked="@(_dirModel.RC_IM_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_IM_1 = 2;}" checked="@(_dirModel.RC_IM_1 == 2)" />
+                    @onchange="() => { _dirModel.RC_IM_1 = 2;}" checked="@(_dirModel.RC_IM_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_IM_1 = 3;}" checked="@(_dirModel.RC_IM_1 == 3)" />
+                    @onchange="() => { _dirModel.RC_IM_1 = 3;}" checked="@(_dirModel.RC_IM_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_IM_1 = 4;}" checked="@(_dirModel.RC_IM_1 == 4)" />
+                    @onchange="() => { _dirModel.RC_IM_1 = 4;}" checked="@(_dirModel.RC_IM_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3349,22 +3364,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_IM_2 = 1;}" checked="@(_dirModel.RC_IM_2 == 1)" />
+                    @onchange="() => { _dirModel.RC_IM_2 = 1;}" checked="@(_dirModel.RC_IM_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_IM_2 = 2;}" checked="@(_dirModel.RC_IM_2 == 2)" />
+                    @onchange="() => { _dirModel.RC_IM_2 = 2;}" checked="@(_dirModel.RC_IM_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_IM_2 = 3;}" checked="@(_dirModel.RC_IM_2 == 3)" />
+                    @onchange="() => { _dirModel.RC_IM_2 = 3;}" checked="@(_dirModel.RC_IM_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_IM_2 = 4;}" checked="@(_dirModel.RC_IM_2 == 4)" />
+                    @onchange="() => { _dirModel.RC_IM_2 = 4;}" checked="@(_dirModel.RC_IM_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3382,22 +3397,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_CO_1 = 1;}" checked="@(_dirModel.RC_CO_1 == 1)" />
+                    @onchange="() => { _dirModel.RC_CO_1 = 1;}" checked="@(_dirModel.RC_CO_1 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_CO_1 = 2;}" checked="@(_dirModel.RC_CO_1 == 2)" />
+                    @onchange="() => { _dirModel.RC_CO_1 = 2;}" checked="@(_dirModel.RC_CO_1 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_CO_1 = 3;}" checked="@(_dirModel.RC_CO_1 == 3)" />
+                    @onchange="() => { _dirModel.RC_CO_1 = 3;}" checked="@(_dirModel.RC_CO_1 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_CO_1 = 4;}" checked="@(_dirModel.RC_CO_1 == 4)" />
+                    @onchange="() => { _dirModel.RC_CO_1 = 4;}" checked="@(_dirModel.RC_CO_1 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3411,22 +3426,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_CO_2 = 1;}" checked="@(_dirModel.RC_CO_2 == 1)" />
+                    @onchange="() => { _dirModel.RC_CO_2 = 1;}" checked="@(_dirModel.RC_CO_2 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_CO_2 = 2;}" checked="@(_dirModel.RC_CO_2 == 2)" />
+                    @onchange="() => { _dirModel.RC_CO_2 = 2;}" checked="@(_dirModel.RC_CO_2 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_CO_2 = 3;}" checked="@(_dirModel.RC_CO_2 == 3)" />
+                    @onchange="() => { _dirModel.RC_CO_2 = 3;}" checked="@(_dirModel.RC_CO_2 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_CO_2 = 4;}" checked="@(_dirModel.RC_CO_2 == 4)" />
+                    @onchange="() => { _dirModel.RC_CO_2 = 4;}" checked="@(_dirModel.RC_CO_2 == 4)" />
                     Не потребується
                 </label>
             </div>
@@ -3440,22 +3455,22 @@
             <div class="radio-container">
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_CO_3 = 1;}" checked="@(_dirModel.RC_CO_3 == 1)" />
+                    @onchange="() => { _dirModel.RC_CO_3 = 1;}" checked="@(_dirModel.RC_CO_3 == 1)" />
                     Реалізовано
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_CO_3 = 2;}" checked="@(_dirModel.RC_CO_3 == 2)" />
+                    @onchange="() => { _dirModel.RC_CO_3 = 2;}" checked="@(_dirModel.RC_CO_3 == 2)" />
                     В процесі реалізації
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_CO_3 = 3;}" checked="@(_dirModel.RC_CO_3 == 3)" />
+                    @onchange="() => { _dirModel.RC_CO_3 = 3;}" checked="@(_dirModel.RC_CO_3 == 3)" />
                     Розглядається
                 </label>
                 <label>
                     <input disabled="@_isDisabled" type="radio" value="false"
-                           @onchange="() => { _dirModel.RC_CO_3 = 4;}" checked="@(_dirModel.RC_CO_3 == 4)" />
+                    @onchange="() => { _dirModel.RC_CO_3 = 4;}" checked="@(_dirModel.RC_CO_3 == 4)" />
                     Не потребується
                 </label>
             </div>

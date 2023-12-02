@@ -72,6 +72,10 @@ hr {
     margin: 10px 0;
 }
 
+.clicked {
+    cursor: pointer;
+}
+
 .nav-buttons {
     margin-top: 20px;
     display: flex;

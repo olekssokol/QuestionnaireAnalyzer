@@ -15,19 +15,22 @@ public partial class DirFeasibilityPage
 
     private DirFeasibilityModel _dirModel = new();
 
-    private bool _isTablelVisible;
-    private bool _isIDVisible;
-    private bool _isPRVisible;
-    private bool _isDEVisible;
-    private bool _isRSVisible;
-    private bool _isRCVisible;
+    private bool _isTableVisible;
 
+    private int[] _ID_TableResult = new int[4];
+    private int[] _PR_TableResult = new int[4];
+    private int[] _DE_TableResult = new int[4];
+    private int[] _RS_TableResult = new int[4];
+    private int[] _RC_TableResult = new int[4];
+    private int[] _TableResult = new int[4];
 
     protected override async Task OnInitializedAsync()
     {
         if (Id != null)
         {
             _dirModel = await DataService.GetByIdAsync<DirFeasibilityModel>(Id.Value);
+
+            TableCalculate();
         }
     }
 
@@ -48,5 +51,31 @@ public partial class DirFeasibilityPage
     private async void OpenPreviousPage()
     {
         await JSRuntime.InvokeVoidAsync("openPreviousPage");
+    }
+
+    private void TableCalculate()
+    {
+        ProcessItems("ID", _ID_TableResult);
+        ProcessItems("PR", _PR_TableResult);
+        ProcessItems("DE", _DE_TableResult);
+        ProcessItems("RS", _RS_TableResult);
+        ProcessItems("RC", _RC_TableResult);
+        
+        for (int i = 0; i < _TableResult.Length; i++)
+        {
+            _TableResult[i] = _ID_TableResult[i] + _PR_TableResult[i] + _DE_TableResult[i] + _RS_TableResult[i] + _RC_TableResult[i];
+        }
+    }
+    
+    void ProcessItems(string prefix, int[] resultArray)
+    {
+        var items = typeof(DirFeasibilityModel).GetProperties()
+            .Where(p => p.PropertyType == typeof(int) && p.Name.StartsWith(prefix))
+            .Select(p => (int)p.GetValue(_dirModel));
+
+        for (int i = 1; i <= 4; i++)
+        {
+            resultArray[i - 1] = items.Count(x => x == i);
+        }
     }
 }
