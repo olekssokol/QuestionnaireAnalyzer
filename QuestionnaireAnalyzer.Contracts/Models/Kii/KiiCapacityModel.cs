@@ -22,11 +22,18 @@ public class KiiCapacityModel
     #endregion
 
     #region Персонал
-    public bool T2Q2P2 { get; set; }
-    public string T2Q2P3 { get; set; } = string.Empty;
-    public bool T2Q2P4 { get; set; }
-    public bool T2Q2P5 { get; set; }
-    public int T2Q2P6 { get; set; }
+    public bool pT2Q2P2 { get; set; }
+    public int intT2Q2P2 { get; set; }
+    
+    public string pT2Q2P3 { get; set; } = string.Empty;
+    public int intT2Q2P3 { get; set; }
+    
+    public bool pT2Q2P4 { get; set; }
+    public int intT2Q2P4 { get; set; }
+    public bool pT2Q2P5 { get; set; }
+    public int intT2Q2P5 { get; set; }
+    public int pT2Q2P6 { get; set; }
+    public int intT2Q2P6{ get; set; }
     #endregion
 
     #region Політики
@@ -36,21 +43,30 @@ public class KiiCapacityModel
     #endregion
 
     #region Технології
-    public bool T2Q4P10 { get; set; }
-    public bool T2Q4P11 { get; set; }
-    public bool T2Q4P12 { get; set; }
+    
+    public bool pT2Q4P10 { get; set; }
+    public int intT2Q4P10{ get; set; }
+    public bool pT2Q4P11 { get; set; }
+    public int intT2Q4P11{ get; set; }
+    public bool pT2Q4P12 { get; set; }
+    public int intT2Q4P12{ get; set; }
     public bool T2Q4P13 { get; set; }
     public bool T2Q4P14 { get; set; }
     public string T2Q4P14Location { get; set; } = string.Empty;
     public bool T2Q4P15 { get; set; }
     public bool T2Q4P16 { get; set; }
-    public bool T2Q4P17 { get; set; }
+    
+    public bool pT2Q4P17 { get; set; }
+    public int intT2Q4P17{ get; set; }
     #endregion
 
     #region Фінансування
-    public bool T2Q5P18 { get; set; }
-    public float T2Q5P19 { get; set; }
-    public float T2Q5P20 { get; set; }
+    public bool pT2Q5P18 { get; set; }
+    public int intT2Q5P18 { get; set; }
+    public float pT2Q5P19 { get; set; }
+    public int intT2Q5P19 { get; set; }
+    public float pT2Q5P20 { get; set; }
+    public int intT2Q5P20 { get; set; }
     public bool T2Q5P21 { get; set; }
     public float T2Q5P22 { get; set; }
     public bool T2Q5P23 { get; set; }

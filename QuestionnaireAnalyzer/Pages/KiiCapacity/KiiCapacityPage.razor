@@ -113,35 +113,100 @@
         №2 Персонал
     </div>
 
+<div class="table_item">
     <div class="table_question">
-        <input disabled="@_isDisabled" @bind="_kiiModel.T2Q2P2" type="checkbox" name="checkbox" />
-        <label>Укомплектованість штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
+        <input disabled="@_isDisabled" @onchange="() => UpdateIntData(nameof(_kiiModel.pT2Q2P2), nameof(_kiiModel.intT2Q2P2))" type="checkbox" name="checkbox" />
+        <label>Укомплектованість штатного підрозділу зезпечних) сервісів ІБ/КЗ/КБ/ЗІ</label>
     </div>
-
-    <div class="table_question">
-        <label>Керівник/начальник штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
-        <textarea readonly="@_isDisabled" @bind="_kiiModel.T2Q2P3"></textarea>
-    </div>
-
-    <div class="table_question">
-        <input disabled="@_isDisabled" @bind="_kiiModel.T2Q2P4" type="checkbox" name="checkbox" />
-        <label>Фахова освіта персоналу штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
-    </div>
-
-    <div class="table_question">
-        <input disabled="@_isDisabled" @bind="_kiiModel.T2Q2P5" type="checkbox" name="checkbox" />
-        <label>Регулярне підвищення кваліфікації персоналу штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
-    </div>
-
-    <div>
-        Кількість посадових осіб, яким встановлені надбавки за безпосереднє виконання функції із забезпечення кібербезпеки, кіберзахисту та безпеки інформаційних технологій
-    </div>
-    <div class="number-input-container">
-        <input disabled="@_isDisabled" @bind="_kiiModel.T2Q2P6" type="number" name="checkbox" />
-        <div>
-            посадових осіб
+    <div class="table_question-rande">
+        <input @bind="_kiiModel.intT2Q2P2" type="range" min="0" max="100" step="5" disabled="@(!_kiiModel.pT2Q2P2 || _isDisabled)"/>
+        <div class="table_question-range-data">
+            <div class="table_question-range-text">
+                @((float)_kiiModel.intT2Q2P2 / 100)
+            </div>
+        </div>
+        <div class="table_question-range-subtitle">
+            Проміжне оцінювання – пропорційно до % укомплектування
         </div>
     </div>
+</div>
+
+    <div class="table_item">
+            <div class="table_question">
+                <label>Керівник/начальник штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
+                <textarea readonly="@_isDisabled" @bind="_kiiModel.pT2Q2P3"></textarea>
+            </div>
+            <div class="table_question-rande">
+                <input @bind="_kiiModel.intT2Q2P3" type="range" min="0" max="100" step="5" disabled="@(string.IsNullOrEmpty(_kiiModel.pT2Q2P3)  || _isDisabled)"/>
+                <div class="table_question-range-data">
+                    <div class="table_question-range-text">
+                        @((float)_kiiModel.intT2Q2P3 / 100)
+                    </div>
+                </div>
+                <div class="table_question-range-subtitle">
+                    Від 0 до одиниці залежно від спеціалізації, передбаченої посадовими інструкціями
+                </div>
+            </div>
+        </div>
+
+     <div class="table_item">
+         <div class="table_question">
+             <input disabled="@_isDisabled" @onchange="() => UpdateIntData(nameof(_kiiModel.pT2Q2P4), nameof(_kiiModel.intT2Q2P4))" type="checkbox" name="checkbox" />
+             <label>Фахова освіта персоналу штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
+         </div>
+         <div class="table_question-rande">
+             <input @bind="_kiiModel.intT2Q2P4" type="range" min="0" max="100" step="5" disabled="@(!_kiiModel.pT2Q2P4 || _isDisabled)" />
+             <div class="table_question-range-data">
+                 <div class="table_question-range-text">
+                     @((float)_kiiModel.intT2Q2P4 / 100)
+                 </div>
+             </div>
+             <div class="table_question-range-subtitle">
+                 Проміжне оцінювання – пропорційно до % працівників з фаховою освітою
+             </div>
+         </div>
+     </div>
+
+    <div class="table_item">
+           <div class="table_question">
+               <input disabled="@_isDisabled" @onchange="() => UpdateIntData(nameof(_kiiModel.pT2Q2P5), nameof(_kiiModel.intT2Q2P5))" type="checkbox" name="checkbox" />
+               <label>Регулярне підвищення кваліфікації персоналу штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
+           </div>
+           <div class="table_question-rande">
+               <input @bind="_kiiModel.intT2Q2P5" type="range" min="0" max="100" step="5" disabled="@(!_kiiModel.pT2Q2P5 || _isDisabled)" />
+               <div class="table_question-range-data">
+                   <div class="table_question-range-text">
+                       @((float)_kiiModel.intT2Q2P5 / 100)
+                   </div>
+               </div>
+               <div class="table_question-range-subtitle">
+                   Проміжне оцінювання – пропорційно до частості проведення
+               </div>
+           </div>
+       </div>
+
+       <div class="table_item">
+           <div>
+               Кількість посадових осіб, яким встановлені надбавки за безпосереднє виконання функції із забезпечення кібербезпеки, кіберзахисту та безпеки інформаційних технологій
+           </div>
+           <div class="number-input-container">
+               <input disabled="@_isDisabled" @bind="_kiiModel.pT2Q2P6" type="number" name="checkbox" />
+               <div>
+                   посадових осіб
+               </div>
+           </div>
+           <div class="table_question-rande">
+               <input @bind="_kiiModel.intT2Q2P6" type="range" min="0" max="100" step="5" disabled="@(_kiiModel.pT2Q2P6 == 0 || _isDisabled)"/>
+               <div class="table_question-range-data">
+                   <div class="table_question-range-text">
+                       @((float)_kiiModel.intT2Q2P6 / 100)
+                   </div>
+               </div>
+               <div class="table_question-range-subtitle">
+                   Проміжне оцінювання – пропорційно до чисельності працівників
+               </div>
+           </div>
+       </div>
 
 
     <hr>
@@ -172,18 +237,59 @@
         №4 Технології
     </div>
 
-    <div class="table_question">
-        <input disabled="@_isDisabled" @bind="_kiiModel.T2Q4P10" type="checkbox" name="checkbox" />
-        <label>Ліцензійне програмне забезпечення</label>
-    </div>
-    <div class="table_question">
-        <input disabled="@_isDisabled" @bind="_kiiModel.T2Q4P11" type="checkbox" name="checkbox" />
-        <label>Наявність антивірусних програм </label>
-    </div>
-    <div class="table_question">
-        <input disabled="@_isDisabled" @bind="_kiiModel.T2Q4P12" type="checkbox" name="checkbox" />
-        <label>Апаратне забезпечення</label>
-    </div>
+    <div class="table_item">
+            <div class="table_question">
+                <input disabled="@_isDisabled" @onchange="() => UpdateIntData(nameof(_kiiModel.pT2Q4P10), nameof(_kiiModel.intT2Q4P10))" type="checkbox" name="checkbox" />
+                <label>Ліцензійне програмне забезпечення</label>
+            </div>
+            <div class="table_question-rande">
+                <input @bind="_kiiModel.intT2Q4P10" type="range" min="0" max="100" step="5" disabled="@(!_kiiModel.pT2Q4P10 || _isDisabled)" />
+                <div class="table_question-range-data">
+                    <div class="table_question-range-text">
+                        @((float)_kiiModel.intT2Q4P10 / 100)
+                    </div>
+                </div>
+                <div class="table_question-range-subtitle">
+                    Проміжне оцінювання – пропорційно до % забезпеченості ліцензійним програмним забезпеченням
+                </div>
+            </div>
+        </div>
+    
+        <div class="table_item">
+            <div class="table_question">
+                <input disabled="@_isDisabled" @onchange="() => UpdateIntData(nameof(_kiiModel.pT2Q4P11), nameof(_kiiModel.intT2Q4P11))" type="checkbox" name="checkbox" />
+                <label>Наявність антивірусних програм </label>
+            </div>
+            <div class="table_question-rande">
+                <input @bind="_kiiModel.intT2Q4P11" type="range" min="0" max="100" step="5" disabled="@(!_kiiModel.pT2Q4P11 || _isDisabled)" />
+                <div class="table_question-range-data">
+                    <div class="table_question-range-text">
+                        @((float)_kiiModel.intT2Q4P11 / 100)
+                    </div>
+                </div>
+                <div class="table_question-range-subtitle">
+                    Проміжне оцінювання – пропорційно до % забезпеченості антивірусними програмами
+                </div>
+            </div>
+        </div>
+    
+        <div class="table_item">
+            <div class="table_question">
+                <input disabled="@_isDisabled" @onchange="() => UpdateIntData(nameof(_kiiModel.pT2Q4P12), nameof(_kiiModel.intT2Q4P12))" type="checkbox" name="checkbox" />
+                <label>Апаратне забезпечення</label>
+            </div>
+            <div class="table_question-rande">
+                <input @bind="_kiiModel.intT2Q4P12" type="range" min="0" max="100" step="5" disabled="@(!_kiiModel.pT2Q4P12 || _isDisabled)" />
+                <div class="table_question-range-data">
+                    <div class="table_question-range-text">
+                        @((float)_kiiModel.intT2Q4P12 / 100)
+                    </div>
+                </div>
+                <div class="table_question-range-subtitle">
+                    Проміжне оцінювання – пропорційно до % забезпеченості апаратним забезпеченням
+                </div>
+            </div>
+        </div>
     <div class="table_question">
         <input disabled="@_isDisabled" @bind="_kiiModel.T2Q4P13" type="checkbox" name="checkbox" />
         <label>Хмарні ресурси</label>
@@ -193,7 +299,7 @@
         <label>Центри обробки даних</label>
     </div>
 
-    @if (_kiiModel.T2Q4P17)
+    @if (_kiiModel.T2Q4P14)
     {
         <div class="table_question">
             <label class="ratio-button">
@@ -221,10 +327,23 @@
         <input disabled="@_isDisabled" @bind="_kiiModel.T2Q4P16" type="checkbox" name="checkbox" />
         <label>Використання систем обміну миттєвими повідомленнями (месенджерами)</label>
     </div>
-    <div class="table_question">
-        <input disabled="@_isDisabled" @bind="_kiiModel.T2Q4P17" type="checkbox" name="checkbox" />
-        <label>Використання додатків/сервісів для проведення відеоконференцій</label>
-    </div>
+     <div class="table_item">
+           <div class="table_question">
+               <input disabled="@_isDisabled" @onchange="() => UpdateIntData(nameof(_kiiModel.pT2Q4P17), nameof(_kiiModel.intT2Q4P17))" type="checkbox" name="checkbox" />
+               <label>Використання додатків/сервісів для проведення відеоконференцій</label>
+           </div>
+           <div class="table_question-rande">
+               <input @bind="_kiiModel.intT2Q4P17" type="range" min="0" max="100" step="5" disabled="@(!_kiiModel.pT2Q4P17 || _isDisabled)" />
+               <div class="table_question-range-data">
+                   <div class="table_question-range-text">
+                       @((float)_kiiModel.intT2Q4P17 / 100)
+                   </div>
+               </div>
+               <div class="table_question-range-subtitle">
+                   Проміжне оцінювання від 0 до 1 – пропорційно до % використання дозволених (безпечних) сервісів
+               </div>
+           </div>
+       </div>
 
     <hr>
 
@@ -234,32 +353,72 @@
         №5 Фінансування
     </div>
 
-    <div class="table_question">
-        <label>Фінансування</label>
+    <div class="table_item">
+           <div class="table_question">
+               <label>Фінансування</label>
+   
+               <div class="radio-container">
+                   <label>
+                       <input disabled="@_isDisabled" type="radio" name="financing" value="false" @onchange="() => { _kiiModel.pT2Q5P18 = true; _kiiModel.intT2Q5P18 = 100;}" checked="@(_kiiModel.pT2Q5P18)" />
+                       Достатньо
+                   </label>
+                   <label>
+                       <input disabled="@_isDisabled" type="radio" name="financing" value="false" @onchange="() => { _kiiModel.pT2Q5P18 = false; _kiiModel.intT2Q5P18 = 0;}" checked="@(!_kiiModel.pT2Q5P18)" />
+                       Недостатньо
+                   </label>
+               </div>
+           </div>
+           <div class="table_question-rande">
+               <input @bind="_kiiModel.intT2Q5P18" type="range" min="0" max="100" step="5" disabled="@(!_kiiModel.pT2Q5P18 || _isDisabled)" />
+               <div class="table_question-range-data">
+                   <div class="table_question-range-text">
+                       @((float)_kiiModel.intT2Q5P18 / 100)
+                   </div>
+               </div>
+               <div class="table_question-range-subtitle">
+                   Проміжне оцінювання – пропорційно до % забезпеченості потреб фінансуванням
+               </div>
+           </div>
+       </div>
+   
+       <div class="table_item">
+           <div class="number-input-container">
+               <input disabled="@_isDisabled" @bind="_kiiModel.pT2Q5P19" type="number" name="checkbox" />
+               грн.
+               <div>Середня заробітна плата спеціаліста вашого органу за 2022 рік</div>
+           </div>
+           <div class="table_question-rande">
+               <input @bind="_kiiModel.intT2Q5P19" type="range" min="0" max="100" step="5" disabled="@(_kiiModel.pT2Q5P19 == 0 || _isDisabled)"/>
+               <div class="table_question-range-data">
+                   <div class="table_question-range-text">
+                       @((float)_kiiModel.intT2Q5P19 / 100)
+                   </div>
+               </div>
+               <div class="table_question-range-subtitle">
+                   Оцінка від 0 до 1 пропорційно розмірам ЗП
+               </div>
+           </div>
+       </div>
+   
+       <div class="table_item">
+           <div class="number-input-container">
+               <input disabled="@_isDisabled" @bind="_kiiModel.pT2Q5P20" type="number" name="checkbox" />
+               грн.
+               <div>Середня заробітна плата спеціаліста штатного підрозділу з ІБ/КЗ/КБ/ЗІ за 2022 рік</div>
+           </div>
+           <div class="table_question-rande">
+               <input @bind="_kiiModel.intT2Q5P20" type="range" min="0" max="100" step="5" disabled="@(_kiiModel.pT2Q5P20 == 0 || _isDisabled)"/>
+               <div class="table_question-range-data">
+                   <div class="table_question-range-text">
+                       @((float)_kiiModel.intT2Q5P20 / 100)
+                   </div>
+               </div>
+               <div class="table_question-range-subtitle">
+                   Оцінка від 0 до 1 пропорційно розмірам ЗП
+               </div>
+           </div>
+       </div>
 
-        <div class="radio-container">
-            <label>
-                <input disabled="@_isDisabled" type="radio" name="financing" value="true" @onchange="() => _kiiModel.T2Q5P18 = true" checked="@(_kiiModel.T2Q5P18)" />
-                Достатньо
-            </label>
-            <label>
-                <input disabled="@_isDisabled" type="radio" name="financing" value="false" @onchange="() => _kiiModel.T2Q5P18 = false" checked="@(!_kiiModel.T2Q5P18)" />
-                Недостатньо
-            </label>
-        </div>
-    </div>
-
-    <div class="number-input-container">
-        <input disabled="@_isDisabled" @bind="_kiiModel.T2Q5P19" type="number" name="checkbox" />
-        грн.
-        <div>Середня заробітна плата спеціаліста ОКІ</div>
-    </div>
-
-    <div class="number-input-container">
-        <input disabled="@_isDisabled" @bind="_kiiModel.T2Q5P20" type="number" name="checkbox" />
-        грн.
-        <div>Середня заробітна плата спеціаліста підрозділу з ІБ/КЗ/КБ/ЗІ</div>
-    </div>
 
     <div class="table_question">
         <div class="checkbox-container">

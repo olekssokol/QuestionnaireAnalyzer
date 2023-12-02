@@ -57,4 +57,28 @@ public partial class KiiCapacityPage
     {
         await JSRuntime.InvokeVoidAsync("openPreviousPage");
     }
+    
+    private void UpdateIntData(string dataName, string intName)
+    {
+        var dataProperty = _kiiModel.GetType().GetProperty(dataName);
+        var rangeProperty = _kiiModel.GetType().GetProperty(intName);
+
+        if (dataProperty != null && rangeProperty != null)
+        {
+            bool checkboxValue = (bool)dataProperty.GetValue(_kiiModel);
+
+            dataProperty.SetValue(_kiiModel, !checkboxValue);
+
+            if (!checkboxValue)
+            {
+                rangeProperty.SetValue(_kiiModel, 100);
+            }
+            else
+            {
+                rangeProperty.SetValue(_kiiModel, 0);
+            }
+        }
+
+        StateHasChanged();
+    }
 }
