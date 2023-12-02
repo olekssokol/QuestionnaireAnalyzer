@@ -99,7 +99,7 @@
             <label>Укомплектованість штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
         </div>
         <div class="table_question-rande">
-            <input @bind="_dirModel.intT2Q2P2" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q2P2)" />
+            <input @bind="_dirModel.intT2Q2P2" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q2P2 || _isDisabled)"/>
             <div class="table_question-range-data">
                 <div class="table_question-range-text">
                     @((float)_dirModel.intT2Q2P2 / 100)
@@ -139,7 +139,7 @@
             <textarea readonly="@_isDisabled" @bind="_dirModel.pT2Q2P5"></textarea>
         </div>
         <div class="table_question-rande">
-            <input @bind="_dirModel.intT2Q2P5" type="range" min="0" max="100" step="5"/>
+            <input @bind="_dirModel.intT2Q2P5" type="range" min="0" max="100" step="5" disabled="@(string.IsNullOrEmpty(_dirModel.pT2Q2P5)  || _isDisabled)"/>
             <div class="table_question-range-data">
                 <div class="table_question-range-text">
                     @((float)_dirModel.intT2Q2P5 / 100)
@@ -162,7 +162,7 @@
             <label>Фахова освіта персоналу штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
         </div>
         <div class="table_question-rande">
-            <input @bind="_dirModel.intT2Q2P7" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q2P7)" />
+            <input @bind="_dirModel.intT2Q2P7" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q2P7 || _isDisabled)" />
             <div class="table_question-range-data">
                 <div class="table_question-range-text">
                     @((float)_dirModel.intT2Q2P7 / 100)
@@ -180,7 +180,7 @@
             <label>Регулярне підвищення кваліфікації персоналу штатного підрозділу з ІБ/КЗ/КБ/ЗІ</label>
         </div>
         <div class="table_question-rande">
-            <input @bind="_dirModel.intT2Q2P8" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q2P8)" />
+            <input @bind="_dirModel.intT2Q2P8" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q2P8 || _isDisabled)" />
             <div class="table_question-range-data">
                 <div class="table_question-range-text">
                     @((float)_dirModel.intT2Q2P8 / 100)
@@ -203,7 +203,7 @@
             </div>
         </div>
         <div class="table_question-rande">
-            <input @bind="_dirModel.intT2Q2P9" type="range" min="0" max="100" step="5"/>
+            <input @bind="_dirModel.intT2Q2P9" type="range" min="0" max="100" step="5" disabled="@(_dirModel.pT2Q2P9 == 0 || _isDisabled)"/>
             <div class="table_question-range-data">
                 <div class="table_question-range-text">
                     @((float)_dirModel.intT2Q2P9 / 100)
@@ -250,7 +250,7 @@
             <label>Ліцензійне програмне забезпечення</label>
         </div>
         <div class="table_question-rande">
-            <input @bind="_dirModel.intT2Q4P13" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q4P13)" />
+            <input @bind="_dirModel.intT2Q4P13" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q4P13 || _isDisabled)" />
             <div class="table_question-range-data">
                 <div class="table_question-range-text">
                     @((float)_dirModel.intT2Q4P13 / 100)
@@ -268,7 +268,7 @@
             <label>Наявність антивірусних програм </label>
         </div>
         <div class="table_question-rande">
-            <input @bind="_dirModel.intT2Q4P14" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q4P14)" />
+            <input @bind="_dirModel.intT2Q4P14" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q4P14 || _isDisabled)" />
             <div class="table_question-range-data">
                 <div class="table_question-range-text">
                     @((float)_dirModel.intT2Q4P14 / 100)
@@ -286,7 +286,7 @@
             <label>Апаратне забезпечення</label>
         </div>
         <div class="table_question-rande">
-            <input @bind="_dirModel.intT2Q4P15" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q4P15)" />
+            <input @bind="_dirModel.intT2Q4P15" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q4P15 || _isDisabled)" />
             <div class="table_question-range-data">
                 <div class="table_question-range-text">
                     @((float)_dirModel.intT2Q4P15 / 100)
@@ -348,7 +348,7 @@
             <label>Використання додатків/сервісів для проведення відеоконференцій</label>
         </div>
         <div class="table_question-rande">
-            <input @bind="_dirModel.intT2Q4P21" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q4P21)" />
+            <input @bind="_dirModel.intT2Q4P21" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q4P21 || _isDisabled)" />
             <div class="table_question-range-data">
                 <div class="table_question-range-text">
                     @((float)_dirModel.intT2Q4P21 / 100)
@@ -384,7 +384,7 @@
             </div>
         </div>
         <div class="table_question-rande">
-            <input @bind="_dirModel.intT2Q5P22" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q5P22)" />
+            <input @bind="_dirModel.intT2Q5P22" type="range" min="0" max="100" step="5" disabled="@(!_dirModel.pT2Q5P22 || _isDisabled)" />
             <div class="table_question-range-data">
                 <div class="table_question-range-text">
                     @((float)_dirModel.intT2Q5P22 / 100)
@@ -403,7 +403,7 @@
             <div>Середня заробітна плата спеціаліста вашого органу за 2022 рік</div>
         </div>
         <div class="table_question-rande">
-            <input @bind="_dirModel.intT2Q5P23" type="range" min="0" max="100" step="5"/>
+            <input @bind="_dirModel.intT2Q5P23" type="range" min="0" max="100" step="5" disabled="@(_dirModel.pT2Q5P23 == 0 || _isDisabled)"/>
             <div class="table_question-range-data">
                 <div class="table_question-range-text">
                     @((float)_dirModel.intT2Q5P23 / 100)
@@ -422,7 +422,7 @@
             <div>Середня заробітна плата спеціаліста штатного підрозділу з ІБ/КЗ/КБ/ЗІ за 2022 рік</div>
         </div>
         <div class="table_question-rande">
-            <input @bind="_dirModel.intT2Q5P24" type="range" min="0" max="100" step="5"/>
+            <input @bind="_dirModel.intT2Q5P24" type="range" min="0" max="100" step="5" disabled="@(_dirModel.pT2Q5P24 == 0 || _isDisabled)"/>
             <div class="table_question-range-data">
                 <div class="table_question-range-text">
                     @((float)_dirModel.intT2Q5P24 / 100)
