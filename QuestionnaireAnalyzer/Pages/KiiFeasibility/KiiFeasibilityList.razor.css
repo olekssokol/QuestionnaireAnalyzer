@@ -65,7 +65,7 @@
     display: flex;
     width: 156px;
     height: 61px;
-    flex-kiiection: column;
+    flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
     color: #000;

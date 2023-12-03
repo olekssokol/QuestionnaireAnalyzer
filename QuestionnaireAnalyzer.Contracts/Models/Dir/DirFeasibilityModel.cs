@@ -158,7 +158,6 @@ public class DirFeasibilityModel
 
     #endregion
 
-
     #region RC
 
     public int RC_RP_1 { get; set; }
@@ -174,6 +173,7 @@ public class DirFeasibilityModel
 
     #endregion
 
+    
     #region ID
     public FeasibilityState ID_AM_1_text  { get; set; } = new();
     public FeasibilityState ID_AM_2_text  { get; set; } = new();
@@ -323,7 +323,6 @@ public class DirFeasibilityModel
     public FeasibilityState RS_IM_2_text  { get; set; } = new();
 
     #endregion
-
 
     #region RC
 

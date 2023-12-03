@@ -175,169 +175,169 @@ public class KiiFeasibilityModel
 
     #endregion
 
-    #region ID
-    public FeasibilityState ID_AM_1_text { get; set; }
-    public FeasibilityState ID_AM_2_text { get; set; }
-    public FeasibilityState ID_AM_3_text { get; set; }
-    public FeasibilityState ID_AM_4_text { get; set; }
-    public FeasibilityState ID_AM_5_text { get; set; }
-    public FeasibilityState ID_AM_6_text { get; set; }
+    
+  #region ID
+    public FeasibilityState ID_AM_1_text  { get; set; } = new();
+    public FeasibilityState ID_AM_2_text  { get; set; } = new();
+    public FeasibilityState ID_AM_3_text  { get; set; } = new();
+    public FeasibilityState ID_AM_4_text  { get; set; } = new();
+    public FeasibilityState ID_AM_5_text  { get; set; } = new();
+    public FeasibilityState ID_AM_6_text  { get; set; } = new();
 
 
-    public FeasibilityState ID_BE_1_text { get; set; }
-    public FeasibilityState ID_BE_2_text { get; set; }
-    public FeasibilityState ID_BE_3_text { get; set; }
-    public FeasibilityState ID_BE_4_text { get; set; }
-    public FeasibilityState ID_BE_5_text { get; set; }
+    public FeasibilityState ID_BE_1_text  { get; set; } = new();
+    public FeasibilityState ID_BE_2_text  { get; set; } = new();
+    public FeasibilityState ID_BE_3_text  { get; set; } = new();
+    public FeasibilityState ID_BE_4_text  { get; set; } = new();
+    public FeasibilityState ID_BE_5_text  { get; set; } = new();
 
 
-    public FeasibilityState ID_GV_1_text { get; set; }
-    public FeasibilityState ID_GV_2_text { get; set; }
-    public FeasibilityState ID_GV_3_text { get; set; }
-    public FeasibilityState ID_GV_4_text { get; set; }
+    public FeasibilityState ID_GV_1_text  { get; set; } = new();
+    public FeasibilityState ID_GV_2_text  { get; set; } = new();
+    public FeasibilityState ID_GV_3_text  { get; set; } = new();
+    public FeasibilityState ID_GV_4_text  { get; set; } = new();
 
 
-    public FeasibilityState ID_RA_1_text { get; set; }
-    public FeasibilityState ID_RA_2_text { get; set; }
-    public FeasibilityState ID_RA_3_text { get; set; }
-    public FeasibilityState ID_RA_4_text { get; set; }
-    public FeasibilityState ID_RA_5_text { get; set; }
-    public FeasibilityState ID_RA_6_text { get; set; }
+    public FeasibilityState ID_RA_1_text  { get; set; } = new();
+    public FeasibilityState ID_RA_2_text  { get; set; } = new();
+    public FeasibilityState ID_RA_3_text  { get; set; } = new();
+    public FeasibilityState ID_RA_4_text  { get; set; } = new();
+    public FeasibilityState ID_RA_5_text  { get; set; } = new();
+    public FeasibilityState ID_RA_6_text  { get; set; } = new();
 
 
-    public FeasibilityState ID_RM_1_text { get; set; }
-    public FeasibilityState ID_RM_2_text { get; set; }
-    public FeasibilityState ID_RM_3_text { get; set; }
+    public FeasibilityState ID_RM_1_text  { get; set; } = new();
+    public FeasibilityState ID_RM_2_text  { get; set; } = new();
+    public FeasibilityState ID_RM_3_text  { get; set; } = new();
 
 
-    public FeasibilityState ID_SC_1_text { get; set; }
-    public FeasibilityState ID_SC_2_text { get; set; }
-    public FeasibilityState ID_SC_3_text { get; set; }
-    public FeasibilityState ID_SC_4_text { get; set; }
-    public FeasibilityState ID_SC_5_text { get; set; }
+    public FeasibilityState ID_SC_1_text  { get; set; } = new();
+    public FeasibilityState ID_SC_2_text  { get; set; } = new();
+    public FeasibilityState ID_SC_3_text  { get; set; } = new();
+    public FeasibilityState ID_SC_4_text  { get; set; } = new();
+    public FeasibilityState ID_SC_5_text  { get; set; } = new();
 
     #endregion
 
     #region PR
-    public FeasibilityState PR_AC_1_text { get; set; }
-    public FeasibilityState PR_AC_2_text { get; set; }
-    public FeasibilityState PR_AC_3_text { get; set; }
-    public FeasibilityState PR_AC_4_text { get; set; }
-    public FeasibilityState PR_AC_5_text { get; set; }
-    public FeasibilityState PR_AC_6_text { get; set; }
-    public FeasibilityState PR_AC_7_text { get; set; }
+    public FeasibilityState PR_AC_1_text  { get; set; } = new();
+    public FeasibilityState PR_AC_2_text  { get; set; } = new();
+    public FeasibilityState PR_AC_3_text  { get; set; } = new();
+    public FeasibilityState PR_AC_4_text  { get; set; } = new();
+    public FeasibilityState PR_AC_5_text  { get; set; } = new();
+    public FeasibilityState PR_AC_6_text  { get; set; } = new();
+    public FeasibilityState PR_AC_7_text  { get; set; } = new();
 
 
-    public FeasibilityState PR_AT_1_text { get; set; }
-    public FeasibilityState PR_AT_2_text { get; set; }
-    public FeasibilityState PR_AT_3_text { get; set; }
-    public FeasibilityState PR_AT_4_text { get; set; }
-    public FeasibilityState PR_AT_5_text { get; set; }
+    public FeasibilityState PR_AT_1_text  { get; set; } = new();
+    public FeasibilityState PR_AT_2_text  { get; set; } = new();
+    public FeasibilityState PR_AT_3_text  { get; set; } = new();
+    public FeasibilityState PR_AT_4_text  { get; set; } = new();
+    public FeasibilityState PR_AT_5_text  { get; set; } = new();
 
 
-    public FeasibilityState PR_DS_1_text { get; set; }
-    public FeasibilityState PR_DS_2_text { get; set; }
-    public FeasibilityState PR_DS_3_text { get; set; }
-    public FeasibilityState PR_DS_4_text { get; set; }
-    public FeasibilityState PR_DS_5_text { get; set; }
-    public FeasibilityState PR_DS_6_text { get; set; }
-    public FeasibilityState PR_DS_7_text { get; set; }
-    public FeasibilityState PR_DS_8_text { get; set; }
+    public FeasibilityState PR_DS_1_text  { get; set; } = new();
+    public FeasibilityState PR_DS_2_text  { get; set; } = new();
+    public FeasibilityState PR_DS_3_text  { get; set; } = new();
+    public FeasibilityState PR_DS_4_text  { get; set; } = new();
+    public FeasibilityState PR_DS_5_text  { get; set; } = new();
+    public FeasibilityState PR_DS_6_text  { get; set; } = new();
+    public FeasibilityState PR_DS_7_text  { get; set; } = new();
+    public FeasibilityState PR_DS_8_text  { get; set; } = new();
 
 
-    public FeasibilityState PR_IP_1_text { get; set; }
-    public FeasibilityState PR_IP_2_text { get; set; }
-    public FeasibilityState PR_IP_3_text { get; set; }
-    public FeasibilityState PR_IP_4_text { get; set; }
-    public FeasibilityState PR_IP_5_text { get; set; }
-    public FeasibilityState PR_IP_6_text { get; set; }
-    public FeasibilityState PR_IP_7_text { get; set; }
-    public FeasibilityState PR_IP_8_text { get; set; }
-    public FeasibilityState PR_IP_9_text { get; set; }
-    public FeasibilityState PR_IP_10_text { get; set; }
-    public FeasibilityState PR_IP_11_text { get; set; }
-    public FeasibilityState PR_IP_12_text { get; set; }
+    public FeasibilityState PR_IP_1_text  { get; set; } = new();
+    public FeasibilityState PR_IP_2_text  { get; set; } = new();
+    public FeasibilityState PR_IP_3_text  { get; set; } = new();
+    public FeasibilityState PR_IP_4_text  { get; set; } = new();
+    public FeasibilityState PR_IP_5_text  { get; set; } = new();
+    public FeasibilityState PR_IP_6_text  { get; set; } = new();
+    public FeasibilityState PR_IP_7_text  { get; set; } = new();
+    public FeasibilityState PR_IP_8_text  { get; set; } = new();
+    public FeasibilityState PR_IP_9_text  { get; set; } = new();
+    public FeasibilityState PR_IP_10_text  { get; set; } = new();
+    public FeasibilityState PR_IP_11_text  { get; set; } = new();
+    public FeasibilityState PR_IP_12_text  { get; set; } = new();
 
 
-    public FeasibilityState PR_MA_1_text { get; set; }
-    public FeasibilityState PR_MA_2_text { get; set; }
+    public FeasibilityState PR_MA_1_text  { get; set; } = new();
+    public FeasibilityState PR_MA_2_text  { get; set; } = new();
 
-    public FeasibilityState PR_PT_1_text { get; set; }
-    public FeasibilityState PR_PT_2_text { get; set; }
-    public FeasibilityState PR_PT_3_text { get; set; }
-    public FeasibilityState PR_PT_4_text { get; set; }
-    public FeasibilityState PR_PT_5_text { get; set; }
+    public FeasibilityState PR_PT_1_text  { get; set; } = new();
+    public FeasibilityState PR_PT_2_text  { get; set; } = new();
+    public FeasibilityState PR_PT_3_text  { get; set; } = new();
+    public FeasibilityState PR_PT_4_text  { get; set; } = new();
+    public FeasibilityState PR_PT_5_text  { get; set; } = new();
 
     #endregion
 
     #region DE
-    public FeasibilityState DE_AE_1_text { get; set; }
-    public FeasibilityState DE_AE_2_text { get; set; }
-    public FeasibilityState DE_AE_3_text { get; set; }
-    public FeasibilityState DE_AE_4_text { get; set; }
-    public FeasibilityState DE_AE_5_text { get; set; }
+    public FeasibilityState DE_AE_1_text  { get; set; } = new();
+    public FeasibilityState DE_AE_2_text  { get; set; } = new();
+    public FeasibilityState DE_AE_3_text  { get; set; } = new();
+    public FeasibilityState DE_AE_4_text  { get; set; } = new();
+    public FeasibilityState DE_AE_5_text  { get; set; } = new();
 
 
-    public FeasibilityState DE_CM_1_text { get; set; }
-    public FeasibilityState DE_CM_2_text { get; set; }
-    public FeasibilityState DE_CM_3_text { get; set; }
-    public FeasibilityState DE_CM_4_text { get; set; }
-    public FeasibilityState DE_CM_5_text { get; set; }
-    public FeasibilityState DE_CM_6_text { get; set; }
-    public FeasibilityState DE_CM_7_text { get; set; }
-    public FeasibilityState DE_CM_8_text { get; set; }
+    public FeasibilityState DE_CM_1_text  { get; set; } = new();
+    public FeasibilityState DE_CM_2_text  { get; set; } = new();
+    public FeasibilityState DE_CM_3_text  { get; set; } = new();
+    public FeasibilityState DE_CM_4_text  { get; set; } = new();
+    public FeasibilityState DE_CM_5_text  { get; set; } = new();
+    public FeasibilityState DE_CM_6_text  { get; set; } = new();
+    public FeasibilityState DE_CM_7_text  { get; set; } = new();
+    public FeasibilityState DE_CM_8_text  { get; set; } = new();
 
 
-    public FeasibilityState DE_DP_1_text { get; set; }
-    public FeasibilityState DE_DP_2_text { get; set; }
-    public FeasibilityState DE_DP_3_text { get; set; }
-    public FeasibilityState DE_DP_4_text { get; set; }
-    public FeasibilityState DE_DP_5_text { get; set; }
+    public FeasibilityState DE_DP_1_text  { get; set; } = new();
+    public FeasibilityState DE_DP_2_text  { get; set; } = new();
+    public FeasibilityState DE_DP_3_text  { get; set; } = new();
+    public FeasibilityState DE_DP_4_text  { get; set; } = new();
+    public FeasibilityState DE_DP_5_text  { get; set; } = new();
 
     #endregion
 
     #region RS
 
-    public FeasibilityState RS_RP_1_text { get; set; }
+    public FeasibilityState RS_RP_1_text  { get; set; } = new();
 
 
-    public FeasibilityState RS_CO_1_text { get; set; }
-    public FeasibilityState RS_CO_2_text { get; set; }
-    public FeasibilityState RS_CO_3_text { get; set; }
-    public FeasibilityState RS_CO_4_text { get; set; }
-    public FeasibilityState RS_CO_5_text { get; set; }
+    public FeasibilityState RS_CO_1_text  { get; set; } = new();
+    public FeasibilityState RS_CO_2_text  { get; set; } = new();
+    public FeasibilityState RS_CO_3_text  { get; set; } = new();
+    public FeasibilityState RS_CO_4_text  { get; set; } = new();
+    public FeasibilityState RS_CO_5_text  { get; set; } = new();
 
 
-    public FeasibilityState RS_AN_1_text { get; set; }
-    public FeasibilityState RS_AN_2_text { get; set; }
-    public FeasibilityState RS_AN_3_text { get; set; }
-    public FeasibilityState RS_AN_4_text { get; set; }
-    public FeasibilityState RS_AN_5_text { get; set; }
+    public FeasibilityState RS_AN_1_text  { get; set; } = new();
+    public FeasibilityState RS_AN_2_text  { get; set; } = new();
+    public FeasibilityState RS_AN_3_text  { get; set; } = new();
+    public FeasibilityState RS_AN_4_text  { get; set; } = new();
+    public FeasibilityState RS_AN_5_text  { get; set; } = new();
 
 
-    public FeasibilityState RS_MI_1_text { get; set; }
-    public FeasibilityState RS_MI_2_text { get; set; }
-    public FeasibilityState RS_MI_3_text { get; set; }
+    public FeasibilityState RS_MI_1_text  { get; set; } = new();
+    public FeasibilityState RS_MI_2_text  { get; set; } = new();
+    public FeasibilityState RS_MI_3_text  { get; set; } = new();
 
 
-    public FeasibilityState RS_IM_1_text { get; set; }
-    public FeasibilityState RS_IM_2_text { get; set; }
+    public FeasibilityState RS_IM_1_text  { get; set; } = new();
+    public FeasibilityState RS_IM_2_text  { get; set; } = new();
 
     #endregion
 
-
     #region RC
 
-    public FeasibilityState RC_RP_1_text { get; set; }
+    public FeasibilityState RC_RP_1_text  { get; set; } = new();
 
 
-    public FeasibilityState RC_IM_1_text { get; set; }
-    public FeasibilityState RC_IM_2_text { get; set; }
+    public FeasibilityState RC_IM_1_text  { get; set; } = new();
+    public FeasibilityState RC_IM_2_text  { get; set; } = new();
 
 
-    public FeasibilityState RC_CO_1_text { get; }
-    public FeasibilityState RC_CO_2_text { get; set; }
-    public FeasibilityState RC_CO_3_text { get; set; }
+    public FeasibilityState RC_CO_1_text  { get; set; } = new();
+    public FeasibilityState RC_CO_2_text  { get; set; } = new();
+    public FeasibilityState RC_CO_3_text  { get; set; } = new();
 
     #endregion
 
