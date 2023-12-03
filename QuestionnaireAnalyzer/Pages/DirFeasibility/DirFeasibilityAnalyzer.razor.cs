@@ -6,7 +6,7 @@ using ChartJs.Blazor.RadarChart;
 
 namespace QuestionnaireAnalyzer.Pages.DirFeasibility;
 
-public partial class KiiFeasibilityAnalyzer
+public partial class DirFeasibilityAnalyzer
 {
     [Inject] private IDataService DataService { get; set; }
 
