@@ -3,11 +3,13 @@
 @page "/dir/feasibility/input-type"
 @page "/kii/feasibility/input-type"
 
+@using QuestionaireAnalyzer.ComponentsCommon.Components.CircleLoader
 
 <div class="container">
     <div class="main-page-button-container">
         <div class="main-page-button">
-            <button> ЕКСПОРТ З MS EXCEL </button>
+            <InputFile class="custom-file-input" OnChange="@ExportFromExcel" accept=".xlsx" />
+            @* <button @onclick="ExportFromExcel"> ЕКСПОРТ З MS EXCEL </button> *@
         </div>
 
         <div class="main-page-button">
@@ -15,3 +17,38 @@
         </div>
     </div>
 </div>
+
+<CircleLoaderComponent/>
+
+<style>
+
+    input[type="file"] {
+        border: none;
+        display: flex;
+        width: 427px;
+        height: 114px;
+        border-radius: 40px;
+        background: linear-gradient(0deg, rgba(146, 186, 220, 0.26) 0%, rgba(146, 186, 220, 0.26) 100%), #D1D1D1;
+    }
+
+    .custom-file-input::-webkit-file-upload-button {
+        visibility: hidden;
+    }
+
+    .custom-file-input::before::hover::-webkit-file-upload-button {
+        visibility: hidden;
+    }
+
+    .custom-file-input::before {
+        content: ' ЕКСПОРТ З MS EXCEL ';
+        border: none;
+        display: flex;
+        width: 427px;
+        height: 114px;
+        padding: 39px 24px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 40px;
+        background: linear-gradient(0deg, rgba(146, 186, 220, 0.26) 0%, rgba(146, 186, 220, 0.26) 100%), #D1D1D1;
+    }
+</style>

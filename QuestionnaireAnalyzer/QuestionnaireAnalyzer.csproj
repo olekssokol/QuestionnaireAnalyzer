@@ -45,11 +45,13 @@
 
     <ItemGroup>
         <PackageReference Include="ChartJs.Blazor.Fork" Version="2.0.2" />
+        <PackageReference Include="ClosedXML" Version="0.102.1" />
         <PackageReference Include="LiteDB" Version="5.0.17" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\QuestionaireAnalyzer.ComponentsCommon\QuestionaireAnalyzer.ComponentsCommon.csproj" />
       <ProjectReference Include="..\QuestionnaireAnalyzer.Common\QuestionnaireAnalyzer.Common.csproj" />
       <ProjectReference Include="..\QuestionnaireAnalyzer.Contracts\QuestionnaireAnalyzer.Contracts.csproj" />
     </ItemGroup>

@@ -49,6 +49,7 @@ namespace QuestionnaireAnalyzer
 #endif
 
             builder.Services.AddScoped<IDataService, DataService>();
+            builder.Services.AddScoped<IExcelService, ExcelService>();
             builder.Services.AddScoped<ISecureStorageService, SecureStorageService>();
 
             return builder.Build();

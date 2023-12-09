@@ -1,0 +1,13 @@
+﻿.spinner-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.spinner-border {
+    height: 3rem;
+    width: 3rem;
+    border-width: 0.3em;
+}
